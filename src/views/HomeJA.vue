@@ -1,6 +1,7 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <h1>Nouns Art Festival</h1>
+    <p>日本語ページだよ</p>
   </div>
 </template>
 
