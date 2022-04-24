@@ -1,14 +1,7 @@
 <template>
   <div id="nav">
-    <template v-if="isSignedIn">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </template>
-    <template v-else>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> |
-      <router-link to="/account">Signin</router-link>
-    </template>
+    <router-link to="/">English</router-link> |
+    <router-link to="/about">日本語</router-link>
   </div>
   <Suspense>
     <router-view />
