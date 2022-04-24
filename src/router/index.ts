@@ -1,9 +1,27 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import Layout from "../components/Layout.vue";
+import Blank from "../components/Blank.vue";
+import NotFound from "../components/NotFound.vue";
+
 import Home from "../views/Home.vue";
 import Account from "../views/Account.vue";
 import HomeJA from "../views/HomeJA.vue";
 import About from "../views/About.vue";
+
+const routeChildren: Array<RouteRecordRaw> = [
+  {
+    path: "/",
+    component: Home,
+  },
+  {
+    path: "/ja",
+    component: HomeJA,
+  },
+  {
+    path: "/about",
+    component: About,
+  },
+];
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -11,26 +29,21 @@ const routes: Array<RouteRecordRaw> = [
     component: Layout,
     children: [
       {
-        path: "/",
-        name: "Home",
-        component: Home,
+        path: "/:lang",
+        component: Blank,
+        children: routeChildren,
       },
       {
-        path: "/ja",
-        name: "日本語",
-        component: HomeJA,
-      },
-      {
-        path: "/about",
-        name: "About",
-        component: About,
-      },
-      {
-        path: "/account",
-        name: "Account",
-        component: Account,
+        path: "",
+        component: Blank,
+        children: routeChildren,
       },
     ],
+  },
+  {
+    path: "/:page(.*)",
+    name: "NotFoundPage",
+    component: NotFound,
   },
 ];
 

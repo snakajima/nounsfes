@@ -68,9 +68,3 @@ export default defineComponent({
   name: "HomePage",
 });
 </script>
-
-<style>
-/* .logo {
-  height: 150px;
-} */
-</style>
