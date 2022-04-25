@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-lg mx-auto text-left">
+  <div class="max-w-lg mx-auto text-left p-2">
     <div class="flex justify-center items-center space-x-8">
       <!-- <img alt="Vue logo" src="../assets/logo.png" class="logo" /> -->
       <!-- Use Tailwind CSS h-40 (=10rem=160px) instead of .logo. -->
@@ -15,7 +15,7 @@
       <ul>
         <li><b>What:</b> A short video (a few minutes), 
           which promotes and/or celebrates love, peace and sustainable earth (<a class="underline" href="https://sdgs.un.org/goals" target="_blank">SDGs</a>). </li>
-        <li><b>Who:</b> Any individuals, groups or entities can submit</li>
+        <li><b>Who:</b> Any individuals, groups or entities (for-profit or non-profit) can submit</li>
         <li><b>Why:</b> Inspire the audience and create a better future</li>
         <li><b>How:</b> Upload the video to Youtube and submit its URL via the submission form 
         (which will become available on June 1st below)</li>
@@ -27,8 +27,8 @@
             <li>Final: Oct 30th</li>
           </ul>
         </li>
-        <li><b>Total prize:</b> 5eth from NounsDAO (plus additional prizes from other sponsors)</li>
-        <li><b>Sponsor:</b> NounsDAO and others (to be announced)</li>
+        <li><b>Total prize:</b> To be announced</li>
+        <li><b>Sponsor:</b> NounsDAO, Nakajima Foundation and others (to be announced)</li>
         <li><b>Requirements:</b>
           <ul class="ml-4">
             <li>Please add on-second video clip of NounsFes (specified below) at the very beginning</li>
