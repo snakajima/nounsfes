@@ -1,7 +1,8 @@
 <template>
   <div id="nav">
     <router-link to="/">English</router-link> |
-    <router-link to="/ja">日本語</router-link>
+    <router-link to="/ja">日本語</router-link> |
+    <router-link to="/about">About</router-link>
   </div>
   <Suspense>
     <router-view />
