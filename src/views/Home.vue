@@ -39,6 +39,10 @@
             <li class="list-disc">You may or may not use Noun images and logos in the video.</li>
             <li class="list-disc">Please add the link to NounsFes website in the description (of Youtube).</li>
           </ul>
+          <video class="ml-4" width="320" height="240" controls>
+            <source src="../assets/proto1s_0423.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
         </li>
         <li class="ml-4 -indent-4"><b>Judging Process:</b> 
         The finalists and the winner will be determined based on their contents, view counts, likes and comments.</li>
@@ -47,7 +51,7 @@
         We <i>may</i> choose to create NFTs for the wining videos and finalists, and share the proceeds with creators and charitable organizations. 
         </li>
         <li class="ml-4 -indent-4"><b>Inspiring Video Examples:</b> 
-          <iframe class="mb-1" width="320" height="180" src="https://www.youtube.com/embed/bQoJqDi8490" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe class="mt-1 mb-1" width="320" height="180" src="https://www.youtube.com/embed/bQoJqDi8490" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           <iframe class="mb-1" width="320" height="180" src="https://www.youtube.com/embed/WmVLcj-XKnM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           <iframe class="mb-1" width="320" height="180" src="https://www.youtube.com/embed/v27CEFE02Hs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           <iframe class="mb-1" width="320" height="180" src="https://www.youtube.com/embed/2hZTpZrrDbY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
