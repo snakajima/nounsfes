@@ -34,15 +34,15 @@
         <li class="ml-4 -indent-4"><b>Prizes:</b> To be announced (mix of cash prizes and charitable contributions)</li>
         <li><b>Requirements:</b>
           <ul class="ml-8">
-            <li class="list-disc">Please add one-second video clip of NounsFes (specified below) at the very beginning</li>
+            <li class="list-disc">Please add this one-second video clip at the very beginning. 
+              <video width="320" height="240" controls>
+                <source src="../assets/proto1s_0423.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </li>
             <li class="list-disc">Any format is fine (animation, 3d graphics, recorded, …)</li>
-            <li class="list-disc">You may or may not use Noun images and logos in the video.</li>
-            <li class="list-disc">Please add the link to NounsFes website in the description (of Youtube).</li>
+            <li class="list-disc">Please add the link to NounsFes website (https://nounsfes.org) in the video's description.</li>
           </ul>
-          <video class="ml-4" width="320" height="240" controls>
-            <source src="../assets/proto1s_0423.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
         </li>
         <li class="ml-4 -indent-4"><b>Judging Process:</b> 
         The finalists and the winner will be determined based on their contents, view counts, likes and comments.</li>
