@@ -14,11 +14,11 @@ const routeChildren: Array<RouteRecordRaw> = [
     component: Home,
   },
   {
-    path: "/ja",
+    path: "ja",
     component: HomeJA,
   },
   {
-    path: "/about",
+    path: "about",
     component: About,
   },
 ];
