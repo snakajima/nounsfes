@@ -2,6 +2,7 @@
   <div id="nav">
     <router-link :to="localizedUrl('/')">Top</router-link> |
     <router-link :to="localizedUrl('/about')">About</router-link>
+    <Languages class="mt-4" />
   </div>
   <Suspense>
     <router-view />
@@ -11,8 +12,12 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { useUser, useIsSignedIn } from "@/utils/utils";
+import Languages from "@/components/Languages.vue";
 
 export default defineComponent({
+  components: {
+    Languages,
+  },
   setup() {
     const user = useUser();
     const isSignedIn = useIsSignedIn();
