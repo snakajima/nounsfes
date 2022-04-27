@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <span class="ml-16">
     <select @change="updateValue">
       <option
         v-for="(option, index) in languages"
@@ -10,7 +10,7 @@
         {{ $t("languages." + option) }}
       </option>
     </select>
-  </div>
+  </span>
 </template>
 
 <script lang="ts">
