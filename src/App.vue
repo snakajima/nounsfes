@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from "vue";
+import { defineComponent } from "vue";
 import { useUser, useIsSignedIn } from "@/utils/utils";
 
 export default defineComponent({
