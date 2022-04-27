@@ -10,12 +10,8 @@ import About from "../views/About.vue";
 
 const routeChildren: Array<RouteRecordRaw> = [
   {
-    path: "/",
+    path: "",
     component: Home,
-  },
-  {
-    path: "ja",
-    component: HomeJA,
   },
   {
     path: "about",

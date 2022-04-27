@@ -1,7 +1,7 @@
 <template>
   <div id="nav">
-    <router-link :to="localizedUrl('/')">English</router-link> |
-    <router-link :to="localizedUrl('/ja')">日本語</router-link> |
+    <router-link to="/">English</router-link> |
+    <router-link to="/ja">日本語</router-link> |
     <router-link :to="localizedUrl('/about')">About</router-link>
   </div>
   <Suspense>
