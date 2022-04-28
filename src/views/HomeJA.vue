@@ -22,10 +22,10 @@
         <li class="ml-4 -indent-4"><b>応募方法:</b>Youtubeに映像をアップロードした後、URLを指定のフォーム（６月１日公開）に投稿してください</li>
         <li><b>When:</b>
           <ul class="ml-8">
-            <li class="list-disc">発表: ５月１日</li>
-            <li class="list-disc">募集期間: ６月１日〜９月３０日</li>
-            <li class="list-disc">ノミネーション発表: １０月１０日</li>
-            <li class="list-disc">最終選考: １０月３０日</li>
+            <li class="list-disc">発表: 2022年５月１日</li>
+            <li class="list-disc">募集期間: 2022年６月１日〜９月３０日</li>
+            <li class="list-disc">ノミネーション発表: 2022年１０月１０日</li>
+            <li class="list-disc">最終選考: 2022年１０月３０日</li>
           </ul>
         </li>
         <li class="ml-4 -indent-4"><b>スポンサー:</b> NounsDAO、Nakajima Foundation他 (後日発表)</li>

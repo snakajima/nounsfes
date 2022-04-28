@@ -24,10 +24,10 @@
         (which will become available on June 1st below)</li>
         <li><b>When:</b>
           <ul class="ml-8">
-            <li class="list-disc">Announcement: May 1st</li>
-            <li class="list-disc">Submission Period: June 1st - Sept 30th</li>
-            <li class="list-disc">Nomination: Oct 10th</li>
-            <li class="list-disc">Final: Oct 30th</li>
+            <li class="list-disc">Announcement: May 1st, 2022</li>
+            <li class="list-disc">Submission Period: June 1st - Sept 30th, 2022</li>
+            <li class="list-disc">Nomination: Oct 10th, 2022</li>
+            <li class="list-disc">Final: Oct 30th, 2022</li>
           </ul>
         </li>
         <li class="ml-4 -indent-4"><b>Sponsors:</b> NounsDAO, Nakajima Foundation and others (to be announced)</li>
