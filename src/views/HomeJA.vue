@@ -28,8 +28,8 @@
             <li class="list-disc">最終選考: 2022年１０月３０日</li>
           </ul>
         </li>
-        <li class="ml-4 -indent-4"><b>スポンサー:</b> NounsDAO、Nakajima Foundation他 (後日発表)</li>
-        <li class="ml-4 -indent-4"><b>賞金:</b>後日発表 (現金および寄付)</li>
+        <li class="ml-4 -indent-4"><b>スポンサー:</b> NounsDAO、Nakajima Foundation他 (募集中)</li>
+        <li class="ml-4 -indent-4"><b>賞金:</b> 5eth + $25,000 (他のスポンサーも募集中)</li>
         <li><b>募集要項:</b>
           <ul class="ml-8">
             <li class="list-disc">下の映像を作品の冒頭に置いて下さい 

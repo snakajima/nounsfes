@@ -31,7 +31,7 @@
           </ul>
         </li>
         <li class="ml-4 -indent-4"><b>Sponsors:</b> NounsDAO, Nakajima Foundation and others (to be announced)</li>
-        <li class="ml-4 -indent-4"><b>Prizes:</b> To be announced (mix of cash prizes and charitable contributions)</li>
+        <li class="ml-4 -indent-4"><b>Prizes:</b> 5eth + $25,000 (we are raising more from other sponsors)</li>
         <li><b>Requirements:</b>
           <ul class="ml-8">
             <li class="list-disc">Please add this one-second video clip at the very beginning. 
