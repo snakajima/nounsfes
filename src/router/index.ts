@@ -5,6 +5,7 @@ import NotFound from "../components/NotFound.vue";
 
 import Home from "../views/Home.vue";
 import About from "../views/About.vue";
+import Derivative from "../views/Derivative.vue";
 
 const routeChildren: Array<RouteRecordRaw> = [
   {
@@ -14,6 +15,10 @@ const routeChildren: Array<RouteRecordRaw> = [
   {
     path: "about",
     component: About,
+  },
+  {
+    path: "derivative",
+    component: Derivative,
   },
 ];
 

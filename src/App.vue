@@ -2,6 +2,7 @@
   <div id="nav">
     <img class="mb-4" src="@/assets/banner.jpeg" />
     <router-link :to="localizedUrl('/')">Top</router-link> |
+    <!-- router-link :to="localizedUrl('/derivative')">Derivatives</router-link> | -->
     <router-link :to="localizedUrl('/about')">About</router-link>
     <Languages class="mt-4" />
   </div>
