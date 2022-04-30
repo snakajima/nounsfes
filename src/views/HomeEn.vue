@@ -34,9 +34,9 @@
         <li class="ml-4 -indent-4"><b>Prizes:</b> 5eth + $25,000 (we are raising more from other sponsors)</li>
         <li><b>Requirements:</b>
           <ul class="ml-8">
-            <li class="list-disc">Please add this one-second video clip at the very beginning. 
+            <li class="list-disc">Please add this one-second video clip at the very beginning (created by <a class="underline" href="https://twitter.com/Fuyu256S">Fuyu256</a> ). 
               <video width="320" height="240" controls>
-                <source src="../assets/proto1s_0423.mp4" type="video/mp4">
+                <source src="../assets/nounsfes1s_0430.mp4" type="video/mp4">
                 Your browser does not support the video tag.
               </video>
             </li>

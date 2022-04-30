@@ -16,7 +16,7 @@
     </div>
     <div class="space-y-2">
       <ul>
-        <li class="ml-4 -indent-4"><b>募集作品:</b> 愛、平和、もしくは維持可能な地球(<a class="underline" href="https://sdgs.un.org/goals" target="_blank">SDGs</a>)をテーマにした、２〜２分の短編映像 </li>
+        <li class="ml-4 -indent-4"><b>募集作品:</b> 愛、平和、もしくは維持可能な地球(<a class="underline" href="https://sdgs.un.org/goals" target="_blank">SDGs</a>)をテーマにした、２〜３分の短編映像 </li>
         <li class="ml-4 -indent-4"><b>参加条件:</b> 個人、グループ、営利企業、非営利企業が参加可能です</li>
         <li class="ml-4 -indent-4"><b>目的:</b>観た人に感動を与え、より良い未来を作る</li>
         <li class="ml-4 -indent-4"><b>応募方法:</b>Youtubeに映像をアップロードした後、URLを指定のフォーム（６月１日公開）に投稿してください</li>
@@ -32,9 +32,9 @@
         <li class="ml-4 -indent-4"><b>賞金:</b> 5eth + $25,000 (他のスポンサーも募集中)</li>
         <li><b>募集要項:</b>
           <ul class="ml-8">
-            <li class="list-disc">下の映像を作品の冒頭に置いて下さい 
+            <li class="list-disc">下の映像を作品の冒頭に置いて下さい(<a class="underline" href="https://twitter.com/Fuyu256S">Fuyu256さん</a>に作っていただきました) 
               <video width="320" height="240" controls>
-                <source src="../assets/proto1s_0423.mp4" type="video/mp4">
+                <source src="../assets/nounsfes1s_0430.mp4" type="video/mp4">
                 Your browser does not support the video tag.
               </video>
             </li>
