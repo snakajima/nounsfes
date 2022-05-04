@@ -1,6 +1,11 @@
 <template>
   <div class="layout">
-    <template v-if="user.user"> {{ user.user.displayName }}!! </template>
+    <div id="nav">
+      <img class="mb-4" src="@/assets/banner.jpeg" />
+      <router-link :to="localizedUrl('/')">Top</router-link> |
+      <router-link :to="localizedUrl('/about')">About</router-link>
+      <Languages class="mt-4" />
+    </div>
     <router-view />
   </div>
 </template>
@@ -14,12 +19,17 @@ import { User } from "firebase/auth";
 
 import { useI18nParam } from "@/i18n/utils";
 
+import Languages from "@/components/Languages.vue";
+
 interface UserData {
   user: User | null;
 }
 
 export default defineComponent({
   name: "AppLayout",
+  components: {
+    Languages,
+  },
   async setup() {
     const store = useStore();
     const user = reactive<UserData>({ user: null });

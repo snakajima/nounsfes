@@ -24,20 +24,14 @@ const routeChildren: Array<RouteRecordRaw> = [
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: "/",
+    path: "/:lang",
     component: Layout,
-    children: [
-      {
-        path: "/:lang",
-        component: Blank,
-        children: routeChildren,
-      },
-      {
-        path: "",
-        component: Blank,
-        children: routeChildren,
-      },
-    ],
+    children: routeChildren,
+  },
+  {
+    path: "",
+    component: Layout,
+    children: routeChildren,
   },
   {
     path: "/:page(.*)",
