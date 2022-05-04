@@ -19,13 +19,13 @@
         <li class="ml-4 -indent-4"><b>募集作品:</b> 愛、平和、もしくは維持可能な地球(<a class="underline" href="https://sdgs.un.org/goals" target="_blank">SDGs</a>)をテーマにした、２〜３分の短編映像 </li>
         <li class="ml-4 -indent-4"><b>参加条件:</b> 個人、グループ、営利企業、非営利企業が参加可能です</li>
         <li class="ml-4 -indent-4"><b>目的:</b>観た人に感動を与え、より良い未来を作る</li>
-        <li class="ml-4 -indent-4"><b>応募方法:</b>Youtubeに映像をアップロードした後、URLを指定のフォーム（６月１日公開）に投稿してください</li>
+        <li class="ml-4 -indent-4"><b>応募方法:</b>Youtubeに映像をアップロードした後、URLを指定のフォーム（6月1日公開）に投稿してください</li>
         <li><b>When:</b>
           <ul class="ml-8">
-            <li class="list-disc">発表: 2022年５月１日</li>
-            <li class="list-disc">募集期間: 2022年６月１日〜９月３０日</li>
-            <li class="list-disc">ノミネーション発表: 2022年１０月１０日</li>
-            <li class="list-disc">最終選考: 2022年１０月３０日</li>
+            <li class="list-disc">発表: 2022年5月1日</li>
+            <li class="list-disc">募集期間: 2022年6月1日〜9月30日</li>
+            <li class="list-disc">ノミネーション発表: 2022年10月10日</li>
+            <li class="list-disc">最終選考: 2022年10月30日</li>
           </ul>
         </li>
         <li class="ml-4 -indent-4"><b>スポンサー:</b> NounsDAO、Nakajima Foundation他 (募集中)</li>
@@ -38,7 +38,7 @@
                 Your browser does not support the video tag.
               </video>
             </li>
-            <li class="list-disc">アニメ、３D、実写などフォーマットは問いません</li>
+            <li class="list-disc">アニメ、3D、実写などフォーマットは問いません</li>
             <li class="list-disc">映像の詳細にナウンズフェスへのURL (https://nounsfes.org) を記載して下さい。</li>
           </ul>
         </li>
@@ -62,7 +62,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 export default defineComponent({
-  name: "AboutPage",
+  name: "HomeJAPage",
   setup() {
     return {};
   },
