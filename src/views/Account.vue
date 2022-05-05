@@ -39,7 +39,7 @@
           </div>
           <div v-else>
             <p class="m-4">
-              Please sign-in by signing a message from nidentify.com.
+              Please sign-in by signing a message from nountfes.com.
             </p>
             <a @click="verifyIdentity" id="button" class="h-12">
               Step 2: Sign In
@@ -50,7 +50,7 @@
       <div v-else>
         <p class="m-4">
           Please connect this site with the MetaMask extension,<br />
-          then sign-in by signing a message from nidentify.com.
+          then sign-in by signing a message from nountfes.com.
         </p>
         <a @click="metaMaskConnect" id="button" class="h-12">
           Step 1: Connect with MetaMask
@@ -84,6 +84,7 @@ export default defineComponent({
     const isSignedIn = computed(() => store.getters.isSignedIn);
     const isBusy = ref("");
     const metaMaskConnect = async () => {
+      console.log("requestAccount")
       await requestAccount(); // ethereum.on('accountsChanged') will handle the result
     };
     const verifyIdentity = async () => {

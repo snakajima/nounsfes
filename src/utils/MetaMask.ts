@@ -3,6 +3,7 @@ export const hasMetaMask =
   typeof ethereum !== "undefined" && ethereum.isMetaMask;
 
 export const requestAccount = async () => {
+  console.log(ethereum.request);
   const accounts = await ethereum.request({ method: "eth_requestAccounts" });
   return accounts.length > 0 ? accounts[0] : null;
 };
