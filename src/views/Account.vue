@@ -117,6 +117,7 @@ export default defineComponent({
         }
         isBusy.value = "";
       } catch (e) {
+        console.error(e);
         isBusy.value = "Canceling the verification...";
         await deleteNonce({ account, uuid });
         isBusy.value = "";
