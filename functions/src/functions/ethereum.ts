@@ -49,7 +49,7 @@ export const verifyNonce = async (
 
   const auth = admin.auth();
   const token = await auth.createCustomToken(account);
-  return { token };
+  return { account, token }; // account for debug only
 };
 
 export const deleteNonce = async (
