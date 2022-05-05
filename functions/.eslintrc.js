@@ -23,6 +23,7 @@ module.exports = {
     "import",
   ],
   rules: {
+    "no-unused-vars": "off",
     quotes: ["error", "double"],
   },
 };
