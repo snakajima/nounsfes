@@ -2,10 +2,21 @@ rules_version = '2';
 
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /message/{messageId} {
-      allow read, create;
-      allow delete, update: if false;
+    match /accounts/{uid} {
+      allow read, write: if false; // server-only
+      match /profile/data {
+        allow read: if true;
+        allow write: if request.auth.uid == uid;
+      }
+      match /articles/{articleId} {
+        allow read: if true;
+        allow write: if request.auth.uid == uid;
+      }
     }
+    match /nonces/{nonceId} {
+      allow read, write: if false; // server-only
+    }
+
     match /test/{testId} {
       allow read;
       allow create, delete, update: if false;
