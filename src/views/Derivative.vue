@@ -1,12 +1,7 @@
 <template>
   <div class="max-w-lg mx-auto text-left p-2">
-    <div v-if="lang === 'en'">
-      <p class="text-3xl mb-2">Derivatives</p>
-      <div class="space-y-2 mb-8">
-      </div>
-    </div>
-    <div v-else>
-      <p class="text-3xl mb-2">関連作品</p>
+    <div>
+      <p class="text-3xl mb-2">{{ $t("derivatives.title") }}</p>
       <div class="space-y-2 mb-8">
       </div>
     </div>
