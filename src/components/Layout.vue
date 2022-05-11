@@ -3,6 +3,7 @@
     <div id="nav">
       <img class="mb-4" src="@/assets/banner.jpeg" />
       <router-link :to="localizedUrl('/')" class="text-2xl font-londrina">Top</router-link> |
+      <router-link :to="localizedUrl('/nft')" class="text-2xl font-londrina">Token</router-link> |
       <router-link :to="localizedUrl('/about')" class="text-2xl font-londrina">About</router-link>
       <Languages class="mt-4" />
     </div>

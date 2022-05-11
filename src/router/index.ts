@@ -5,6 +5,7 @@ import NotFound from "../components/NotFound.vue";
 
 import Home from "../views/Home.vue";
 import About from "../views/About.vue";
+import Tokens from "../views/Tokens.vue";
 import Account from "../views/Account.vue";
 import Derivative from "../views/Derivative.vue";
 
@@ -16,6 +17,10 @@ const routeChildren: Array<RouteRecordRaw> = [
   {
     path: "about",
     component: About,
+  },
+  {
+    path: "nft",
+    component: Tokens,
   },
   {
     path: "derivative",
