@@ -5,13 +5,34 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { computed, defineComponent } from "vue";
+import { useStore } from "vuex";
+import { ethereum, getAccount, hasMetaMask } from "./utils/MetaMask";
 import { useUser, useIsSignedIn } from "@/utils/utils";
 
 export default defineComponent({
   setup() {
+    const store = useStore();
     const user = useUser();
-    const isSignedIn = useIsSignedIn();
+
+    getAccount().then((value) => {
+      console.log("Eth gotAccount", value);
+      store.commit("setAccount", value);
+      // fetchNFTs();
+    });
+    if (hasMetaMask) {
+      ethereum.on("accountsChanged", (accounts: string[]) => {
+        console.log("accountsChanged");
+        if (accounts.length == 0) {
+          store.commit("setAccount", null);
+        } else {
+          store.commit("setAccount", accounts[0]);
+          console.log("Eth accountsChanged", accounts[0]);
+          // fetchNFTs();
+        }
+      });
+    }
+    const isSignedIn = computed(() => store.getters.isSignedIn);
 
     return {
       user,
