@@ -29,7 +29,7 @@
           </ul>
         </li>
         <li class="ml-4 -indent-4"><b>スポンサー:</b> NounsDAO、Nakajima Foundation他 (募集中)</li>
-        <li class="ml-4 -indent-4"><b>賞金:</b> 5eth + $25,000 (他のスポンサーも募集中)</li>
+        <li class="ml-4 -indent-4"><b>賞金:</b> 9.8ETH + $25,000 (他のスポンサーも募集中)</li>
         <li><b>募集要項:</b>
           <ul class="ml-8">
             <li class="list-disc">下の映像を作品の冒頭に置いて下さい(<a class="underline" href="https://twitter.com/Fuyu256S">Fuyu256さん</a>に作っていただきました) 
