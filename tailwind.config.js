@@ -6,7 +6,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'londrina': ['Londrina Solid'] 
+        'londrina': ['Londrina Solid'],
+        'pt-root': ['PT Root UI', 'sans-serif']
       },
     },
   },

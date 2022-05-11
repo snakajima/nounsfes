@@ -7,12 +7,12 @@
     </div>
 
     <p class="text-3xl mb-2 font-londrina">Nouns Art Festival</p>
-    <div class="space-y-2 mb-8">
+    <div class="space-y-2 mb-8 font-pt-root">
       <p>Nouns Art Festival (NounsFes) is an online art festival
         with a purpose to promote a peaceful and sustainable world, 
         founded by members of <a class="underline" href="https://nouns.wtf">NounsDAO</a>.</p>
       <p>We run the very first NounsFes in the form of 
-        <b>an online art competition</b>, for the duration of six months in the following format. </p>
+        <b class="font-londrina">an online art competition</b>, for the duration of six months in the following format. </p>
     </div>
     <div class="space-y-2">
       <ul>

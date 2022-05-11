@@ -44,6 +44,7 @@ export default defineComponent({
 
 <style>
 @import url('https://fonts.googleapis.com/css?family=Londrina+Solid&display=swap');
+@import url('http://fonts.cdnfonts.com/css/pt-root-ui');
 
 #app {
   /* font-family: Avenir, Helvetica, Arial, sans-serif;
