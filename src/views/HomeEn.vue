@@ -6,7 +6,7 @@
       <!--img alt="Vue logo" src="../assets/logo.png" class="h-40" /-->
     </div>
 
-    <p class="text-3xl mb-2">Nouns Art Festival</p>
+    <p class="text-3xl mb-2 font-londrina">Nouns Art Festival</p>
     <div class="space-y-2 mb-8">
       <p>Nouns Art Festival (NounsFes) is an online art festival
         with a purpose to promote a peaceful and sustainable world, 

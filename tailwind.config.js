@@ -4,7 +4,11 @@ module.exports = {
     './src/**/*.{js,jsx,ts,tsx,vue}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'londrina': ['Londrina Solid'] 
+      },
+    },
   },
   plugins: [],
 }
