@@ -8,9 +8,9 @@
 
     <p class="text-3xl mb-2 font-londrina">Nouns Art Festival</p>
     <div class="space-y-2 mb-8 font-pt-root font-medium">
-      <p>Nouns Art Festival (NounsFes) is an online art festival
+      <p><span class="font-londrina">Nouns Art Festival (NounsFes)</span> is an online art festival
         with a purpose to promote a peaceful and sustainable world, 
-        founded by members of <a class="underline" href="https://nouns.wtf">NounsDAO</a>.</p>
+        founded by members of <a class="underline font-londrina" href="https://nouns.wtf">NounsDAO</a>.</p>
       <p>We run the very first NounsFes in the form of 
         <b class="font-londrina">an online art competition</b>, for the duration of six months in the following format. </p>
     </div>
@@ -30,7 +30,7 @@
             <li class="list-disc">Final: Oct 30th, 2022</li>
           </ul>
         </li>
-        <li class="ml-4 -indent-4"><b class="font-londrina">Sponsors:</b> NounsDAO, Nakajima Foundation and others (to be announced)</li>
+        <li class="ml-4 -indent-4"><b class="font-londrina">Sponsors:</b> <span class="font-londrina">NounsDAO</span>, Nakajima Foundation and others (to be announced)</li>
         <li class="ml-4 -indent-4"><b class="font-londrina">Prizes:</b> 9.8ETH + $25,000 (we are raising more from other sponsors)</li>
         <li><b class="font-londrina">Requirements:</b>
           <ul class="ml-8">
@@ -41,7 +41,7 @@
               </video>
             </li>
             <li class="list-disc">Any format is fine (animation, 3d graphics, recorded, …)</li>
-            <li class="list-disc">Please add the link to NounsFes website (https://nounsfes.org) in the video's description.</li>
+            <li class="list-disc">Please add the link to <span class="font-londrina">NounsFes</span> website (https://nounsfes.org) in the video's description.</li>
           </ul>
         </li>
         <li class="ml-4 -indent-4"><b class="font-londrina">Judging Process:</b> 

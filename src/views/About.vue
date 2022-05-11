@@ -2,7 +2,7 @@
   <div class="max-w-lg mx-auto text-left p-2">
     <div v-if="lang === 'en'">
       <p class="text-3xl mb-2 font-londrina">About</p>
-      <div class="space-y-2 mb-8">
+      <div class="space-y-2 mb-8 font-pt-root font-medium">
         <p>As film festivals, the Cannes Film Festival and the Academy Awards are well known.
           However, these festivals are tied to old-fashioned business models, and we feel that a new type of film festival is needed.</p>
         <p>There are many ways to convey information, including text, text + images, audio, audio + images, and video.
@@ -23,7 +23,7 @@
       </div>
     </div>
     <div v-else>
-      <p class="text-3xl mb-2 font-londrina">この映画祭への思い</p>
+      <p class="text-3xl mb-2 font-yusei">この映画祭への思い</p>
       <div class="space-y-2 mb-8">
         <p>映画祭としては、カンヌ映画祭やアカデミー賞が有名ですが、
           これらは昔ながらのビジネスモデルに縛られており、新しい形の映画祭が必要と感じているのです。</p>

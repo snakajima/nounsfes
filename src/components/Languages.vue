@@ -1,5 +1,5 @@
 <template>
-  <span class="ml-16">
+  <span class="ml-16 font-londrina font-yusei">
     <select @change="updateValue">
       <option
         v-for="(option, index) in languages"
