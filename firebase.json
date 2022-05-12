@@ -18,6 +18,10 @@
     ],
     "rewrites": [
       {
+        "source": "/ja/**",
+        "destination": "/index-ja.html"
+      },
+      {
         "source": "**",
         "destination": "/index.html"
       }
