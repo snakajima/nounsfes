@@ -7,7 +7,8 @@ module.exports = {
     extend: {
       fontFamily: {
         'londrina': ['Londrina Solid'],
-        'pt-root': ['PT Root UI', 'sans-serif']
+        'pt-root': ['PT Root UI', 'sans-serif'],
+        'yusei': ['Yusei Magic', 'sans-serif']
       },
     },
   },
