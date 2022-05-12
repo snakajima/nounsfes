@@ -20,7 +20,9 @@
           which promotes and/or celebrates love, peace and sustainable earth (<a class="underline" href="https://sdgs.un.org/goals" target="_blank">SDGs</a>). </li>
         <li class="ml-4 -indent-4"><b class="font-londrina">Who:</b> Any individuals, groups or entities (for-profit or non-profit) can submit</li>
         <li class="ml-4 -indent-4"><b class="font-londrina">Why:</b> Inspire the audience and create a better future</li>
-        <li class="ml-4 -indent-4"><b class="font-londrina">How:</b> Upload the video to Youtube and submit its URL via the submission form 
+        <li class="ml-4 -indent-4"><b class="font-londrina">How:</b> Upload your video to Youtube or
+        create a video presentation with <a href="https://ooo.mmhmm.app/" class="underline">mmhmm</a>, 
+        and submit its URL via the submission form 
         (which will become available on June 1st below)</li>
         <li><b class="font-londrina">When:</b>
           <ul class="ml-8">
@@ -31,7 +33,7 @@
           </ul>
         </li>
         <li class="ml-4 -indent-4"><b class="font-londrina">Sponsors:</b> <span class="font-londrina">NounsDAO</span>, Nakajima Foundation and others (to be announced)</li>
-        <li class="ml-4 -indent-4"><b class="font-londrina">Prizes:</b> 9.8ETH + $25,000 (we are raising more from other sponsors)</li>
+        <li class="ml-4 -indent-4"><b class="font-londrina">Prizes:</b> 11.0ETH + $25,000 (we are raising more from other sponsors)</li>
         <li><b class="font-londrina">Requirements:</b>
           <ul class="ml-8">
             <li class="list-disc">Please add this one-second video clip at the very beginning (created by <a class="underline" href="https://twitter.com/Fuyu256S">Fuyu256</a> ). 
