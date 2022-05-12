@@ -29,7 +29,7 @@
           </ul>
         </li>
         <li class="ml-4 -indent-4"><b class="font-yusei">スポンサー:</b> <span class="font-londrina">NounsDAO</span>、Nakajima Foundation他 (募集中)</li>
-        <li class="ml-4 -indent-4"><b class="font-yusei">賞金:</b> 11.0ETH + $25,000 (他のスポンサーも募集中)</li>
+        <li class="ml-4 -indent-4"><b class="font-yusei">賞金:</b> 11.0ETH + $25,000 (*1)</li>
         <li><b class="font-yusei">募集要項:</b>
           <ul class="ml-8">
             <li class="list-disc">下の映像を作品の冒頭に置いて下さい(<a class="underline" href="https://twitter.com/Fuyu256S">Fuyu256さん</a>に作っていただきました) 
@@ -53,6 +53,11 @@
           <iframe class="mb-1" width="320" height="180" src="https://www.youtube.com/embed/WmVLcj-XKnM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           <iframe class="mb-1" width="320" height="180" src="https://www.youtube.com/embed/v27CEFE02Hs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           <iframe class="mb-1" width="320" height="180" src="https://www.youtube.com/embed/2hZTpZrrDbY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </li>
+        <li><b class="font-londrina">Notes:</b>
+          <ul>
+            <li class="ml-8 -indent-4">*1: 賞金のうち$25,000 は、「<a class="underline" href="https://www.irs.gov/charities-non-profits/charitable-organizations/exemption-requirements-501c3-organizations">501(c)(3)ステータス</a>」を持つNPO向けのものです。</li>
+          </ul>
         </li>
       </ul> 
     </div>

@@ -33,7 +33,7 @@
           </ul>
         </li>
         <li class="ml-4 -indent-4"><b class="font-londrina">Sponsors:</b> <span class="font-londrina">NounsDAO</span>, Nakajima Foundation and others (to be announced)</li>
-        <li class="ml-4 -indent-4"><b class="font-londrina">Prizes:</b> 11.0ETH + $25,000 (we are raising more from other sponsors)</li>
+        <li class="ml-4 -indent-4"><b class="font-londrina">Prizes:</b> 11.0ETH + $25,000 (*1)</li>
         <li><b class="font-londrina">Requirements:</b>
           <ul class="ml-8">
             <li class="list-disc">Please add this one-second video clip at the very beginning (created by <a class="underline" href="https://twitter.com/Fuyu256S">Fuyu256</a> ). 
@@ -57,6 +57,12 @@
           <iframe class="mb-1" width="320" height="180" src="https://www.youtube.com/embed/WmVLcj-XKnM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           <iframe class="mb-1" width="320" height="180" src="https://www.youtube.com/embed/v27CEFE02Hs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           <iframe class="mb-1" width="320" height="180" src="https://www.youtube.com/embed/2hZTpZrrDbY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </li>
+        <li><b class="font-londrina">Notes:</b>
+          <ul>
+            <li class="ml-8 -indent-4">*1: The recipent of $25,000 must be a charitable organization 
+              with for <a class="underline" href="https://www.irs.gov/charities-non-profits/charitable-organizations/exemption-requirements-501c3-organizations">501(c)(3) status</a>.</li>
+          </ul>
         </li>
       </ul> 
     </div>
