@@ -64,6 +64,7 @@
               with for <a class="underline" href="https://www.irs.gov/charities-non-profits/charitable-organizations/exemption-requirements-501c3-organizations">501(c)(3) status</a>.</li>
           </ul>
         </li>
+        <li class="ml-4 -indent-4"><b class="font-londrina">Contact:</b> Please DM to <a class="underline" href="https://twitter.com/nounsfes">@nounsfes</a></li>
       </ul> 
     </div>
   </div>
