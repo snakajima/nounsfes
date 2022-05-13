@@ -29,7 +29,7 @@
           </ul>
         </li>
         <li class="ml-4 -indent-4"><b class="font-yusei">スポンサー:</b> <span class="font-londrina">NounsDAO</span>、Nakajima Foundation他 (募集中)</li>
-        <li class="ml-4 -indent-4"><b class="font-yusei">賞金:</b> 11.0ETH + $25,000 (*1)</li>
+        <li class="ml-4 -indent-4"><b class="font-yusei">賞金:</b> {{ total_eth }}ETH + $25,000 (*1)</li>
         <li><b class="font-yusei">募集要項:</b>
           <ul class="ml-8">
             <li class="list-disc">下の映像を作品の冒頭に置いて下さい(<a class="underline" href="https://twitter.com/Fuyu256S">Fuyu256さん</a>に作っていただきました) 
@@ -67,10 +67,16 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { useStore } from "vuex";
+
 export default defineComponent({
   name: "HomeJAPage",
   setup() {
-    return {};
-  },
+    const store = useStore();
+    const total_eth = store.state.total_eth;
+    return {
+      total_eth,
+    };
+  }
 });
 </script>

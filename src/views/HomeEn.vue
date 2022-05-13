@@ -33,7 +33,7 @@
           </ul>
         </li>
         <li class="ml-4 -indent-4"><b class="font-londrina">Sponsors:</b> <span class="font-londrina">NounsDAO</span>, Nakajima Foundation and others (to be announced)</li>
-        <li class="ml-4 -indent-4"><b class="font-londrina">Prizes:</b> 11.0ETH + $25,000 (*1)</li>
+        <li class="ml-4 -indent-4"><b class="font-londrina">Prizes:</b> {{ total_eth }}ETH + $25,000 (*1)</li>
         <li><b class="font-londrina">Requirements:</b>
           <ul class="ml-8">
             <li class="list-disc">Please add this one-second video clip at the very beginning (created by <a class="underline" href="https://twitter.com/Fuyu256S">Fuyu256</a> ). 
@@ -72,8 +72,16 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { useStore } from "vuex";
 
 export default defineComponent({
   name: "HomePage",
+  setup() {
+    const store = useStore();
+    const total_eth = store.state.total_eth;
+    return {
+      total_eth,
+    };
+  }
 });
 </script>
