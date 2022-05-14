@@ -12,8 +12,8 @@ export default createStore<State>({
   state: {
     account: undefined,
     user: undefined,
-    total_eth: 12.0,
-    raised_eth: 6.0,
+    raised_eth: 7.0,
+    total_eth: 5.0 + 7.0,
   },
   mutations: {
     setUser(state: State, user: User | null) {
