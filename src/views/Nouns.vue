@@ -33,17 +33,21 @@ import Web3 from "web3";
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const greeter = require("../abis/Greeter.json");
 const greeterAddress = "0x5fbdb2315678afecb367f032d93f642f64180aa3";
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const nounsToken = require("../abis/NounsToken.json");
+const nounsTokenAddress = "0x9C8fF314C9Bc7F6e59A9d9225Fb22946427eDC03";
 
 export default defineComponent({
   name: "HomePage",
   setup() {
     console.log(greeter);
+    console.log(nounsToken);
     const web3 = new Web3('http://localhost:8545');
     const hasMetaMask = Web3.givenProvider.isMetaMask;
     console.log("hasMetaMask", hasMetaMask);
-    const contract = new web3.eth.Contract(greeter.abi,greeterAddress);
+    const contract = new web3.eth.Contract(nounsToken,nounsTokenAddress);
     const fetchGreeting = async () => {
-      console.log(await contract.methods.greet().call());
+      console.log(await contract.methods.name().call());
     };
     fetchGreeting();
 
