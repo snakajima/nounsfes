@@ -15,6 +15,7 @@ const pages = (() => {
       description: "ナウンズ・アート・フェスティバル (ナウンズフェス) は、平和で維持可能な地球の大切さを 一人でも多くの人に知ってもらうことを目的に、NounsDAO のメンバーによって作られた、オンライン・アート・フェスティバルです。",
     },
     configureWebpack: {
+      entry: './src/main.ts',
       plugins: [
         new webpack.ProvidePlugin({
           Buffer: ['buffer', 'Buffer'],
