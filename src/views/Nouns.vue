@@ -59,7 +59,10 @@ export default defineComponent({
       const seeds = await nounsToken.methods.seeds(245).call();
       console.log(seeds);
       console.log(await nounsDescriptor.methods.genericDataURI("foo", "bar", seeds).call());
-      console.log(await nounsDescriptor.methods.generateSVGImage(seeds).call());
+      const encodedSVG = await nounsDescriptor.methods.generateSVGImage(seeds).call();
+      console.log(encodedSVG);
+      const svg = Buffer.from(encodedSVG, "base64").toString('utf8');
+      console.log(svg);
     };
     fetchGreeting();
 
