@@ -28,6 +28,11 @@
 import { defineComponent, computed } from "vue";
 import { useI18n } from "vue-i18n";
 import { useStore } from "vuex";
+import Web3 from "web3";
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const greeterAbi = require("../abis/Greeter.json");
+const greeterAddress = "0x5fbdb2315678afecb367f032d93f642f64180aa3";
 
 export default defineComponent({
   name: "HomePage",
