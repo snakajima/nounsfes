@@ -37,7 +37,7 @@ export default defineComponent({
   setup() {
     const callGreeter = async () => {
       console.log(greeter);
-      //const web3 = new Web3('http://localhost:8545');
+      const web3 = new Web3('http://localhost:8545');
     };
     callGreeter();
     //const Greeter = await ethers.getContractFactory("Greeter");
