@@ -27,10 +27,16 @@
 import { defineComponent, computed } from "vue";
 import { useI18n } from "vue-i18n";
 import { useStore } from "vuex";
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const nounsTokenJson11 = require("../abis/Greeter.json");
 
 export default defineComponent({
   name: "HomePage",
-  setup() {
+
+  async setup() {
+    //const Greeter = await ethers.getContractFactory("Greeter");
+    //const greeter = await Greeter.deploy("Hello, Hardhat!");
+
     const store = useStore();
     const raised_eth = store.state.raised_eth;
     console.log(store.state);
