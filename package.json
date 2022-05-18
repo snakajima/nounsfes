@@ -18,6 +18,8 @@
     "vuex": "^4.0.2"
   },
   "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.0",
+    "@nomiclabs/hardhat-waffle": "^2.0.0",
     "@typescript-eslint/eslint-plugin": "^5.19.0",
     "@typescript-eslint/parser": "^5.19.0",
     "@vue/cli-plugin-babel": "^5.0.4",
@@ -29,9 +31,12 @@
     "@vue/compiler-sfc": "^3.2.33",
     "@vue/eslint-config-typescript": "^10.0.0",
     "autoprefixer": "^10.4.4",
+    "chai": "^4.2.0",
     "eslint": "^8.13.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-vue": "^8.6.0",
+    "ethereum-waffle": "^3.0.0",
+    "ethers": "^5.0.0",
     "hardhat": "^2.9.5",
     "postcss": "^8.4.12",
     "prettier": "^2.6.2",

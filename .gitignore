@@ -22,4 +22,13 @@ pnpm-debug.log*
 *.sln
 *.sw?
 
-*~
+#Hardhat's attempt
+#*~
+#.env
+#coverage
+#coverage.json
+#typechain
+
+#Hardhat files
+cache
+artifacts
