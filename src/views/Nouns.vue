@@ -34,23 +34,32 @@ import Web3 from "web3";
 const greeter = require("../abis/Greeter.json");
 const greeterAddress = "0x5fbdb2315678afecb367f032d93f642f64180aa3";
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const nounsToken = require("../abis/NounsToken.json");
+const nounsTokenAbi = require("../abis/NounsToken.json");
 const nounsTokenAddress = "0x9C8fF314C9Bc7F6e59A9d9225Fb22946427eDC03";
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const nounsDescriptorAbi = require("../abis/NounsDescriptor.json");
+const nounsDescriptorAddress = "0x0Cfdb3Ba1694c2bb2CFACB0339ad7b1Ae5932B63";
 
 export default defineComponent({
   name: "HomePage",
   setup() {
     console.log(greeter);
-    console.log(nounsToken);
+    console.log(nounsTokenAbi);
+    console.log(nounsDescriptorAbi);
     const web3 = new Web3('http://localhost:8545');
     const hasMetaMask = Web3.givenProvider.isMetaMask;
     console.log("hasMetaMask", hasMetaMask);
-    const contract = new web3.eth.Contract(nounsToken,nounsTokenAddress);
+    const nounsToken = new web3.eth.Contract(nounsTokenAbi,nounsTokenAddress);
+    const nounsDescriptor = new web3.eth.Contract(nounsDescriptorAbi,nounsDescriptorAddress);
     const fetchGreeting = async () => {
-      console.log(await contract.methods.name().call());
-      console.log(await contract.methods.ownerOf(245).call());
-      console.log(await contract.methods.balanceOf("0xf05a0497994a33f18aa378630BC674eFC77Ad557").call());
-      console.log(await contract.methods.seeds(245).call());
+      console.log(await nounsToken.methods.name().call());
+      console.log(await nounsToken.methods.ownerOf(245).call());
+      console.log(await nounsToken.methods.balanceOf("0xf05a0497994a33f18aa378630BC674eFC77Ad557").call());
+      const seeds = await nounsToken.methods.seeds(245).call();
+      console.log(seeds);
+      console.log(await nounsDescriptor.methods.genericDataURI("foo", "bar", seeds).call());
+      console.log(await nounsDescriptor.methods.generateSVGImage(seeds).call());
     };
     fetchGreeting();
 
