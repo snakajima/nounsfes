@@ -9,6 +9,7 @@
     "format": "prettier --write 'src/**/*.{js,ts,vue}'"
   },
   "dependencies": {
+    "@alch/alchemy-web3": "^1.4.2",
     "@vueuse/head": "^0.7.6",
     "core-js": "^3.21.0",
     "firebase": "^9.6.11",
