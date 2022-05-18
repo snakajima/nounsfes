@@ -33,8 +33,9 @@ const greeter = require("../abis/Greeter.json");
 export default defineComponent({
   name: "HomePage",
 
-  async setup() {
+  setup() {
     console.log(greeter);
+    console.log(greeter.contractAddress);
     //const Greeter = await ethers.getContractFactory("Greeter");
     //const greeter = await Greeter.deploy("Hello, Hardhat!");
 
