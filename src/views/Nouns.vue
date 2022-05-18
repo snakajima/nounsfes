@@ -34,8 +34,10 @@ export default defineComponent({
   name: "HomePage",
 
   setup() {
-    console.log(greeter);
-    console.log(greeter.contractAddress);
+    const callGreeter = async () => {
+      console.log(greeter);
+    };
+    callGreeter();
     //const Greeter = await ethers.getContractFactory("Greeter");
     //const greeter = await Greeter.deploy("Hello, Hardhat!");
 
