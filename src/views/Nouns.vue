@@ -27,6 +27,7 @@
 import { defineComponent, computed } from "vue";
 import { useI18n } from "vue-i18n";
 import { useStore } from "vuex";
+import Web3 from "web3";
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const greeter = require("../abis/Greeter.json");
 
@@ -36,6 +37,7 @@ export default defineComponent({
   setup() {
     const callGreeter = async () => {
       console.log(greeter);
+      //const web3 = new Web3('http://localhost:8545');
     };
     callGreeter();
     //const Greeter = await ethers.getContractFactory("Greeter");
