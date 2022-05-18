@@ -10,6 +10,10 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
   }
 });
 
+task("hello", "Prints Hello World", async (taskArgs, hre) => {
+  console.log("Hello World!");
+});
+
 // You need to export an object to set up your config
 // Go to https://hardhat.org/config/ to learn more
 
