@@ -8,6 +8,7 @@ import About from "../views/About.vue";
 import Tokens from "../views/Tokens.vue";
 import Account from "../views/Account.vue";
 import Derivative from "../views/Derivative.vue";
+import Nouns from "../views/Nouns.vue";
 
 const routeChildren: Array<RouteRecordRaw> = [
   {
@@ -21,6 +22,10 @@ const routeChildren: Array<RouteRecordRaw> = [
   {
     path: "nft",
     component: Tokens,
+  },
+  {
+    path: "nouns",
+    component: Nouns,
   },
   {
     path: "derivative",
