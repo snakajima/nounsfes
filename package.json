@@ -7,7 +7,8 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "local_chain": "cd hardhat && hardhat node",
-    "local_script": "cd hardhat && hardhat run scripts/sample-script.js --network localhost"
+    "local_script": "cd hardhat && hardhat run scripts/sample-script.js --network localhost",
+    "mainnet": "sh .hidden/mainnet.sh"
   },
   "dependencies": {
     "@vueuse/head": "^0.7.6",
