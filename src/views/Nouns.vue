@@ -48,6 +48,9 @@ export default defineComponent({
     const contract = new web3.eth.Contract(nounsToken,nounsTokenAddress);
     const fetchGreeting = async () => {
       console.log(await contract.methods.name().call());
+      console.log(await contract.methods.ownerOf(245).call());
+      console.log(await contract.methods.balanceOf("0xf05a0497994a33f18aa378630BC674eFC77Ad557").call());
+      console.log(await contract.methods.seeds(245).call());
     };
     fetchGreeting();
 
