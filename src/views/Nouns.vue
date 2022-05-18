@@ -31,14 +31,21 @@ import { useStore } from "vuex";
 import Web3 from "web3";
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const greeterAbi = require("../abis/Greeter.json");
+const greeter = require("../abis/Greeter.json");
 const greeterAddress = "0x5fbdb2315678afecb367f032d93f642f64180aa3";
 
 export default defineComponent({
   name: "HomePage",
   setup() {
-    console.log(greeterAbi);
+    console.log(greeter);
     const web3 = new Web3('http://localhost:8545');
+    const hasMetaMask = Web3.givenProvider.isMetaMask;
+    console.log("hasMetaMask", hasMetaMask);
+    const contract = new web3.eth.Contract(greeter.abi,greeterAddress);
+    const fetchGreeting = async () => {
+      console.log(await contract.methods.greet().call());
+    };
+    fetchGreeting();
 
     const store = useStore();
     const raised_eth = store.state.raised_eth;
