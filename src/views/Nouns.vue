@@ -37,6 +37,8 @@ const greeterAddress = "0x5fbdb2315678afecb367f032d93f642f64180aa3";
 export default defineComponent({
   name: "HomePage",
   setup() {
+    const web3 = new Web3('http://localhost:8545');
+
     const store = useStore();
     const raised_eth = store.state.raised_eth;
     console.log(store.state);
