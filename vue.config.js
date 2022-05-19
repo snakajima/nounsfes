@@ -1,3 +1,5 @@
+const webpack = require('webpack');
+
 const pages = (() => {
   const retObj = {
     index: {
@@ -11,11 +13,33 @@ const pages = (() => {
       template: 'public/index.html',
       filename: `index-ja.html`,
       description: "ナウンズ・アート・フェスティバル (ナウンズフェス) は、平和で維持可能な地球の大切さを 一人でも多くの人に知ってもらうことを目的に、NounsDAO のメンバーによって作られた、オンライン・アート・フェスティバルです。",
-    }
+    },
   };
   return retObj;
 })();
 
 module.exports = {
   pages,
+  configureWebpack: {
+    plugins: [
+      new webpack.ProvidePlugin({
+        Buffer: ['buffer', 'Buffer'],
+      }),
+      new webpack.ProvidePlugin({
+        process: 'process/browser',
+      }),
+    ],
+    resolve: {
+      fallback: {
+        "buffer": require.resolve('buffer/'),
+        "http": 'agent-base',
+        "https": 'agent-base',
+        "stream": false,
+        "crypto": false,
+        "os": false,
+        "url": false,
+        "assert": false,
+      }
+    }
+  }
 };
