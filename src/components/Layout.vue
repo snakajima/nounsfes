@@ -7,6 +7,7 @@
       <!-- router-link :to="localizedUrl('/nouns')" class="text-2xl font-londrina">Nouns</router-link> | -->
       <router-link :to="localizedUrl('/about')" class="text-2xl font-londrina">About</router-link>
       <Languages class="mt-4" />
+      <Connect />
     </div>
     <router-view />
   </div>
@@ -22,6 +23,7 @@ import { User } from "firebase/auth";
 import { useI18nParam } from "@/i18n/utils";
 
 import Languages from "@/components/Languages.vue";
+import Connect from "@/components/Connect.vue";
 
 interface UserData {
   user: User | null;
@@ -31,6 +33,7 @@ export default defineComponent({
   name: "AppLayout",
   components: {
     Languages,
+    Connect
   },
   async setup() {
     const store = useStore();
