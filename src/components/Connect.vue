@@ -9,7 +9,7 @@
       </span>
     </span>
     <span v-else>
-      <button>No Metamask</button>
+      <button>{{ $t("menu.nometamask") }}</button>
     </span>
   </span>
 </template>

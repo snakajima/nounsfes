@@ -4,6 +4,7 @@ const lang = {
   menu: {
     connect: "コネクト",
     connected: "コネクト済",
+    nometamask: "メタマスク不在",
   },
   message: {
     hello: "こんにちは、世界",
