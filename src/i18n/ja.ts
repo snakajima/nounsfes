@@ -1,6 +1,10 @@
 import languages from "./languages";
 
 const lang = {
+  menu: {
+    connect: "コネクト",
+    connected: "コネクト済",
+  },
   message: {
     hello: "こんにちは、世界",
   },

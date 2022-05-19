@@ -2,10 +2,10 @@
   <span class="ml-16 font-londrina font-yusei">
     <span v-if="hasMetaMask">
       <span v-if="account">
-          <button>Connected</button>
+          <button>{{ $t("menu.connected") }}</button>
       </span>
       <span v-else>
-          <button @click="connect" class="rounded-xl">Connect</button>
+          <button @click="connect" class="rounded-xl">{{ $t("menu.connect") }}</button>
       </span>
     </span>
     <span v-else>
