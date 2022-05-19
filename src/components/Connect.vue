@@ -1,10 +1,15 @@
 <template>
   <span class="ml-16 font-londrina font-yusei">
-    <span v-if="account">
-        <button>Connected</button>
+    <span v-if="hasMetaMask">
+      <span v-if="account">
+          <button>Connected</button>
+      </span>
+      <span v-else>
+          <button @click="connect" class="rounded-xl">Connect</button>
+      </span>
     </span>
     <span v-else>
-        <button @click="connect" class="rounded-xl">Connect</button>
+      <button>No Metamask</button>
     </span>
   </span>
 </template>
@@ -24,6 +29,7 @@ export default defineComponent({
     };
 
     return {
+      hasMetaMask,
       account,
       connect
     };
