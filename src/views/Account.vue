@@ -41,7 +41,7 @@
             <p class="m-4">
               Please sign-in by signing a message from nountfes.com.
             </p>
-            <a @click="verifyIdentity" id="button" class="h-12">
+            <a @click="signIn" id="button" class="h-12">
               Step 2: Sign In
             </a>
           </div>
@@ -87,7 +87,7 @@ export default defineComponent({
       console.log("requestAccount")
       await requestAccount(); // ethereum.on('accountsChanged') will handle the result
     };
-    const verifyIdentity = async () => {
+    const signIn = async () => {
       // Step 1: We get a nonce from the server
       isBusy.value = "Fetching a verification message from server...";
       const account = store.state.account;
@@ -95,7 +95,7 @@ export default defineComponent({
       const nonce = result.data.nonce;
       const uuid = result.data.uuid;
 
-      console.log("verifyIdentity: uuid/nonce", uuid, nonce);
+      console.log("signIn: uuid/nonce", uuid, nonce);
 
       try {
         // Step 2: We ask the user to sign this nonce
@@ -109,7 +109,7 @@ export default defineComponent({
         const result2 = await verifyNonce({ signature, uuid }) as any;
         console.log(result2.data);
         const token = result2.data.token;
-        console.log("verifyIdentity: token", token);
+        console.log("signIn: token", token);
         if (token) {
           await signInWithCustomToken(auth, token);
         } else {
@@ -136,7 +136,7 @@ export default defineComponent({
       selectAsset,
       assets,
       signOut,
-      verifyIdentity,
+      signIn,
       account,
       isSignedIn,
       hasMetaMask,
