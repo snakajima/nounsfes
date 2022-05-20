@@ -8,6 +8,7 @@ const lang = {
     nometamask: "No Metamask",
   },
   message: {
+    processing: "Processing...",
     hello: "hello world",
   },
   derivatives: {

@@ -8,6 +8,7 @@ const lang = {
     nometamask: "メタマスク不在",
   },
   message: {
+    processing: "処理中...",
     hello: "こんにちは、世界",
   },
   derivatives: {
