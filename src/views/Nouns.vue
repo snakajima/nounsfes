@@ -28,7 +28,7 @@
 import { defineComponent, computed } from "vue";
 import { useI18n } from "vue-i18n";
 import { useStore } from "vuex";
-import Web3 from "web3";
+import { ethers } from "ethers";
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const greeter = require("../abis/Greeter.json");
@@ -47,19 +47,17 @@ export default defineComponent({
     console.log(greeter);
     console.log(nounsTokenAbi);
     console.log(nounsDescriptorAbi);
-    const web3 = new Web3('http://localhost:8545');
-    const hasMetaMask = Web3.givenProvider.isMetaMask;
-    console.log("hasMetaMask", hasMetaMask);
-    const nounsToken = new web3.eth.Contract(nounsTokenAbi,nounsTokenAddress);
-    const nounsDescriptor = new web3.eth.Contract(nounsDescriptorAbi,nounsDescriptorAddress);
+    const provider = new ethers.providers.Web3Provider((window as any).ethereum);
+    const nounsToken = new ethers.Contract(nounsTokenAddress, nounsTokenAbi, provider);
+    const nounsDescriptor = new ethers.Contract(nounsDescriptorAddress, nounsDescriptorAbi, provider);
     const fetchGreeting = async () => {
-      console.log(await nounsToken.methods.name().call());
-      console.log(await nounsToken.methods.ownerOf(245).call());
-      console.log(await nounsToken.methods.balanceOf("0xf05a0497994a33f18aa378630BC674eFC77Ad557").call());
-      const seeds = await nounsToken.methods.seeds(245).call();
+      console.log(await nounsToken.functions.name());
+      console.log(await nounsToken.functions.ownerOf(245));
+      console.log(await nounsToken.functions.balanceOf("0xf05a0497994a33f18aa378630BC674eFC77Ad557"));
+      const seeds = await nounsToken.functions.seeds(245);
       console.log(seeds);
-      console.log(await nounsDescriptor.methods.genericDataURI("foo", "bar", seeds).call());
-      const encodedSVG = await nounsDescriptor.methods.generateSVGImage(seeds).call();
+      console.log(await nounsDescriptor.functions.genericDataURI("foo", "bar", seeds));
+      const encodedSVG = await nounsDescriptor.functions.generateSVGImage(seeds);
       console.log(encodedSVG);
       const svg = Buffer.from(encodedSVG, "base64").toString('utf8');
       console.log(svg);
