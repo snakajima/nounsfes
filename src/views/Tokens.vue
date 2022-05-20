@@ -36,7 +36,8 @@ import { ethers } from "ethers";
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const namedNounAbi = require("../abis/NamedNoun.json");
 const namedNounAddress = "0x2953399124F0cBB46d2CbACD8A89cF0599974963";
-const itemId = [
+const itemIds = [
+  "35416128211843416333493280670751952307736614476901985064732031611086890336257",
   "35416128211843416333493280670751952307736614476901985064732031660564913586177"
 ];
 export default defineComponent({
@@ -59,9 +60,11 @@ export default defineComponent({
         return "please connect";
       }
       const fetchInfo = async () => {
-        const bigId = ethers.BigNumber.from(itemId[0]);
-        console.log("account/bigId", account, bigId, bigId.toHexString());
-        console.log(await namedNoun.functions.balanceOf(account, bigId));
+        const bigIds = itemIds.map((itemId) => {
+          return ethers.BigNumber.from(itemId);
+        });
+        console.log("account/bigId", account, bigIds[0], bigIds[1]);
+        console.log(await namedNoun.functions.balanceOfBatch([account, account], bigIds));
       };
       console.log("**** computed", account);
       fetchInfo();
