@@ -36,10 +36,13 @@ import { ethers } from "ethers";
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const namedNounAbi = require("../abis/NamedNoun.json");
 const namedNounAddress = "0x2953399124F0cBB46d2CbACD8A89cF0599974963";
-const itemIds = [
-  "35416128211843416333493280670751952307736614476901985064732031611086890336257",
-  "35416128211843416333493280670751952307736614476901985064732031660564913586177"
-];
+const itemId0 = ethers.BigNumber.from("35416128211843416333493280670751952307736614476901985064732031611086890336257");
+const itemId1 = ethers.BigNumber.from("35416128211843416333493280670751952307736614476901985064732031612186401964033");
+const delta = itemId1.sub(itemId0);
+const itemCount = 69;
+const itemIds = [...Array(itemCount).keys()].map((value) => { return itemId0.add(ethers.BigNumber.from(delta.mul(value))); });
+console.log(itemIds);
+
 export default defineComponent({
   name: "HomePage",
   setup() {
@@ -60,11 +63,9 @@ export default defineComponent({
         return "please connect";
       }
       const fetchInfo = async () => {
-        const bigIds = itemIds.map((itemId) => {
-          return ethers.BigNumber.from(itemId);
-        });
-        console.log("account/bigId", account, bigIds[0], bigIds[1]);
-        console.log(await namedNoun.functions.balanceOfBatch([account, account], bigIds));
+        console.log("delta", delta);
+        const accounts = [...Array(itemCount).keys()].map(() => {return account;});
+        console.log(await namedNoun.functions.balanceOfBatch(accounts, itemIds));
       };
       console.log("**** computed", account);
       fetchInfo();
