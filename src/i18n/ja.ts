@@ -3,7 +3,8 @@ import languages from "./languages";
 const lang = {
   menu: {
     connect: "コネクト",
-    connected: "コネクト済",
+    connected: "サインイン",
+    signedIn: "サインアウト",
     nometamask: "メタマスク不在",
   },
   message: {
