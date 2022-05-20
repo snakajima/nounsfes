@@ -28,11 +28,28 @@
 import { defineComponent, computed } from "vue";
 import { useI18n } from "vue-i18n";
 import { useStore } from "vuex";
+import { ethers } from "ethers";
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const namedNounAbi = require("../abis/NamedNoun.json");
+const namedNounAddress = "0x2953399124F0cBB46d2CbACD8A89cF0599974963";
+const itemId = [
+  "35416128211843416333493280670751952307736614476901985064732031660564913586177"
+];
 export default defineComponent({
   name: "HomePage",
   setup() {
     const store = useStore();
+    const account = store.state.account;
+    const provider = new ethers.providers.Web3Provider((window as any).ethereum);
+    const namedNoun = new ethers.Contract(namedNounAddress, namedNounAbi, provider);
+    const fetchInfo = async () => {
+      const bigId = ethers.BigNumber.from(itemId[0]);
+      console.log("account/bigId", account, bigId, bigId.toHexString());
+      console.log(await namedNoun.functions.balanceOf(account, bigId));
+    };
+    fetchInfo();
+
     const raised_eth = store.state.raised_eth;
     console.log(store.state);
     console.log(raised_eth);
