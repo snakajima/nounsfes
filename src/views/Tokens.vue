@@ -64,7 +64,7 @@ export default defineComponent({
       }
       const fetchInfo = async () => {
         console.log("delta", delta);
-        const accounts = [...Array(itemCount).keys()].map(() => {return account;});
+        const accounts = itemIds.map(() => {return account;});
         console.log(await namedNoun.functions.balanceOfBatch(accounts, itemIds));
       };
       console.log("**** computed", account);
