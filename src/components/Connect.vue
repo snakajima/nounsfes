@@ -21,7 +21,7 @@
         </span>
       </span>
       <span v-else>
-        <button class="inline-block px-6 py-2.5 bg-red-600 text-white leading-tight rounded shadow-md">{{ $t("menu.nometamask") }}</button>
+        <button disabled class="inline-block px-6 py-2.5 bg-gray-400 text-white leading-tight rounded shadow-md">{{ $t("menu.nometamask") }}</button>
       </span>
     </span>
   </span>
