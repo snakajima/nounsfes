@@ -65,7 +65,13 @@ export default defineComponent({
       const fetchInfo = async () => {
         console.log("delta", delta);
         const accounts = itemIds.map(() => {return account;});
-        console.log(await namedNoun.functions.balanceOfBatch(accounts, itemIds));
+        const results = await namedNoun.functions.balanceOfBatch(accounts, itemIds) as Array<Array<ethers.BigNumber>>;
+        console.log(results.length);
+        console.log(results.reduce);
+        const count = results[0].reduce((total, result) => {
+          return total.add(result);
+        }, ethers.BigNumber.from(0));
+        console.log("total=", count.toNumber());
       };
       console.log("**** computed", account);
       fetchInfo();
