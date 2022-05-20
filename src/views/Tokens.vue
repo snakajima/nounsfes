@@ -1,6 +1,9 @@
 <template>
   <div class="max-w-lg mx-auto text-left p-2">
     <p class="text-3xl mb-2 font-londrina">Named Noun</p>
+
+    <p>{{ bar }}</p>
+
     <div v-if="lang === 'en'">
       <div class="space-y-2 mb-8 font-pt-root font-medium">
         <p>In order to make <span class="font-londrina">NounsFes</span> more attractive, we raised some money by selling
@@ -40,15 +43,8 @@ export default defineComponent({
   name: "HomePage",
   setup() {
     const store = useStore();
-    const account = store.state.account;
     const provider = new ethers.providers.Web3Provider((window as any).ethereum);
     const namedNoun = new ethers.Contract(namedNounAddress, namedNounAbi, provider);
-    const fetchInfo = async () => {
-      const bigId = ethers.BigNumber.from(itemId[0]);
-      console.log("account/bigId", account, bigId, bigId.toHexString());
-      console.log(await namedNoun.functions.balanceOf(account, bigId));
-    };
-    fetchInfo();
 
     const raised_eth = store.state.raised_eth;
     console.log(store.state);
@@ -57,8 +53,23 @@ export default defineComponent({
     const lang = computed(() => {
       return i18n.locale.value;
     });
+    const bar = computed(() => {
+      const account = store.state.account;
+      if (!account) {
+        return "please connect";
+      }
+      const fetchInfo = async () => {
+        const bigId = ethers.BigNumber.from(itemId[0]);
+        console.log("account/bigId", account, bigId, bigId.toHexString());
+        console.log(await namedNoun.functions.balanceOf(account, bigId));
+      };
+      console.log("**** computed", account);
+      fetchInfo();
+      return account;
+    });
     
     return {
+      bar,
       lang,
       raised_eth,
     };
