@@ -44,9 +44,6 @@ const nounsDescriptorAddress = "0x0Cfdb3Ba1694c2bb2CFACB0339ad7b1Ae5932B63";
 export default defineComponent({
   name: "HomePage",
   setup() {
-    console.log(greeter);
-    console.log(nounsTokenAbi);
-    console.log(nounsDescriptorAbi);
     const provider = new ethers.providers.Web3Provider((window as any).ethereum);
     const nounsToken = new ethers.Contract(nounsTokenAddress, nounsTokenAbi, provider);
     const nounsDescriptor = new ethers.Contract(nounsDescriptorAddress, nounsDescriptorAbi, provider);
