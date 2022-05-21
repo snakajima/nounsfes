@@ -36,12 +36,13 @@ import { ethers } from "ethers";
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const namedNounAbi = require("../abis/NamedNoun.json");
 const namedNounAddress = "0x2953399124F0cBB46d2CbACD8A89cF0599974963";
+// Because OpenSea chose to put all Polygon NFTs in a single contract, we need to perform this hack
+// in order to know the number of NFTs in user's wallet. 
 const itemId0 = ethers.BigNumber.from("35416128211843416333493280670751952307736614476901985064732031611086890336257");
 const itemId1 = ethers.BigNumber.from("35416128211843416333493280670751952307736614476901985064732031612186401964033");
 const delta = itemId1.sub(itemId0);
 const itemCount = 69;
 const itemIds = [...Array(itemCount).keys()].map((value) => { return itemId0.add(ethers.BigNumber.from(delta.mul(value))); });
-console.log(itemIds);
 
 export default defineComponent({
   name: "HomePage",
@@ -63,11 +64,8 @@ export default defineComponent({
         return "please connect";
       }
       const fetchInfo = async () => {
-        console.log("delta", delta);
         const accounts = itemIds.map(() => {return account;});
         const results = await namedNoun.functions.balanceOfBatch(accounts, itemIds) as Array<Array<ethers.BigNumber>>;
-        console.log(results.length);
-        console.log(results.reduce);
         const count = results[0].reduce((total, result) => {
           return total.add(result);
         }, ethers.BigNumber.from(0));
