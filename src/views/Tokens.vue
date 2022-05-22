@@ -1,8 +1,10 @@
 <template>
   <div class="max-w-lg mx-auto text-left p-2">
-    <p class="text-3xl mb-2 font-londrina">Named Noun</p>
+    <div v-if="account" class="mb-8">
+      <p>Wallet ID:{{ account }}</p>
+    </div>
 
-    <p>{{ bar }}</p>
+    <p class="text-3xl mb-2 font-londrina">Named Noun</p>
 
     <div v-if="lang === 'en'">
       <div class="space-y-2 mb-8 font-pt-root font-medium">
@@ -58,10 +60,10 @@ export default defineComponent({
     const lang = computed(() => {
       return i18n.locale.value;
     });
-    const bar = computed(() => {
+    const account = computed(() => {
       const account = store.state.account;
       if (!account) {
-        return "please connect";
+        return undefined;
       }
       const fetchInfo = async () => {
         const accounts = itemIds.map(() => {return account;});
@@ -69,15 +71,16 @@ export default defineComponent({
         const count = results[0].reduce((total, result) => {
           return total.add(result);
         }, ethers.BigNumber.from(0));
-        console.log("total=", count.toNumber());
+        const result = count.toNumber();
+        console.log("**** computed", result);
+        return result;
       };
-      console.log("**** computed", account);
       fetchInfo();
       return account;
     });
     
     return {
-      bar,
+      account,
       lang,
       raised_eth,
     };
