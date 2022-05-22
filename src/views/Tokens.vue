@@ -1,6 +1,6 @@
 <template>
   <div class="max-w-lg mx-auto text-left p-2">
-    <div v-if="nftCount > 0" class="mb-8">
+    <div v-if="account && nftCount > 0" class="mb-8">
       <p>We see {{ nftCount }} Named Noun(s) in your wallet! Thank you for being a supporter.</p>
     </div>
 
