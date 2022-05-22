@@ -2,6 +2,7 @@
   <div class="max-w-lg mx-auto text-left p-2">
     <div v-if="account" class="mb-8">
       <p>Wallet ID:{{ account }}</p>
+      <p>NFT Count:{{ nftCount }}</p>
     </div>
 
     <p class="text-3xl mb-2 font-londrina">Named Noun</p>
@@ -30,7 +31,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from "vue";
+import { defineComponent, computed, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import { useStore } from "vuex";
 import { ethers } from "ethers";
@@ -52,6 +53,7 @@ export default defineComponent({
     const store = useStore();
     const provider = new ethers.providers.Web3Provider((window as any).ethereum);
     const namedNoun = new ethers.Contract(namedNounAddress, namedNounAbi, provider);
+    const nftCount = ref(0);
 
     const raised_eth = store.state.raised_eth;
     console.log(store.state);
@@ -71,15 +73,15 @@ export default defineComponent({
         const count = results[0].reduce((total, result) => {
           return total.add(result);
         }, ethers.BigNumber.from(0));
-        const result = count.toNumber();
-        console.log("**** computed", result);
-        return result;
+        nftCount.value = count.toNumber();
+        console.log("**** computed", nftCount.value);
       };
       fetchInfo();
       return account;
     });
     
     return {
+      nftCount,
       account,
       lang,
       raised_eth,
