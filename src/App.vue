@@ -7,8 +7,8 @@
 <script lang="ts">
 import { computed, defineComponent } from "vue";
 import { useStore } from "vuex";
-import { ethereum, getAccount, hasMetaMask } from "./utils/MetaMask";
-import { useUser, useIsSignedIn } from "@/utils/utils";
+import { ethereum, getAccount, hasMetaMask, ProviderConnectInfo, ProviderRpcError } from "./utils/MetaMask";
+import { useUser } from "@/utils/utils";
 
 export default defineComponent({
   setup() {
@@ -30,6 +30,19 @@ export default defineComponent({
           console.log("Eth accountsChanged", accounts[0]);
           // fetchNFTs();
         }
+      });
+      ethereum.on("connect", ( info: ProviderConnectInfo): void => {
+        console.log("*** connect", info);
+        store.commit("setChainId", info.chainId);
+        //this.actions.update({ chainId: parseChainId(chainId) })
+      });
+      ethereum.on("disconnect", ( info: ProviderRpcError): void => {
+        console.log("*** disconnect", info);
+        //this.actions.update({ chainId: parseChainId(chainId) })
+      });
+      ethereum.on("chainChanged", (chainId: string) => {
+        console.log("*** chainChanged", chainId);
+        store.commit("setChainId", chainId);
       });
     }
     const isSignedIn = computed(() => store.getters.isSignedIn);

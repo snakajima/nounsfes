@@ -34,6 +34,7 @@ import { defineComponent, computed, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import { useStore } from "vuex";
 import { ethers } from "ethers";
+import { ChainIds } from "../utils/MetaMask";
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const namedNounAbi = require("../abis/NamedNoun.json");
@@ -63,7 +64,9 @@ export default defineComponent({
     });
     const account = computed(() => {
       const account = store.state.account;
-      if (!account) {
+      const chainId = store.state.chainId;
+      console.log("*** account recomputing");
+      if (!(account && chainId == ChainIds.Polygon)) {
         return undefined;
       }
       const fetchInfo = async () => {
