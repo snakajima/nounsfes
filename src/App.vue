@@ -7,7 +7,7 @@
 <script lang="ts">
 import { computed, defineComponent } from "vue";
 import { useStore } from "vuex";
-import { ethereum, startMonitoringMetamask } from "./utils/MetaMask";
+import { startMonitoringMetamask } from "./utils/MetaMask";
 import { useUser } from "@/utils/utils";
 
 export default defineComponent({
