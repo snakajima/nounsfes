@@ -4,8 +4,11 @@
       <div v-if="tokenGate == 'switchNetwork'">
         <p>Please switch the Polygon network. <a @click="switchToPolygon" class="underline">Switch</a></p>
       </div>
-      <div v-else-if="tokenGate == 'active' && nftCount > 0">
-        <p>We see {{ nftCount }} Named Noun(s) in your wallet! Thank you for being a supporter.</p>
+      <div v-else-if="tokenGate == 'active'">
+        <p>Connected Wallet: {{ account }}</p>
+        <div v-if="nftCount > 0">
+          <p>We see {{ nftCount }} Named Noun(s) in your wallet! Thank you for being a supporter.</p>
+        </div>
       </div>
       <div v-else>
         <p>Please connect your Metamask to check if you have any Named Noun NFTs.</p>
@@ -71,8 +74,8 @@ export default defineComponent({
       return i18n.locale.value;
     });
     const tokenGate = computed(() => {
-    const account = store.state.account;
-    const chainId = store.state.chainId;
+      const account = store.state.account;
+      const chainId = store.state.chainId;
       console.log("** recomputing", account, chainId);
       if (!account) {
         return undefined;
@@ -95,8 +98,10 @@ export default defineComponent({
       console.log("switchToPolygon called");
       await switchNetwork(ChainIds.Polygon);
     }
+    const account = computed(() => { return store.state.account; });
     
     return {
+      account,
       nftCount,
       tokenGate,
       lang,
