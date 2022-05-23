@@ -2,7 +2,7 @@
   <div class="max-w-lg mx-auto text-left p-2">
     <div class="mb-8">
       <div v-if="tokenGate == 'switchNetwork'">
-        <p>Please switch the network to Polygon.</p>
+        <p>Please switch the Polygon network. <a @click="switchToPolygon" class="underline">Switch</a></p>
       </div>
       <div v-else-if="tokenGate == 'active' && nftCount > 0">
         <p>We see {{ nftCount }} Named Noun(s) in your wallet! Thank you for being a supporter.</p>
@@ -42,7 +42,7 @@ import { defineComponent, computed, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import { useStore } from "vuex";
 import { ethers } from "ethers";
-import { ChainIds } from "../utils/MetaMask";
+import { ChainIds, switchNetwork } from "../utils/MetaMask";
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const namedNounAbi = require("../abis/NamedNoun.json");
@@ -91,12 +91,17 @@ export default defineComponent({
       fetchInfo();
       return "active";
     });
+    const switchToPolygon = async () => {
+      console.log("switchToPolygon called");
+      await switchNetwork(ChainIds.Polygon);
+    }
     
     return {
       nftCount,
       tokenGate,
       lang,
       raised_eth,
+      switchToPolygon
     };
   }
 });

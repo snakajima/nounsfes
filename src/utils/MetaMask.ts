@@ -62,4 +62,12 @@ export const startMonitoringMetamask = () => {
   }
 };
 
+export const switchNetwork = async (chainId: string) => {
+  try {
+    await ethereum.request({ method: 'wallet_switchEthereumChain', params: [{ chainId }] });
+  } catch(e) {
+    console.log(e);
+  }
+};
+
 
