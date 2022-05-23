@@ -65,6 +65,7 @@ export default defineComponent({
     const account = computed(() => {
       const account = store.state.account;
       const chainId = store.state.chainId;
+      console.log("** recomputing", account, chainId);
       if (!(account && chainId == ChainIds.Polygon)) {
         return undefined;
       }

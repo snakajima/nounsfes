@@ -41,7 +41,7 @@ export const startMonitoringMetamask = () => {
   });
   if (hasMetaMask) {
     ethereum.on("accountsChanged", (accounts: string[]) => {
-      console.log("accountsChanged");
+      console.log("accountsChanged", accounts.length);
       if (accounts.length == 0) {
         store.commit("setAccount", null);
       } else {
