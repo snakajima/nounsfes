@@ -5,7 +5,10 @@
         <p>Please switch the Polygon network. <a @click="switchToPolygon" class="underline">Switch</a></p>
       </div>
       <div v-else-if="tokenGate == 'active'">
-        <p>Connected Wallet: {{ account }}</p>
+        <div class="flex">
+          <div class="flex-none w-32">Wallet Id:</div>
+          <div class="flex-initial w-64">{{ account }}</div>
+        </div>
         <div v-if="nftCount > 0">
           <p>We see {{ nftCount }} Named Noun(s) in your wallet! Thank you for being a supporter.</p>
         </div>
@@ -98,7 +101,13 @@ export default defineComponent({
       console.log("switchToPolygon called");
       await switchNetwork(ChainIds.Polygon);
     }
-    const account = computed(() => { return store.state.account; });
+    const account = computed(() => { 
+      let account = store.state.account; 
+      if (!account) {
+        return "";
+      }
+      return account.substring(0,6) + "..." + account.substring(38);
+    });
     
     return {
       account,
