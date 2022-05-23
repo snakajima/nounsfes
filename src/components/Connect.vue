@@ -50,6 +50,8 @@ export default defineComponent({
         console.log(e);
       }
       isBusy.value = "";
+      console.log("*****", store.state.account);
+      // signIn();
     };
     const signIn = async () => {
       // Step 1: We get a nonce from the server

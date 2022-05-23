@@ -1,7 +1,15 @@
 <template>
   <div class="max-w-lg mx-auto text-left p-2">
-    <div v-if="account && nftCount > 0" class="mb-8">
-      <p>We see {{ nftCount }} Named Noun(s) in your wallet! Thank you for being a supporter.</p>
+    <div class="mb-8">
+      <div v-if="tokenGate == 'switchNetwork'">
+        <p>Please switch the Polygon network. <a @click="switchToPolygon" class="underline">Switch</a></p>
+      </div>
+      <div v-else-if="tokenGate == 'active' && nftCount > 0">
+        <p>We see {{ nftCount }} Named Noun(s) in your wallet! Thank you for being a supporter.</p>
+      </div>
+      <div v-else>
+        <p>Please connect your Metamask to check if you have any Named Noun NFTs.</p>
+      </div>
     </div>
 
     <p class="text-3xl mb-2 font-londrina">Named Noun</p>
@@ -34,6 +42,7 @@ import { defineComponent, computed, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import { useStore } from "vuex";
 import { ethers } from "ethers";
+import { ChainIds, switchNetwork } from "../utils/MetaMask";
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const namedNounAbi = require("../abis/NamedNoun.json");
@@ -61,10 +70,15 @@ export default defineComponent({
     const lang = computed(() => {
       return i18n.locale.value;
     });
-    const account = computed(() => {
-      const account = store.state.account;
+    const tokenGate = computed(() => {
+    const account = store.state.account;
+    const chainId = store.state.chainId;
+      console.log("** recomputing", account, chainId);
       if (!account) {
         return undefined;
+      }
+      if (chainId != ChainIds.Polygon) {
+        return "switchNetwork";
       }
       const fetchInfo = async () => {
         const accounts = itemIds.map(() => {return account;});
@@ -73,17 +87,21 @@ export default defineComponent({
           return total.add(result);
         }, ethers.BigNumber.from(0));
         nftCount.value = count.toNumber();
-        console.log("**** computed", nftCount.value);
       };
       fetchInfo();
-      return account;
+      return "active";
     });
+    const switchToPolygon = async () => {
+      console.log("switchToPolygon called");
+      await switchNetwork(ChainIds.Polygon);
+    }
     
     return {
       nftCount,
-      account,
+      tokenGate,
       lang,
       raised_eth,
+      switchToPolygon
     };
   }
 });
