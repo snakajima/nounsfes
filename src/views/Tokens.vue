@@ -1,7 +1,15 @@
 <template>
   <div class="max-w-lg mx-auto text-left p-2">
-    <div v-if="account && nftCount > 0" class="mb-8">
-      <p>We see {{ nftCount }} Named Noun(s) in your wallet! Thank you for being a supporter.</p>
+    <div class="mb-8">
+      <div v-if="tokenGate == 'switchNetwork'">
+        <p>Please switch the network to Polygon.</p>
+      </div>
+      <div v-else-if="tokenGate == 'active' && nftCount > 0">
+        <p>We see {{ nftCount }} Named Noun(s) in your wallet! Thank you for being a supporter.</p>
+      </div>
+      <div v-else>
+        <p>Please connect your Metamask to check if you have any Named Noun NFTs.</p>
+      </div>
     </div>
 
     <p class="text-3xl mb-2 font-londrina">Named Noun</p>
@@ -62,12 +70,15 @@ export default defineComponent({
     const lang = computed(() => {
       return i18n.locale.value;
     });
-    const account = computed(() => {
-      const account = store.state.account;
-      const chainId = store.state.chainId;
+    const tokenGate = computed(() => {
+    const account = store.state.account;
+    const chainId = store.state.chainId;
       console.log("** recomputing", account, chainId);
-      if (!(account && chainId == ChainIds.Polygon)) {
+      if (!account) {
         return undefined;
+      }
+      if (chainId != ChainIds.Polygon) {
+        return "switchNetwork";
       }
       const fetchInfo = async () => {
         const accounts = itemIds.map(() => {return account;});
@@ -78,12 +89,12 @@ export default defineComponent({
         nftCount.value = count.toNumber();
       };
       fetchInfo();
-      return account;
+      return "active";
     });
     
     return {
       nftCount,
-      account,
+      tokenGate,
       lang,
       raised_eth,
     };
