@@ -7,7 +7,7 @@
 <script lang="ts">
 import { computed, defineComponent } from "vue";
 import { useStore } from "vuex";
-import { ethereum, getAccount, hasMetaMask, ProviderConnectInfo, ProviderRpcError } from "./utils/MetaMask";
+import { ethereum, startMonitoringMetamask } from "./utils/MetaMask";
 import { useUser } from "@/utils/utils";
 
 export default defineComponent({
@@ -15,36 +15,7 @@ export default defineComponent({
     const store = useStore();
     const user = useUser();
 
-    getAccount().then((value) => {
-      console.log("Eth gotAccount", value);
-      store.commit("setAccount", value);
-      // fetchNFTs();
-    });
-    if (hasMetaMask) {
-      ethereum.on("accountsChanged", (accounts: string[]) => {
-        console.log("accountsChanged");
-        if (accounts.length == 0) {
-          store.commit("setAccount", null);
-        } else {
-          store.commit("setAccount", accounts[0]);
-          console.log("Eth accountsChanged", accounts[0]);
-          // fetchNFTs();
-        }
-      });
-      ethereum.on("connect", ( info: ProviderConnectInfo): void => {
-        console.log("*** connect", info);
-        store.commit("setChainId", info.chainId);
-        //this.actions.update({ chainId: parseChainId(chainId) })
-      });
-      ethereum.on("disconnect", ( info: ProviderRpcError): void => {
-        console.log("*** disconnect", info);
-        //this.actions.update({ chainId: parseChainId(chainId) })
-      });
-      ethereum.on("chainChanged", (chainId: string) => {
-        console.log("*** chainChanged", chainId);
-        store.commit("setChainId", chainId);
-      });
-    }
+    startMonitoringMetamask();
     const isSignedIn = computed(() => store.getters.isSignedIn);
 
     return {

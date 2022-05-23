@@ -65,7 +65,6 @@ export default defineComponent({
     const account = computed(() => {
       const account = store.state.account;
       const chainId = store.state.chainId;
-      console.log("*** account recomputing");
       if (!(account && chainId == ChainIds.Polygon)) {
         return undefined;
       }
@@ -76,7 +75,6 @@ export default defineComponent({
           return total.add(result);
         }, ethers.BigNumber.from(0));
         nftCount.value = count.toNumber();
-        console.log("**** computed", nftCount.value);
       };
       fetchInfo();
       return account;
