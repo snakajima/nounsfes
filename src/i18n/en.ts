@@ -6,9 +6,14 @@ const lang = {
     connected: "Sign In",
     signedIn: "Sign Out",
     nometamask: "No Metamask",
+    switch: "Switch",
   },
   message: {
     processing: "Processing...",
+    walletId: "Wallet Id:",
+    pleaseConect: "Please connect your Metamask to check if you have any Named Noun NFTs.",
+    pleaseSwitchToPolygon: "Please switch the Polygon network.",
+    youHaveNFTs: "You have {nftCount} Named Noun NFT(s). Thank you for being a supporter!",
     hello: "hello world",
   },
   derivatives: {

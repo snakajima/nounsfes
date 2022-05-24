@@ -2,19 +2,21 @@
   <div class="max-w-lg mx-auto text-left p-2">
     <div class="mb-8">
       <div v-if="tokenGate == 'switchNetwork'">
-        <p>Please switch the Polygon network. <a @click="switchToPolygon" class="underline">Switch</a></p>
+        <p>{{ $t("message.pleaseSwitchToPolygon") }}
+          <a @click="switchToPolygon" class="underline">{{ $t("menu.switch") }}</a>
+        </p>
       </div>
       <div v-else-if="tokenGate == 'active'">
         <div class="flex">
-          <div class="flex-none w-32">Wallet Id:</div>
+          <div class="flex-none w-32">{{ $t("message.walletId") }}</div>
           <div class="flex-initial w-64">{{ account }}</div>
         </div>
         <div v-if="nftCount > 0">
-          <p>We see {{ nftCount }} Named Noun(s) in your wallet! Thank you for being a supporter.</p>
+          <p>{{ $t("message.youHaveNFTs", { nftCount }) }}</p>
         </div>
       </div>
       <div v-else>
-        <p>Please connect your Metamask to check if you have any Named Noun NFTs.</p>
+        <p>{{ $t("message.pleaseConect") }}</p>
       </div>
     </div>
 

@@ -21,7 +21,7 @@ Note: We may choose to use a more generic icon (pin) for the general public, if 
 
 After we prove that we are able to build such a service, we are going to make another proposal to the Nouns DAO (not prop.house), which includes more features and  map-view of “current disasters”.
 
-# Team member
+# Team members
 **Producer**: [Satoshi.Nakajima](https://www.linkedin.com/in/satoshinakajima/) (@snamajima, Noun 245), software architect of Microsoft (Windows95),  founder of Xevo Inc, SW engineer of mmhmm, founder of [Nouns Art Festival](https://nounsfes.org)
 
 **Project Lead**: TAKEHARA Ryuji, software engineer, have more than 15 years Cloud/IoT/AI engineer career in SONY
@@ -35,3 +35,5 @@ After we prove that we are able to build such a service, we are going to make an
 We are running this as a project inside [Singularity Society](https://singularitysociety.org), a non profit organization registered in Tokyo Japan. 
 
 Project’s wallet address: 0x1cd4E2A5E667E5325842BAdB7669834dfe65515a
+
+
