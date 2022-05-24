@@ -50,13 +50,13 @@ import { defineComponent, computed, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import { useStore } from "vuex";
 import { ethers } from "ethers";
-import { ChainIds, switchNetwork } from "../utils/MetaMask";
+import { ethereum, ChainIds, switchNetwork } from "../utils/MetaMask";
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const namedNounAbi = require("../abis/NamedNoun.json");
-const namedNounAddress = "0x2953399124F0cBB46d2CbACD8A89cF0599974963";
-// Because OpenSea chose to put all Polygon NFTs in a single contract, we need to perform this hack
-// in order to know the number of NFTs in user's wallet. 
+const OpenSeaERC1155Abi = require("../abis/OpenSeaERC1155.json");
+const OpenSeaERC1155Address = "0x2953399124F0cBB46d2CbACD8A89cF0599974963";
+// Because OpenSea chose to put all Polygon NFTs in a single ERC1155 contract, 
+// we need to perform this hack in order to know the number of NFTs in user's wallet. 
 const itemId0 = ethers.BigNumber.from("35416128211843416333493280670751952307736614476901985064732031611086890336257");
 const itemId1 = ethers.BigNumber.from("35416128211843416333493280670751952307736614476901985064732031612186401964033");
 const delta = itemId1.sub(itemId0);
@@ -87,8 +87,8 @@ export default defineComponent({
         return "switchNetwork";
       }
       const fetchInfo = async () => {
-        const provider = new ethers.providers.Web3Provider((window as any).ethereum);
-        const namedNoun = new ethers.Contract(namedNounAddress, namedNounAbi, provider);
+        const provider = new ethers.providers.Web3Provider(ethereum);
+        const namedNoun = new ethers.Contract(OpenSeaERC1155Address, OpenSeaERC1155Abi, provider);
         const accounts = itemIds.map(() => {return account;});
         try {
           const results = await namedNoun.functions.balanceOfBatch(accounts, itemIds) as Array<Array<ethers.BigNumber>>;
