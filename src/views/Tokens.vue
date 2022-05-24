@@ -1,6 +1,10 @@
 <template>
   <div class="max-w-lg mx-auto text-left p-2">
     <div class="mb-8">
+      <div v-if="account" class="flex">
+        <div class="flex-none w-32">{{ $t("message.walletId") }}</div>
+        <div class="flex-initial w-64">{{ account }}</div>
+      </div>
       <div v-if="tokenGate == 'switchNetwork'">
         <div v-if="nounsCount > 0">
           <p>{{ $t("message.youHaveNouns", { nounsCount }) }}</p>
@@ -10,10 +14,6 @@
         </p>
       </div>
       <div v-else-if="tokenGate == 'active'">
-        <div class="flex">
-          <div class="flex-none w-32">{{ $t("message.walletId") }}</div>
-          <div class="flex-initial w-64">{{ account }}</div>
-        </div>
         <div v-if="namedNounCount > 0">
           <p>{{ $t("message.youHaveNFTs", { namedNounCount }) }}</p>
         </div>
