@@ -67,8 +67,6 @@ export default defineComponent({
   name: "HomePage",
   setup() {
     const store = useStore();
-    const provider = new ethers.providers.Web3Provider((window as any).ethereum);
-    const namedNoun = new ethers.Contract(namedNounAddress, namedNounAbi, provider);
     const nftCount = ref(0);
 
     const raised_eth = store.state.raised_eth;
@@ -89,12 +87,18 @@ export default defineComponent({
         return "switchNetwork";
       }
       const fetchInfo = async () => {
+        const provider = new ethers.providers.Web3Provider((window as any).ethereum);
+        const namedNoun = new ethers.Contract(namedNounAddress, namedNounAbi, provider);
         const accounts = itemIds.map(() => {return account;});
-        const results = await namedNoun.functions.balanceOfBatch(accounts, itemIds) as Array<Array<ethers.BigNumber>>;
-        const count = results[0].reduce((total, result) => {
-          return total.add(result);
-        }, ethers.BigNumber.from(0));
-        nftCount.value = count.toNumber();
+        try {
+          const results = await namedNoun.functions.balanceOfBatch(accounts, itemIds) as Array<Array<ethers.BigNumber>>;
+          const count = results[0].reduce((total, result) => {
+            return total.add(result);
+          }, ethers.BigNumber.from(0));
+          nftCount.value = count.toNumber();
+        } catch(e) {
+          console.error("fetchInfo", e);
+        }
       };
       fetchInfo();
       return "active";
