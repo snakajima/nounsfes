@@ -60,7 +60,7 @@ const namedNounAddress = "0x2953399124F0cBB46d2CbACD8A89cF0599974963";
 const itemId0 = ethers.BigNumber.from("35416128211843416333493280670751952307736614476901985064732031611086890336257");
 const itemId1 = ethers.BigNumber.from("35416128211843416333493280670751952307736614476901985064732031612186401964033");
 const delta = itemId1.sub(itemId0);
-const itemCount = 73;
+const itemCount = 76;
 const itemIds = [...Array(itemCount).keys()].map((value) => { return itemId0.add(ethers.BigNumber.from(delta.mul(value))); });
 
 export default defineComponent({
