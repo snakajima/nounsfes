@@ -24,14 +24,3 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
-
-#added by Hardhat but disabled for now
-# *~
-# .env
-# coverage
-# coverage.json
-# typechain
-
-#Hardhat files
-cache
-artifacts
