@@ -56,7 +56,7 @@ import { ethers } from "ethers";
 import { ethereum, ChainIds, switchNetwork } from "../utils/MetaMask";
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const NounsTokenAbi = require("../abis/TemplateERC721.json");
+const ERC721Abi = require("../abis/AbstractERC721.json");
 const NounsTokenAddress = "0x9C8fF314C9Bc7F6e59A9d9225Fb22946427eDC03";
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const OpenSeaERC1155Abi = require("../abis/OpenSeaERC1155.json");
@@ -93,7 +93,7 @@ export default defineComponent({
       if (chainId == ChainIds.Mainnet) {
         const fetchNounsToken = async() => {
           const provider = new ethers.providers.Web3Provider(ethereum);
-          const nounsToken = new ethers.Contract(NounsTokenAddress, NounsTokenAbi.abi, provider);
+          const nounsToken = new ethers.Contract(NounsTokenAddress, ERC721Abi.abi, provider);
           const result = await nounsToken.functions.balanceOf(account);
           console.log("******", result[0].toNumber());
           nounsCount.value = result[0].toNumber();
