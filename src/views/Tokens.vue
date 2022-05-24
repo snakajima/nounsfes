@@ -2,6 +2,9 @@
   <div class="max-w-lg mx-auto text-left p-2">
     <div class="mb-8">
       <div v-if="tokenGate == 'switchNetwork'">
+        <div v-if="nounsCount > 0">
+          <p>{{ $t("message.youHaveNouns", { nounsCount }) }}</p>
+        </div>
         <p>{{ $t("message.pleaseSwitchToPolygon") }}
           <a @click="switchToPolygon" class="underline">{{ $t("menu.switch") }}</a>
         </p>
@@ -11,8 +14,8 @@
           <div class="flex-none w-32">{{ $t("message.walletId") }}</div>
           <div class="flex-initial w-64">{{ account }}</div>
         </div>
-        <div v-if="nftCount > 0">
-          <p>{{ $t("message.youHaveNFTs", { nftCount }) }}</p>
+        <div v-if="namedNounCount > 0">
+          <p>{{ $t("message.youHaveNFTs", { namedNounCount }) }}</p>
         </div>
       </div>
       <div v-else>
@@ -70,7 +73,8 @@ export default defineComponent({
   name: "HomePage",
   setup() {
     const store = useStore();
-    const nftCount = ref(0);
+    const namedNounCount = ref(0);
+    const nounsCount = ref(0);
 
     const raised_eth = store.state.raised_eth;
     console.log(store.state);
@@ -91,7 +95,8 @@ export default defineComponent({
           const provider = new ethers.providers.Web3Provider(ethereum);
           const nounsToken = new ethers.Contract(NounsTokenAddress, NounsTokenAbi, provider);
           const result = await nounsToken.functions.balanceOf(account);
-          console.log("******", result);
+          console.log("******", result[0].toNumber());
+          nounsCount.value = result[0].toNumber();
         };
         fetchNounsToken();
         return "switchNetwork";
@@ -108,7 +113,7 @@ export default defineComponent({
           const count = results[0].reduce((total, result) => {
             return total.add(result);
           }, ethers.BigNumber.from(0));
-          nftCount.value = count.toNumber();
+          namedNounCount.value = count.toNumber();
         } catch(e) {
           console.error("fetchInfo", e);
         }
@@ -130,7 +135,8 @@ export default defineComponent({
     
     return {
       account,
-      nftCount,
+      namedNounCount,
+      nounsCount,
       tokenGate,
       lang,
       raised_eth,

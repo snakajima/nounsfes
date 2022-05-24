@@ -13,7 +13,8 @@ const lang = {
     walletId: "ウォレットID:",
     pleaseConect: "Named Noun NFT をお持ちの方は、Metamask を接続して下さい。",
     pleaseSwitchToPolygon: "Polygon ネットワークに切り替えて下さい。",
-    youHaveNFTs: "{nftCount}個の Named Noun NFT をお持ちであることが確認出来ました。サポート、ありがとうございます。",
+    youHaveNFTs: "{namedNounCount}個の Named Noun NFT をお持ちであることが確認出来ました。サポート、ありがとうございます。",
+    youHaveNouns: "{nounsCount}個の Noun をお持ちであることが確認出来ました。",
     hello: "こんにちは、世界",
   },
   derivatives: {
