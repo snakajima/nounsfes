@@ -1,0 +1,21 @@
+{
+  "name": "nounfes-hardhat",
+  "version": "1.0.1",
+  "license": "MIT",
+  "scripts": {
+    "chain": "hardhat node",
+    "sample": "hardhat run scripts/sample-script.js --network localhost",
+    "mainnet": "sh .hidden/mainnet.sh"
+  },
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.6",
+    "@nomiclabs/hardhat-waffle": "^2.0.3",
+    "chai": "^4.3.6",
+    "ethereum-waffle": "^3.4.4",
+    "ethers": "^5.6.7",
+    "hardhat": "^2.9.6"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.6.0"
+  }
+}
