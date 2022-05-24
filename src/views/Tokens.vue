@@ -53,6 +53,9 @@ import { ethers } from "ethers";
 import { ethereum, ChainIds, switchNetwork } from "../utils/MetaMask";
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
+const NounsTokenAbi = require("../abis/NounsToken.json");
+const NounsTokenAddress = "0x9C8fF314C9Bc7F6e59A9d9225Fb22946427eDC03";
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const OpenSeaERC1155Abi = require("../abis/OpenSeaERC1155.json");
 const OpenSeaERC1155Address = "0x2953399124F0cBB46d2CbACD8A89cF0599974963";
 // Because OpenSea chose to put all Polygon NFTs in a single ERC1155 contract, 
@@ -83,10 +86,20 @@ export default defineComponent({
       if (!account) {
         return undefined;
       }
+      if (chainId == ChainIds.Mainnet) {
+        const fetchNounsToken = async() => {
+          const provider = new ethers.providers.Web3Provider(ethereum);
+          const nounsToken = new ethers.Contract(NounsTokenAddress, NounsTokenAbi, provider);
+          const result = await nounsToken.functions.balanceOf(account);
+          console.log("******", result);
+        };
+        fetchNounsToken();
+        return "switchNetwork";
+      }
       if (chainId != ChainIds.Polygon) {
         return "switchNetwork";
       }
-      const fetchInfo = async () => {
+      const fetchNamedNoun = async () => {
         const provider = new ethers.providers.Web3Provider(ethereum);
         const namedNoun = new ethers.Contract(OpenSeaERC1155Address, OpenSeaERC1155Abi, provider);
         const accounts = itemIds.map(() => {return account;});
@@ -100,7 +113,7 @@ export default defineComponent({
           console.error("fetchInfo", e);
         }
       };
-      fetchInfo();
+      fetchNamedNoun();
       return "active";
     });
     const switchToPolygon = async () => {
