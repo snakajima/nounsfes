@@ -86,14 +86,17 @@ export default defineComponent({
     const tokenGate = computed(() => {
       const account = store.state.account;
       const chainId = store.state.chainId;
+      const provider = new ethers.providers.Web3Provider(ethereum);
+      // provider is sufficient for read-only contract, but we use signer for future enhancement
+      const signer = provider.getSigner();
+
       console.log("** recomputing", account, chainId);
       if (!account) {
         return undefined;
       }
       if (chainId == ChainIds.Mainnet) {
         const fetchNounsToken = async() => {
-          const provider = new ethers.providers.Web3Provider(ethereum);
-          const nounsToken = new ethers.Contract(NounsTokenAddress, ERC721Abi.abi, provider);
+          const nounsToken = new ethers.Contract(NounsTokenAddress, ERC721Abi.abi, signer);
           const result = await nounsToken.functions.balanceOf(account);
           console.log("******", result[0].toNumber());
           nounsCount.value = result[0].toNumber();
@@ -105,8 +108,7 @@ export default defineComponent({
         return "switchNetwork";
       }
       const fetchNamedNoun = async () => {
-        const provider = new ethers.providers.Web3Provider(ethereum);
-        const namedNoun = new ethers.Contract(OpenSeaERC1155Address, OpenSeaERC1155Abi, provider);
+        const namedNoun = new ethers.Contract(OpenSeaERC1155Address, OpenSeaERC1155Abi, signer);
         const accounts = itemIds.map(() => {return account;});
         try {
           const results = await namedNoun.functions.balanceOfBatch(accounts, itemIds) as Array<Array<ethers.BigNumber>>;
