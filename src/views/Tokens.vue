@@ -56,13 +56,14 @@ import { ethers } from "ethers";
 import { ethereum, ChainIds, switchNetwork } from "../utils/MetaMask";
 
 const ERC721 = {
-  abi: require("../abis/AbstractERC721.json"),
+  wabi: require("../abis/AbstractERC721.json"), // wrapped abi
   address: "0x9C8fF314C9Bc7F6e59A9d9225Fb22946427eDC03"
 };
 const OpenSeaERC1155 = {
   abi: require("../abis/OpenSeaERC1155.json"),
   address: "0x2953399124F0cBB46d2CbACD8A89cF0599974963"
 };
+
 // Because OpenSea chose to put all Polygon NFTs in a single ERC1155 contract, 
 // we need to perform this hack in order to know the number of NFTs in user's wallet. 
 const itemId0 = ethers.BigNumber.from("35416128211843416333493280670751952307736614476901985064732031611086890336257");
@@ -79,8 +80,6 @@ export default defineComponent({
     const nounsCount = ref(0);
 
     const raised_eth = store.state.raised_eth;
-    console.log(store.state);
-    console.log(raised_eth);
     const i18n = useI18n();
     const lang = computed(() => {
       return i18n.locale.value;
@@ -98,7 +97,7 @@ export default defineComponent({
       }
       if (chainId == ChainIds.Mainnet) {
         const fetchNounsToken = async() => {
-          const nounsToken = new ethers.Contract(ERC721.address, ERC721.abi.abi, signer);
+          const nounsToken = new ethers.Contract(ERC721.address, ERC721.wabi.abi, signer);
           const result = await nounsToken.functions.balanceOf(account);
           console.log("******", result[0].toNumber());
           nounsCount.value = result[0].toNumber();
