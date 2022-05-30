@@ -7,6 +7,7 @@ const lang = {
     signedIn: "Sign Out",
     nometamask: "No Metamask",
     switch: "Switch",
+    form: "Submission Form",
   },
   message: {
     processing: "Processing...",

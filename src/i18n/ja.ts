@@ -7,6 +7,7 @@ const lang = {
     signedIn: "サインアウト",
     nometamask: "メタマスク不在",
     switch: "切り替える",
+    form: "提出フォーム",
   },
   message: {
     processing: "処理中...",

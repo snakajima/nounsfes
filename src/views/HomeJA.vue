@@ -54,12 +54,12 @@
           <iframe class="mb-1" width="320" height="180" src="https://www.youtube.com/embed/v27CEFE02Hs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           <iframe class="mb-1" width="320" height="180" src="https://www.youtube.com/embed/2hZTpZrrDbY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </li>
-        <li><b class="font-londrina">Notes:</b>
+        <li><b class="font-londrina">注釈:</b>
           <ul>
             <li class="ml-8 -indent-4">*1: 賞金のうち$25,000 は、「<a class="underline" href="https://www.irs.gov/charities-non-profits/charitable-organizations/exemption-requirements-501c3-organizations">501(c)(3)ステータス</a>」を持つNPO向けのものです。</li>
           </ul>
         </li>
-        <li class="ml-4 -indent-4"><b class="font-londrina">Contact:</b> <a class="underline" href="https://twitter.com/nounsfes">@nounsfes</a>までDMを下さい。</li>
+        <li class="ml-4 -indent-4"><b class="font-londrina">質問:</b> <a class="underline" href="https://twitter.com/nounsfes">@nounsfes</a>までDMを下さい。</li>
       </ul> 
     </div>
   </div>
