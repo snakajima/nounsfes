@@ -19,7 +19,8 @@
         <li class="ml-4 -indent-4"><b class="font-yusei">募集作品:</b> 愛、平和、もしくは維持可能な地球(<a class="underline" href="https://sdgs.un.org/goals" target="_blank">SDGs</a>)をテーマにした、２〜３分の短編映像 </li>
         <li class="ml-4 -indent-4"><b class="font-yusei">参加条件:</b> 個人、グループ、営利企業、非営利企業が参加可能です</li>
         <li class="ml-4 -indent-4"><b class="font-yusei">目的:</b>観た人に感動を与え、より良い未来を作る</li>
-        <li class="ml-4 -indent-4"><b class="font-yusei">応募方法:</b>Youtubeもしくは<a href="https://ooo.mmhmm.app/" class="underline">mmhmm</a>に映像をアップロードした後、URLを指定のフォーム（6月1日公開）に投稿してください</li>
+        <li class="ml-4 -indent-4"><b class="font-yusei">応募方法:</b>Youtubeもしくは<a href="https://ooo.mmhmm.app/" class="underline">mmhmm</a>に映像をアップロードした後、
+          URLを<a href="#form" class="underline">下記のフォーム</a>に投稿してください</li>
         <li><b class="font-londrina">When:</b>
           <ul class="ml-8">
             <li class="list-disc">発表: 2022年5月1日</li>

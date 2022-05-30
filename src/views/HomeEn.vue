@@ -22,8 +22,7 @@
         <li class="ml-4 -indent-4"><b class="font-londrina">Why:</b> Inspire the audience and create a better future</li>
         <li class="ml-4 -indent-4"><b class="font-londrina">How:</b> Upload your video to Youtube or
         create a video presentation with <a href="https://ooo.mmhmm.app/" class="underline">mmhmm</a>, 
-        and submit its URL via the submission form 
-        (which will become available on June 1st below)</li>
+        and submit its URL via the <a href="#form" class="underline">submission form below</a></li>
         <li><b class="font-londrina">When:</b>
           <ul class="ml-8">
             <li class="list-disc">Announcement: May 1st, 2022</li>
