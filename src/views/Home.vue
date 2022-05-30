@@ -2,6 +2,13 @@
 <div class="max-w-lg mx-auto text-left p-2">
   <HomeJA v-if="lang==='ja'"/>
   <HomeEn v-else />
+  
+  <div class="max-w-lg mx-auto text-left p-2">
+    <div class="space-y-2 font-pt-root font-medium">
+      <p><b class="font-londrina">Submission Form:</b></p>
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfcf9s3eDtJ-EHQIlrjzKKCtpkuVmiRx9DncKDQYJB1Q94ETA/viewform?embedded=true" width="640" height="971" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    </div>
+  </div>
  </div>
 </template>
 
