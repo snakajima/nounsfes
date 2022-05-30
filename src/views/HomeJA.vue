@@ -29,7 +29,7 @@
           </ul>
         </li>
         <li class="ml-4 -indent-4"><b class="font-yusei">スポンサー:</b> <span class="font-londrina">NounsDAO</span>、Nakajima Foundation他 (募集中)</li>
-        <li class="ml-4 -indent-4"><b class="font-yusei">賞金:</b> {{ total_eth }}ETH + $25,000 (*1)</li>
+        <li class="ml-4 -indent-4"><b class="font-yusei">賞金:</b> {{ total_eth }}ETH + $25,000 (<a href="#note1">*1</a>)</li>
         <li><b class="font-yusei">募集要項:</b>
           <ul class="ml-8">
             <li class="list-disc">下の映像を作品の冒頭に置いて下さい(<a class="underline" href="https://twitter.com/Fuyu256S">Fuyu256さん</a>に作っていただきました) 
@@ -56,7 +56,7 @@
         </li>
         <li><b class="font-londrina">注釈:</b>
           <ul>
-            <li class="ml-8 -indent-4">*1: 賞金のうち$25,000 は、「<a class="underline" href="https://www.irs.gov/charities-non-profits/charitable-organizations/exemption-requirements-501c3-organizations">501(c)(3)ステータス</a>」を持つNPO向けのものです。</li>
+            <li id="note1" class="ml-8 -indent-4">*1: 賞金のうち$25,000 は、「<a class="underline" href="https://www.irs.gov/charities-non-profits/charitable-organizations/exemption-requirements-501c3-organizations">501(c)(3)ステータス</a>」を持つNPO向けのものです。</li>
           </ul>
         </li>
         <li class="ml-4 -indent-4"><b class="font-londrina">質問:</b> <a class="underline" href="https://twitter.com/nounsfes">@nounsfes</a>までDMを下さい。</li>
