@@ -21,6 +21,8 @@ const lang = {
   derivatives: {
     title: "Derivatives",
   },
+  notFoundMessage:
+    "404: This is not the person, place, or thing you're looking for...",
   languages,
 };
 
