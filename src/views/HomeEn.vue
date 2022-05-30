@@ -22,8 +22,7 @@
         <li class="ml-4 -indent-4"><b class="font-londrina">Why:</b> Inspire the audience and create a better future</li>
         <li class="ml-4 -indent-4"><b class="font-londrina">How:</b> Upload your video to Youtube or
         create a video presentation with <a href="https://ooo.mmhmm.app/" class="underline">mmhmm</a>, 
-        and submit its URL via the submission form 
-        (which will become available on June 1st below)</li>
+        and submit its URL via the <a href="#form" class="underline">submission form below</a></li>
         <li><b class="font-londrina">When:</b>
           <ul class="ml-8">
             <li class="list-disc">Announcement: May 1st, 2022</li>
@@ -33,7 +32,7 @@
           </ul>
         </li>
         <li class="ml-4 -indent-4"><b class="font-londrina">Sponsors:</b> <span class="font-londrina">NounsDAO</span>, Nakajima Foundation and others (to be announced)</li>
-        <li class="ml-4 -indent-4"><b class="font-londrina">Prizes:</b> {{ total_eth }}ETH + $25,000 (*1)</li>
+        <li class="ml-4 -indent-4"><b class="font-londrina">Prizes:</b> {{ total_eth }}ETH + $25,000 (<a href="#note1">*1</a>)</li>
         <li><b class="font-londrina">Requirements:</b>
           <ul class="ml-8">
             <li class="list-disc">Please add this one-second video clip at the very beginning (created by <a class="underline" href="https://twitter.com/Fuyu256S">Fuyu256</a> ). 
@@ -60,7 +59,7 @@
         </li>
         <li><b class="font-londrina">Notes:</b>
           <ul>
-            <li class="ml-8 -indent-4">*1: The recipent of $25,000 must be a charitable organization 
+            <li id="note1" class="ml-8 -indent-4">*1: The recipent of $25,000 must be a charitable organization 
               with for <a class="underline" href="https://www.irs.gov/charities-non-profits/charitable-organizations/exemption-requirements-501c3-organizations">501(c)(3) status</a>.</li>
           </ul>
         </li>

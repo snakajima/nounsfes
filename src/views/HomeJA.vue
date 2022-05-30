@@ -19,7 +19,8 @@
         <li class="ml-4 -indent-4"><b class="font-yusei">募集作品:</b> 愛、平和、もしくは維持可能な地球(<a class="underline" href="https://sdgs.un.org/goals" target="_blank">SDGs</a>)をテーマにした、２〜３分の短編映像 </li>
         <li class="ml-4 -indent-4"><b class="font-yusei">参加条件:</b> 個人、グループ、営利企業、非営利企業が参加可能です</li>
         <li class="ml-4 -indent-4"><b class="font-yusei">目的:</b>観た人に感動を与え、より良い未来を作る</li>
-        <li class="ml-4 -indent-4"><b class="font-yusei">応募方法:</b>Youtubeもしくは<a href="https://ooo.mmhmm.app/" class="underline">mmhmm</a>に映像をアップロードした後、URLを指定のフォーム（6月1日公開）に投稿してください</li>
+        <li class="ml-4 -indent-4"><b class="font-yusei">応募方法:</b>Youtubeもしくは<a href="https://ooo.mmhmm.app/" class="underline">mmhmm</a>に映像をアップロードした後、
+          URLを<a href="#form" class="underline">下記のフォーム</a>に投稿してください</li>
         <li><b class="font-londrina">When:</b>
           <ul class="ml-8">
             <li class="list-disc">発表: 2022年5月1日</li>
@@ -29,7 +30,7 @@
           </ul>
         </li>
         <li class="ml-4 -indent-4"><b class="font-yusei">スポンサー:</b> <span class="font-londrina">NounsDAO</span>、Nakajima Foundation他 (募集中)</li>
-        <li class="ml-4 -indent-4"><b class="font-yusei">賞金:</b> {{ total_eth }}ETH + $25,000 (*1)</li>
+        <li class="ml-4 -indent-4"><b class="font-yusei">賞金:</b> {{ total_eth }}ETH + $25,000 (<a href="#note1">*1</a>)</li>
         <li><b class="font-yusei">募集要項:</b>
           <ul class="ml-8">
             <li class="list-disc">下の映像を作品の冒頭に置いて下さい(<a class="underline" href="https://twitter.com/Fuyu256S">Fuyu256さん</a>に作っていただきました) 
@@ -54,12 +55,12 @@
           <iframe class="mb-1" width="320" height="180" src="https://www.youtube.com/embed/v27CEFE02Hs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           <iframe class="mb-1" width="320" height="180" src="https://www.youtube.com/embed/2hZTpZrrDbY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </li>
-        <li><b class="font-londrina">Notes:</b>
+        <li><b class="font-londrina">注釈:</b>
           <ul>
-            <li class="ml-8 -indent-4">*1: 賞金のうち$25,000 は、「<a class="underline" href="https://www.irs.gov/charities-non-profits/charitable-organizations/exemption-requirements-501c3-organizations">501(c)(3)ステータス</a>」を持つNPO向けのものです。</li>
+            <li id="note1" class="ml-8 -indent-4">*1: 賞金のうち$25,000 は、「<a class="underline" href="https://www.irs.gov/charities-non-profits/charitable-organizations/exemption-requirements-501c3-organizations">501(c)(3)ステータス</a>」を持つNPO向けのものです。</li>
           </ul>
         </li>
-        <li class="ml-4 -indent-4"><b class="font-londrina">Contact:</b> <a class="underline" href="https://twitter.com/nounsfes">@nounsfes</a>までDMを下さい。</li>
+        <li class="ml-4 -indent-4"><b class="font-londrina">質問:</b> <a class="underline" href="https://twitter.com/nounsfes">@nounsfes</a>までDMを下さい。</li>
       </ul> 
     </div>
   </div>
