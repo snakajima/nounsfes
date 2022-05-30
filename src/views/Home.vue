@@ -6,7 +6,9 @@
   <div class="max-w-lg mx-auto text-left p-2">
     <div class="space-y-2 font-pt-root font-medium">
       <p id="form"><b class="font-londrina">{{ $t('menu.form') }}:</b></p>
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfcf9s3eDtJ-EHQIlrjzKKCtpkuVmiRx9DncKDQYJB1Q94ETA/viewform?embedded=true" width="480" height="480" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfcf9s3eDtJ-EHQIlrjzKKCtpkuVmiRx9DncKDQYJB1Q94ETA/viewform?embedded=true"
+              class="w-full h-screen m-0"
+              frameborder="0">Loading…</iframe>
     </div>
   </div>
  </div>

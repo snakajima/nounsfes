@@ -21,9 +21,9 @@
         <li class="ml-4 -indent-4"><b class="font-yusei">目的:</b>観た人に感動を与え、より良い未来を作る</li>
         <li class="ml-4 -indent-4"><b class="font-yusei">応募方法:</b>Youtubeもしくは<a href="https://ooo.mmhmm.app/" class="underline">mmhmm</a>に映像をアップロードした後、
           URLを<a href="#form" class="underline">下記のフォーム</a>に投稿してください</li>
-        <li><b class="font-londrina">When:</b>
+        <li><b class="font-londrina">スケジュール:</b>
           <ul class="ml-8">
-            <li class="list-disc">発表: 2022年5月1日</li>
+            <li class="list-disc">募集要項発表: 2022年5月1日</li>
             <li class="list-disc">募集期間: 2022年6月1日〜9月30日</li>
             <li class="list-disc">ノミネーション発表: 2022年10月10日</li>
             <li class="list-disc">最終選考: 2022年10月30日</li>
