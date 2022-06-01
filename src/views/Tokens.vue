@@ -9,7 +9,7 @@
         <div v-if="nounsCount > 0">
           <p>{{ $t("message.youHaveNouns", { nounsCount }) }}</p>
         </div>
-        <p>{{ $t("message.pleaseSwitchToPolygon") }}
+        <p v-else>{{ $t("message.pleaseSwitchToPolygon") }}
           <a @click="switchToPolygon" class="underline">{{ $t("menu.switch") }}</a>
         </p>
       </div>
@@ -57,7 +57,7 @@ import { ethereum, ChainIds, switchNetwork } from "../utils/MetaMask";
 
 const ERC721 = {
   wabi: require("../abis/AbstractERC721.json"), // wrapped abi
-  address: "0x9C8fF314C9Bc7F6e59A9d9225Fb22946427eDC03"
+  address: "0xb1b25eeb1026cb947b3f65a5cc123fc28b13eee6"
 };
 const OpenSeaERC1155 = {
   abi: require("../abis/OpenSeaERC1155.json"),

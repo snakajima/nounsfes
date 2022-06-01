@@ -15,7 +15,7 @@ const lang = {
     pleaseConect: "Please connect your Metamask to check if you have any Named Noun NFTs.",
     pleaseSwitchToPolygon: "Please switch the Polygon network.",
     youHaveNFTs: "You have {namedNounCount} Named Noun NFT(s). Thank you for being a supporter!",
-    youHaveNouns: "You have {nounsCount} Noun(s).",
+    youHaveNouns: "You have {nounsCount} Nouns Love NFTs. Thank you for being a supporter!",
     hello: "hello world",
   },
   derivatives: {

@@ -15,7 +15,7 @@ const lang = {
     pleaseConect: "Named Noun NFT をお持ちの方は、Metamask を接続して下さい。",
     pleaseSwitchToPolygon: "Polygon ネットワークに切り替えて下さい。",
     youHaveNFTs: "{namedNounCount}個の Named Noun NFT をお持ちであることが確認出来ました。サポート、ありがとうございます。",
-    youHaveNouns: "{nounsCount}個の Noun をお持ちであることが確認出来ました。",
+    youHaveNouns: "{nounsCount}個の Nouns Love NFT をお持ちであることが確認出来ました。サポート、ありがとうございます。",
     hello: "こんにちは、世界",
   },
   derivatives: {
