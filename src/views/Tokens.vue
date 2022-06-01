@@ -19,7 +19,7 @@
         </div>
       </div>
       <div v-else>
-        <p>{{ $t("message.pleaseConect") }}</p>
+        <p>{{ $t("message."+tokenGate) }}</p>
       </div>
     </div>
 
@@ -89,13 +89,16 @@ export default defineComponent({
     const tokenGate = computed(() => {
       const account = store.state.account;
       const chainId = store.state.chainId;
+      if (!ethereum) {
+        return "pleaseInstall";
+      }
       const provider = new ethers.providers.Web3Provider(ethereum);
       // provider is sufficient for read-only contract, but we use signer for future enhancement
       const signer = provider.getSigner();
 
       console.log("** recomputing", account, chainId);
       if (!account) {
-        return undefined;
+        return "pleaseConnect";
       }
       if (chainId == ChainIds.Mainnet) {
         const fetchNounsToken = async() => {

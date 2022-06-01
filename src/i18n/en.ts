@@ -12,7 +12,8 @@ const lang = {
   message: {
     processing: "Processing...",
     walletId: "Wallet Id:",
-    pleaseConect: "Please connect your Metamask to check if you have any Named Noun NFTs.",
+    pleaseInstall: "Please install Metamask to check your membership, if you have a supporter NFT.",
+    pleaseConnect: "Please connect your Metamask to check your membership, if you have a supporter NFT.",
     pleaseSwitchToPolygon: "Please switch the Polygon network.",
     youHaveNFTs: "You have {namedNounCount} Named Noun NFT(s). Thank you for being a supporter!",
     youHaveNouns: "You have {nounsCount} Nouns Love NFTs. Thank you for being a supporter!",
