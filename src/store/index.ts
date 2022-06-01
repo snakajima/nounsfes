@@ -14,8 +14,8 @@ export default createStore<State>({
     chainId: null,
     account: undefined,
     user: undefined,
-    raised_eth: 7.0,
-    total_eth: 5.0 + 7.0,
+    raised_eth: 8.1,
+    total_eth: 5.0 + 8.1,
   },
   mutations: {
     setChainId(state: State, chainId: string | null) {

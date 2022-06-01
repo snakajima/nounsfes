@@ -34,6 +34,7 @@
         <p>Thanks to all the supporters, we were able to raise <b class="font-londrina">{{raised_eth}}ETH</b> so far.
         Thank you very much!
         </p>
+        <p><span class="font-londrina">Nouns Love NFT</span> is available at <a href="https://nouns.love/" class="underline font-londrina">Nouns Love Auction Site.</a></p>
       </div>
     </div>
     <div v-else>
@@ -44,6 +45,7 @@
           というNFTコレクションを、サポーターに販売するという形のクラウドファンディングを行っています。</p>
         <p>おかげさまで、現時点で、<b class="font-londrina">{{raised_eth}}ETH</b> が集まっています。ありがとうございます！
         </p>
+        <p><span class="font-londrina">Nouns Love NFT</span> は <a href="https://nouns.love/ja" class="underline font-londrina">Nouns Love オークションサイト</a>で入手が可能です。</p>
       </div>
     </div>
     <img class="mb-4" src="@/assets/named_nouns.png" />
