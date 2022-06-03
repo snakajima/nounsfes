@@ -7,15 +7,15 @@
 <script lang="ts">
 import { computed, defineComponent } from "vue";
 import { useStore } from "vuex";
-import { startMonitoringMetamask } from "./utils/MetaMask";
 import { useUser } from "@/utils/utils";
 
 export default defineComponent({
   setup() {
     const store = useStore();
     const user = useUser();
+    const ethereum = (window as any).ethereum;
+    store.commit("setEthereum", ethereum);
 
-    startMonitoringMetamask();
     const isSignedIn = computed(() => store.getters.isSignedIn);
 
     return {

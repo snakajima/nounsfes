@@ -57,7 +57,7 @@ import { defineComponent, computed, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import { useStore } from "vuex";
 import { ethers } from "ethers";
-import { ethereum, ChainIds, switchNetwork } from "../utils/MetaMask";
+import { ChainIds, switchNetwork } from "../utils/MetaMask";
 
 const ERC721 = {
   wabi: require("../abis/AbstractERC721.json"), // wrapped abi
@@ -91,10 +91,10 @@ export default defineComponent({
     const tokenGate = computed(() => {
       const account = store.state.account;
       const chainId = store.state.chainId;
-      if (!ethereum) {
+      if (!store.getters.hasMetamask) {
         return "pleaseInstall";
       }
-      const provider = new ethers.providers.Web3Provider(ethereum);
+      const provider = new ethers.providers.Web3Provider(store.state.ethereum);
       // provider is sufficient for read-only contract, but we use signer for future enhancement
       const signer = provider.getSigner();
 
