@@ -1,5 +1,7 @@
 import { createStore } from "vuex";
 import { User } from "firebase/auth";
+import { ethers } from "ethers";
+import { ethereum } from "../utils/MetaMask";
 
 interface State {
   chainId: string | null;
@@ -31,6 +33,13 @@ export default createStore<State>({
   getters: {
     isSignedIn: (state: State) => {
       return state.user !== null && state.user !== undefined;
+    },
+    displayAccount: (state: State) => {
+      const account = state.account; 
+      if (!account) {
+        return "";
+      }
+      return account.substring(0,6) + "..." + account.substring(38);
     },
   },
   actions: {},

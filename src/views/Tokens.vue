@@ -1,9 +1,9 @@
 <template>
   <div class="max-w-lg mx-auto text-left p-2">
     <div class="mb-8">
-      <div v-if="account" class="flex">
+      <div v-if="displayAccount" class="flex">
         <div class="flex-none w-32">{{ $t("message.walletId") }}</div>
-        <div class="flex-initial w-64">{{ account }}</div>
+        <div class="flex-initial w-64">{{ displayAccount }}</div>
       </div>
       <div v-if="tokenGate == 'switchNetwork'">
         <div v-if="nounsCount > 0">
@@ -98,7 +98,7 @@ export default defineComponent({
       // provider is sufficient for read-only contract, but we use signer for future enhancement
       const signer = provider.getSigner();
 
-      console.log("** recomputing", account, chainId);
+      console.log("** recomputing", store.getters.displayAccount || "N/A", chainId);
       if (!account) {
         return "pleaseConnect";
       }
@@ -106,7 +106,6 @@ export default defineComponent({
         const fetchNounsToken = async() => {
           const nounsToken = new ethers.Contract(ERC721.address, ERC721.wabi.abi, signer);
           const result = await nounsToken.functions.balanceOf(account);
-          console.log("******", result[0].toNumber());
           nounsCount.value = result[0].toNumber();
         };
         fetchNounsToken();
@@ -135,16 +134,12 @@ export default defineComponent({
       console.log("switchToPolygon called");
       await switchNetwork(ChainIds.Polygon);
     }
-    const account = computed(() => { 
-      let account = store.state.account; 
-      if (!account) {
-        return "";
-      }
-      return account.substring(0,6) + "..." + account.substring(38);
+    const displayAccount = computed(() => {
+      return store.getters.displayAccount;
     });
     
     return {
-      account,
+      displayAccount,
       namedNounCount,
       nounsCount,
       tokenGate,

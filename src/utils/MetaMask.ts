@@ -42,8 +42,8 @@ export const ChainIds = {
 export const startMonitoringMetamask = () => {
   const store = useStore();
   getAccount().then((value) => {
-    console.log("Eth gotAccount", value);
     store.commit("setAccount", value);
+    console.log("Eth gotAccount", store.getters.displayAccount);
   });
   if (hasMetaMask) {
     ethereum.on("accountsChanged", (accounts: string[]) => {
@@ -52,15 +52,15 @@ export const startMonitoringMetamask = () => {
         store.commit("setAccount", null);
       } else {
         store.commit("setAccount", accounts[0]);
-        console.log("Eth accountsChanged", accounts[0]);
+        console.log("Eth acountsChanged", store.getters.displayAccount);
       }
     });
     ethereum.on("connect", ( info: ProviderConnectInfo): void => {
-      console.log("*** connect", info);
+      console.log("Eth connect", info, store.getters.displayAccount);
       store.commit("setChainId", info.chainId);
     });
     ethereum.on("disconnect", ( info: ProviderRpcError): void => {
-      console.log("*** disconnect", info);
+      console.log("Eth disconnect", info);
     });
     ethereum.on("chainChanged", (chainId: string) => {
       store.commit("setChainId", chainId);
