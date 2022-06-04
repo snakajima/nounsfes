@@ -1,4 +1,3 @@
-import { useStore } from "vuex";
 import store from "../store";
 
 export const requestAccount = async () => {
@@ -39,7 +38,6 @@ export const ChainIds = {
 };
 
 export const startMonitoringMetamask = () => {
-  const store = useStore();
   getAccount().then((value) => {
     store.commit("setAccount", value);
     console.log("Eth gotAccount", store.getters.displayAccount);
