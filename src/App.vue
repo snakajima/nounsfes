@@ -13,8 +13,21 @@ export default defineComponent({
   setup() {
     const store = useStore();
     const user = useUser();
+    const setEthereum = () => {
+      const ethereum = (window as any).ethereum;
+      if (store.state.ethereum != ethereum) {
+        store.commit("setEthereum", ethereum);
+      }
+    }
     const ethereum = (window as any).ethereum;
-    store.commit("setEthereum", ethereum);
+    if (ethereum) {
+      setEthereum();
+    } else {
+      window.addEventListener('ethereum#initialized', ()=>{
+        setEthereum();
+      }, { once: true });
+      setTimeout(setEthereum, 30000); // 30 seconds in which nothing happens on android
+    }
 
     const isSignedIn = computed(() => store.getters.isSignedIn);
 
