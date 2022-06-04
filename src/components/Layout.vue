@@ -42,8 +42,8 @@ export default defineComponent({
 
     onMounted(() => {
       auth.onAuthStateChanged((fbuser) => {
+        console.log("authStateChanged:");
         if (fbuser) {
-          console.log("authStateChanged:");
           user.user = fbuser;
           store.commit("setUser", fbuser);
         } else {

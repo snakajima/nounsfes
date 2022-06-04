@@ -1,9 +1,10 @@
 import { createStore } from "vuex";
 import { User } from "firebase/auth";
-import { ethers } from "ethers";
-import { ethereum } from "../utils/MetaMask";
+import { startMonitoringMetamask } from "../utils/MetaMask";
+import { auth } from "../utils/firebase";
 
 interface State {
+  ethereum: any | null;
   chainId: string | null;
   account: undefined | null | string;
   user: User | null | undefined;
@@ -13,6 +14,7 @@ interface State {
 
 export default createStore<State>({
   state: {
+    ethereum: null,
     chainId: null,
     account: undefined,
     user: undefined,
@@ -20,6 +22,12 @@ export default createStore<State>({
     total_eth: 5.0 + 8.1,
   },
   mutations: {
+    setEthereum(state: State, ethereum: any | null) {
+      state.ethereum = ethereum;
+      if (state.ethereum) {
+        startMonitoringMetamask();
+      }
+    },
     setChainId(state: State, chainId: string | null) {
       state.chainId = chainId;
     },
@@ -28,9 +36,15 @@ export default createStore<State>({
     },
     setAccount(state: State, account) {
       state.account = account;
+      if (state.user) {
+        auth.signOut();
+      }
     },
   },
   getters: {
+    hasMetaMask: (state: State) => {
+      return state.ethereum && state.ethereum.isMetaMask;
+    },
     isSignedIn: (state: State) => {
       return state.user !== null && state.user !== undefined;
     },

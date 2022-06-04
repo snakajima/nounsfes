@@ -29,7 +29,6 @@ import { defineComponent, computed } from "vue";
 import { useI18n } from "vue-i18n";
 import { useStore } from "vuex";
 import { ethers } from "ethers";
-import { ethereum } from "../utils/MetaMask";
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 //const greeter = require("../abis/Greeter.json");
@@ -45,6 +44,8 @@ const nounsDescriptorAddress = "0x0Cfdb3Ba1694c2bb2CFACB0339ad7b1Ae5932B63";
 export default defineComponent({
   name: "HomePage",
   setup() {
+    const store = useStore();
+    const ethereum = store.state.ethereum;
     const provider = new ethers.providers.Web3Provider(ethereum);
     const nounsToken = new ethers.Contract(nounsTokenAddress, nounsTokenAbi, provider);
     const nounsDescriptor = new ethers.Contract(nounsDescriptorAddress, nounsDescriptorAbi, provider);
@@ -62,7 +63,6 @@ export default defineComponent({
     };
     fetchGreeting();
 
-    const store = useStore();
     const raised_eth = store.state.raised_eth;
     console.log(store.state);
     console.log(raised_eth);

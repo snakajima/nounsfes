@@ -7,15 +7,28 @@
 <script lang="ts">
 import { computed, defineComponent } from "vue";
 import { useStore } from "vuex";
-import { startMonitoringMetamask } from "./utils/MetaMask";
 import { useUser } from "@/utils/utils";
 
 export default defineComponent({
   setup() {
     const store = useStore();
     const user = useUser();
+    const setEthereum = () => {
+      const ethereum = (window as any).ethereum;
+      if (store.state.ethereum != ethereum) {
+        store.commit("setEthereum", ethereum);
+      }
+    }
+    const ethereum = (window as any).ethereum;
+    if (ethereum) {
+      setEthereum();
+    } else {
+      window.addEventListener('ethereum#initialized', ()=>{
+        setEthereum();
+      }, { once: true });
+      setTimeout(setEthereum, 30000); // 30 seconds in which nothing happens on android
+    }
 
-    startMonitoringMetamask();
     const isSignedIn = computed(() => store.getters.isSignedIn);
 
     return {

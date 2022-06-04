@@ -1,10 +1,7 @@
-import { useStore } from "vuex";
-
-export const ethereum = (window as any).ethereum;
-export const hasMetaMask =
-  typeof ethereum !== "undefined" && ethereum.isMetaMask;
+import store from "../store";
 
 export const requestAccount = async () => {
+  const ethereum = store.state.ethereum;
   if (!ethereum) {
     return null;
   }
@@ -14,6 +11,7 @@ export const requestAccount = async () => {
 };
 
 export const getAccount = async (): Promise<string | null> => {
+  const ethereum = store.state.ethereum;
   if (!ethereum) {
     return null;
   }
@@ -40,12 +38,12 @@ export const ChainIds = {
 };
 
 export const startMonitoringMetamask = () => {
-  const store = useStore();
   getAccount().then((value) => {
     store.commit("setAccount", value);
     console.log("Eth gotAccount", store.getters.displayAccount);
   });
-  if (hasMetaMask) {
+  if (store.getters.hasMetaMask) {
+    const ethereum = store.state.ethereum;
     ethereum.on("accountsChanged", (accounts: string[]) => {
       console.log("accountsChanged", accounts.length);
       if (accounts.length == 0) {
@@ -69,6 +67,7 @@ export const startMonitoringMetamask = () => {
 };
 
 export const switchNetwork = async (chainId: string) => {
+  const ethereum = store.state.ethereum;
   try {
     await ethereum.request({ method: 'wallet_switchEthereumChain', params: [{ chainId }] });
   } catch(e) {
