@@ -91,7 +91,7 @@ export default defineComponent({
     const tokenGate = computed(() => {
       const account = store.state.account;
       const chainId = store.state.chainId;
-      if (!store.getters.hasMetamask) {
+      if (!store.getters.hasMetaMask) {
         return "pleaseInstall";
       }
       const provider = new ethers.providers.Web3Provider(store.state.ethereum);

@@ -30,7 +30,7 @@
 <script lang="ts">
 import { defineComponent, computed, ref } from "vue";
 import { useStore } from "vuex";
-import { hasMetaMask, requestAccount, ethereum } from "../utils/MetaMask";
+import { requestAccount } from "../utils/MetaMask";
 import { auth } from "../utils/firebase";
 import { signInWithCustomToken } from "firebase/auth";
 import { generateNonce, verifyNonce, deleteNonce } from "../utils/functions";
@@ -54,6 +54,7 @@ export default defineComponent({
       // signIn();
     };
     const signIn = async () => {
+      const ethereum = store.state.ethereum;
       // Step 1: We get a nonce from the server
       isBusy.value = "Fetching a verification message from server...";
       const account = store.state.account;
@@ -95,6 +96,9 @@ export default defineComponent({
     const signOut = async () => {
       await auth.signOut();
     };
+    const hasMetaMask = computed(()=>{
+      return store.getters.hasMetaMask;
+    });
 
     return {
       hasMetaMask,
