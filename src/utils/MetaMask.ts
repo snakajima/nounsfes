@@ -37,6 +37,24 @@ export const ChainIds = {
   Polygon: '0x89'
 };
 
+export const initializeEthereum = () => {
+  const setEthereum = () => {
+    const ethereum = (window as any).ethereum;
+    if (store.state.ethereum != ethereum) {
+      store.commit("setEthereum", ethereum);
+    }
+  }
+  const ethereum = (window as any).ethereum;
+  if (ethereum) {
+    setEthereum();
+  } else {
+    window.addEventListener('ethereum#initialized', ()=>{
+      setEthereum();
+    }, { once: true });
+    setTimeout(setEthereum, 30000); // 30 seconds in which nothing happens on android
+  }
+}
+
 export const startMonitoringMetamask = () => {
   getAccount().then((value) => {
     store.commit("setAccount", value);
