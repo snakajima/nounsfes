@@ -32,7 +32,8 @@
           </ul>
         </li>
         <li class="ml-4 -indent-4"><b class="font-londrina">Sponsors:</b> <span class="font-londrina">NounsDAO</span>, Nakajima Foundation and others (to be announced)</li>
-        <li class="ml-4 -indent-4"><b class="font-londrina">Prizes:</b> {{ total_eth }}ETH + $25,000 (<a href="#note1">*1</a>)</li>
+        <li class="ml-4 -indent-4"><b class="font-londrina">Prize:</b> {{ total_eth }}ETH</li>
+        <li class="ml-4 -indent-4"><b class="font-londrina">Charity Fund:</b> $25,000 (<a href="#note1">*1</a>)</li>
         <li><b class="font-londrina">Requirements:</b>
           <ul class="ml-8">
             <li class="list-disc">Please add this one-second video clip at the very beginning (created by <a class="underline" href="https://twitter.com/Fuyu256S">Fuyu256</a> ). 

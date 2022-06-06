@@ -30,7 +30,8 @@
           </ul>
         </li>
         <li class="ml-4 -indent-4"><b class="font-yusei">スポンサー:</b> <span class="font-londrina">NounsDAO</span>、Nakajima Foundation他 (募集中)</li>
-        <li class="ml-4 -indent-4"><b class="font-yusei">賞金:</b> {{ total_eth }}ETH + $25,000 (<a href="#note1">*1</a>)</li>
+        <li class="ml-4 -indent-4"><b class="font-yusei">賞金総額:</b> {{ total_eth }}ETH</li>
+        <li class="ml-4 -indent-4"><b class="font-yusei">寄付金総額:</b> $25,000 (<a href="#note1">*1</a>)</li>
         <li><b class="font-yusei">募集要項:</b>
           <ul class="ml-8">
             <li class="list-disc">下の映像を作品の冒頭に置いて下さい(<a class="underline" href="https://twitter.com/Fuyu256S">Fuyu256さん</a>に作っていただきました) 
