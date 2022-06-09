@@ -18,8 +18,8 @@ export default createStore<State>({
     chainId: null,
     account: undefined,
     user: undefined,
-    raised_eth: 8.1,
-    total_eth: 5.0 + 8.1,
+    raised_eth: 12.9,
+    total_eth: 5.0 + 12.9,
   },
   mutations: {
     setEthereum(state: State, ethereum: any | null) {
