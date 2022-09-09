@@ -11,10 +11,10 @@
       </div>
     </div>
     <div> 
-      <iframe class="mt-1 mb-1" width="320" height="180" src="https://www.youtube.com/embed/bQoJqDi8490" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      <iframe class="mb-1" width="320" height="180" src="https://www.youtube.com/embed/WmVLcj-XKnM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      <iframe class="mb-1" width="320" height="180" src="https://www.youtube.com/embed/v27CEFE02Hs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      <iframe class="mb-1" width="320" height="180" src="https://www.youtube.com/embed/2hZTpZrrDbY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe v-for="key in keys" :key="key" class="mb-1" width="320" height="180" 
+        :src="`https://www.youtube.com/embed/${key}`" 
+        title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+      </iframe>
     </div>
   </div>
 </template>
@@ -31,9 +31,22 @@ export default defineComponent({
     const lang = computed(() => {
       return i18n.locale.value;
     });
+    const keys = [
+      "XfF88y5acHk",
+      "SZlKgdxwYJs",
+      "pptsNJXVuBs",
+      "dG6LoLVMgqU",
+      "rdwKUDe59y8",
+      "lZf8QjD14Qc",
+      "lDlpl6704gk",
+      "YoDXxf9uV0s",
+      "xz7UaAU5ddg",
+      "jv6hKO0hsF0",
+    ];
     
     return {
       lang,
+      keys
     };
   }
 
