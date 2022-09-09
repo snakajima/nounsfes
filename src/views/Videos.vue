@@ -11,7 +11,7 @@
       </div>
     </div>
     <div> 
-      <iframe v-for="key in keys" :key="key" class="mb-1" width="320" height="180" 
+      <iframe v-for="key in keys" :key="key" class="mb-1" width="480" height="270" 
         :src="`https://www.youtube.com/embed/${key}`" 
         title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
       </iframe>
