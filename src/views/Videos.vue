@@ -32,16 +32,20 @@ export default defineComponent({
       return i18n.locale.value;
     });
     const keys = [
-      "XfF88y5acHk",
-      "SZlKgdxwYJs",
-      "pptsNJXVuBs",
-      "dG6LoLVMgqU",
-      "rdwKUDe59y8",
-      "lZf8QjD14Qc",
-      "lDlpl6704gk",
-      "YoDXxf9uV0s",
-      "xz7UaAU5ddg",
-      "jv6hKO0hsF0",
+      "XfF88y5acHk", // 7
+      "SZlKgdxwYJs", // 10
+      "pptsNJXVuBs", // 9
+      "dG6LoLVMgqU", // 3
+      "rdwKUDe59y8", // 8
+      "lZf8QjD14Qc", // 1
+      "lDlpl6704gk", // 11
+      "YoDXxf9uV0s", // 6
+      "xz7UaAU5ddg", // 12
+      "jv6hKO0hsF0", // 2
+      "zCqbdFt1Hns", // 14 (and 13)
+      "njDeMEnLDxc", // 15
+      "GB9ZSmYBQLI", // 16
+      "gZcUmPi3srw", // 17
     ];
     
     return {
