@@ -11,14 +11,14 @@ export const vote = async (data:any, context:any) => {
   const {voteEventId, selectionId,uid} = data;
   if (!context.auth || !context.auth.uid) {
     return {
-        retult: false,
+        result: false,
         message: "no auth"
       };
     }
   if (context.auth.uid != uid){
     console.log(`param uid:${uid} context:${context.auth.uid}`)
     return {
-        retult: false,
+        result: false,
         message: "invalid uid"
       };
   }
@@ -31,7 +31,7 @@ export const vote = async (data:any, context:any) => {
   // check vote_event, and answer.
   if (!vote_eventRef.exists) {
     return {
-      retult: false,
+      result: false,
       message: "no data"
     };
   }
@@ -43,7 +43,7 @@ export const vote = async (data:any, context:any) => {
   
   if (!voteLog.voted) {
     return {
-      retult: false,
+      result: false,
       message: "invalid data"
     };
   }
@@ -51,7 +51,7 @@ export const vote = async (data:any, context:any) => {
   // check user's vote not yet
   if (voteLog.voted[voteEventId]) {
     return {
-      retult: false,
+      result: false,
       message: "voted"
     };
     
@@ -77,7 +77,7 @@ export const vote = async (data:any, context:any) => {
   });
 
   return {
-    retult: true
+    result: true
   };
   
 };

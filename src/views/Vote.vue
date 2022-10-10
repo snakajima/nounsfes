@@ -20,16 +20,24 @@
           Vote
         </button>
       </div>
+      <div>
+          現在の投票総数：{{totalcount}}
+      </div>
     </div>
     <div class="grid grid-cols-3 gap-2 w-screen ">
-      <div v-for="option in vote_event.selections" :key="option.key" class="flen-col">
+      <div v-for="option in selections" :key="option.key" class="flex-col">
             <iframe class="mb-1" 
               :src="`https://www.youtube.com/embed/${option.key}`" 
               title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
             </iframe>            
-            <button @click="setSelected(option.id)" class="inline-block px-6 py-2.5 bg-white text-green-500 leading-tight rounded shadow-md hover:bg-green-100 hover:shadow-lg  focus:shadow-lg focus:outline-none focus:ring-0  transition duration-150 ease-in-out">
-              {{isSelected(option.id) ? 1 : 0}}
-            </button>
+            <div class="grid grid-cols-2">
+              <button @click="setSelected(option.id)" class="w-8 inline-block px-6 py-2.5 bg-white text-green-500 leading-tight rounded shadow-md hover:bg-green-100 hover:shadow-lg  focus:shadow-lg focus:outline-none focus:ring-0  transition duration-150 ease-in-out">
+                {{isSelected(option.id) ? 1 : 0}}
+              </button>
+              <span>
+              {{ option.count }} voted
+              </span>
+            </div>
         </div>
     </div>
 
@@ -89,15 +97,20 @@ import { defineComponent, computed, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import { useStore } from "vuex";
 import { ethers } from "ethers";
+import {
+  doc,
+  setDoc,
+  getDoc,
+  getDocs,
+  query,
+  where,
+  DocumentData,
+  collection,
+} from "firebase/firestore";
+import { db } from "@/utils/firebase";
 import { ChainIds, switchNetwork } from "../utils/MetaMask";
 import {vote_event} from "@/config/project";
 import {vote} from "@/utils/functions";
-
-interface Selection {
-  id : number,
-  key: string,
-  selected:boolean
-}
 
 const ERC721 = {
   wabi: require("../abis/AbstractERC721.json"), // wrapped abi
@@ -123,10 +136,16 @@ export default defineComponent({
     const namedNounCount = ref(0);
     const nounsCount = ref(0);
 
+    interface Selection {
+      id : number,
+      key: string,
+      selected:boolean,
+      count: number
+    }
     const selections = ref<Selection[]>([]);
     console.log(Object.assign([],vote_event.selections));
     selections.value = Object.assign([],vote_event.selections).map((a:{id:number,key:string})=>{
-      return {id:a.id, key:a.key, selected:false};
+      return {id:a.id, key:a.key, selected:false, count:0};
     });
     const isSelected = (i:number) => {
       const index = selections.value.findIndex(a=>a.id == i);
@@ -142,6 +161,22 @@ export default defineComponent({
     const getSelected = () => {
       return selections.value.filter((i) => i.selected);
     };
+    const totalcount = computed(() => selections.value.map(c=>c.count).reduce((p,c)=>p+c));
+
+    const updateCount = async () => {
+      //const q = query(
+      //  collection(db, `vote_events/${vote_event.id}/results`),
+      // );
+      const results = await getDocs(collection(db, `vote_events/${vote_event.id}/results`));      
+      console.log(results)
+      for (const doc of results.docs) {
+        console.log(doc.id);
+        const index = selections.value.findIndex(a=>a.id == Number(doc.id));
+        const data = doc.data() as {counter:number};
+        selections.value[index].count = data.counter;
+      }
+    };
+    updateCount();
     const callVote = async () => {
       const selected = getSelected()[0];
       console.log(selected);
@@ -151,11 +186,13 @@ export default defineComponent({
         selectionId: selected.id,
         uid: store.state.account
       }) as voteResult;
-      if(! (ret.data?.result)){
+      if(ret.data?.result){
+        await updateCount();
+      } else {
         console.error(ret.data);
       }
     }
-
+    
     const raised_eth = store.state.raised_eth;
     const i18n = useI18n();
     const lang = computed(() => {
@@ -213,10 +250,12 @@ export default defineComponent({
     
     return {
       vote_event,
+      selections,
       isSelected,
       setSelected,
       getSelected,
       callVote,
+      totalcount,
       displayAccount,
       namedNounCount,
       nounsCount,
