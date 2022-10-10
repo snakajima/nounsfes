@@ -3,8 +3,13 @@
     <p class="text-3xl mb-2 font-londrina">{{vote_event.title}}</p>      
     <div class="flex flex-row">
       <div class="max-w-xl">
-        {{vote_event.description}}
-        ノミネーション作品に対する投票をおこないます。一人、一票好きな作品に投稿ください。投票には下記どちらかのTokenを保持していることが必要です。
+        {{vote_event.description}}<BR/>
+        <span v-if="isVoted">
+          投票ありがとうございます。結果発表までしばらくお待ち下さい。
+        </span>
+        <span v-else>
+          ノミネーション作品に対する投票をおこないます。一人、一票好きな作品に投稿ください。投票には下記どちらかのTokenを保持していることが必要です。
+        </span>
         <ol>
           <li>
             <a href="https://opensea.io/collection/named-noun" class="underline font-londrina">Named Noun</a>
@@ -16,8 +21,20 @@
         Tokenをお持ちの方は右上のConnectボタンでWalletを接続してください。
       </div>
       <div class="align-right px-8">
-        <button @click="callVote" class="inline-block px-6 py-2.5 bg-green-500 text-white leading-tight rounded shadow-md hover:bg-green-700 hover:shadow-lg focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-800 active:shadow-lg transition duration-150 ease-in-out">
-          Vote
+        <button 
+          @click="callVote" 
+          v-if="!isVoted"
+          class="inline-block px-6 py-2.5 bg-green-500 text-white leading-tight rounded shadow-md hover:bg-green-700 hover:shadow-lg focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-800 active:shadow-lg transition duration-150 ease-in-out"
+        >
+            Vote
+        </button>
+        <button 
+          @click="callVote" 
+          v-if="isVoted"
+          disabled
+          class="inline-block px-6 py-2.5 bg-gray-500 text-white leading-tight rounded shadow-md"
+        >
+            Voted
         </button>
       </div>
       <div>
@@ -93,7 +110,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, ref } from "vue";
+import { onMounted, defineComponent, computed, watch, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import { useStore } from "vuex";
 import { ethers } from "ethers";
@@ -136,6 +153,18 @@ export default defineComponent({
     const namedNounCount = ref(0);
     const nounsCount = ref(0);
 
+    const isVoted = ref(false);
+    watch(
+      () => store.state.user,
+      async () => {
+        console.log(store.state.user.uid);
+        const docu = await getDoc(doc(db, `users/${store.state.user.uid}/private/votes`)); 
+        if (docu.exists()) {
+          console.log(docu.data());
+          isVoted.value = true;
+        }
+      }
+    );
     interface Selection {
       id : number,
       key: string,
@@ -176,7 +205,7 @@ export default defineComponent({
         selections.value[index].count = data.counter;
       }
     };
-    updateCount();
+
     const callVote = async () => {
       const selected = getSelected()[0];
       console.log(selected);
@@ -187,12 +216,18 @@ export default defineComponent({
         uid: store.state.account
       }) as voteResult;
       if(ret.data?.result){
+        isVoted.value = true;
         await updateCount();
       } else {
         console.error(ret.data);
       }
-    }
-    
+    };
+
+    onMounted(async () => {
+      await   updateCount();
+    });
+
+
     const raised_eth = store.state.raised_eth;
     const i18n = useI18n();
     const lang = computed(() => {
@@ -250,6 +285,7 @@ export default defineComponent({
     
     return {
       vote_event,
+      isVoted,
       selections,
       isSelected,
       setSelected,

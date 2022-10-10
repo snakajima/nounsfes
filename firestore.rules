@@ -15,8 +15,8 @@ service cloud.firestore {
     }
     
     match /users/{uid} {
-      allow read, write: if request.auth.uid == uid;
-      match /private/vote {
+      allow read: if request.auth.uid == uid;
+      match /private/votes {
         allow read: if request.auth.uid == uid;
       }
     }
