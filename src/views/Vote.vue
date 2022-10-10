@@ -16,7 +16,7 @@
         Tokenをお持ちの方は右上のConnectボタンでWalletを接続してください。
       </div>
       <div class="align-right px-8">
-        <button @click="vote" class="inline-block px-6 py-2.5 bg-green-500 text-white leading-tight rounded shadow-md hover:bg-green-700 hover:shadow-lg focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-800 active:shadow-lg transition duration-150 ease-in-out">
+        <button @click="callVote" class="inline-block px-6 py-2.5 bg-green-500 text-white leading-tight rounded shadow-md hover:bg-green-700 hover:shadow-lg focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-800 active:shadow-lg transition duration-150 ease-in-out">
           Vote
         </button>
       </div>
@@ -90,7 +90,9 @@ import { useI18n } from "vue-i18n";
 import { useStore } from "vuex";
 import { ethers } from "ethers";
 import { ChainIds, switchNetwork } from "../utils/MetaMask";
-import {vote_event} from "@/config/project"
+import {vote_event} from "@/config/project";
+import {vote} from "@/utils/functions";
+
 interface Selection {
   id : number,
   key: string,
@@ -140,8 +142,18 @@ export default defineComponent({
     const getSelected = () => {
       return selections.value.filter((i) => i.selected);
     };
-    const vote = () => {
-      console.log(getSelected());
+    const callVote = async () => {
+      const selected = getSelected()[0];
+      console.log(selected);
+      interface voteResult{ data:{result:boolean, message:string }}
+      const ret:voteResult= await vote({
+        voteEventId: vote_event.id,
+        selectionId: selected.id,
+        uid: store.state.account
+      }) as voteResult;
+      if(! (ret.data?.result)){
+        console.error(ret.data);
+      }
     }
 
     const raised_eth = store.state.raised_eth;
@@ -204,7 +216,7 @@ export default defineComponent({
       isSelected,
       setSelected,
       getSelected,
-      vote,
+      callVote,
       displayAccount,
       namedNounCount,
       nounsCount,

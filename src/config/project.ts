@@ -5,9 +5,11 @@ export const firebaseConfig = {
   storageBucket: "nounsfes.appspot.com",
   messagingSenderId: "670587195151",
   appId: "1:670587195151:web:0f959c3014383d185d387a",
-  measurementId: "G-G22ZT64FDJ"
+  measurementId: "G-G22ZT64FDJ",
+  useEmulator:true,
 };
 export const vote_event = {
+  id:"0001",
   start:new Date("2022/10/11"),
   end:new Date("2022/10/13"),
   title: "NounsArtFestival2022投票ページ（準備中）",
