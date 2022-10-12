@@ -97,12 +97,8 @@ import { useStore } from "vuex";
 import { ethers } from "ethers";
 import {
   doc,
-  setDoc,
   getDoc,
   getDocs,
-  query,
-  where,
-  DocumentData,
   collection,
 } from "firebase/firestore";
 import { db } from "@/utils/firebase";
@@ -138,11 +134,18 @@ export default defineComponent({
     watch(
       () => store.state.user,
       async () => {
-        console.log(store.state.user.uid);
-        const docu = await getDoc(doc(db, `users/${store.state.user.uid}/private/votes`)); 
-        if (docu.exists()) {
-          console.log(docu.data());
-          isVoted.value = true;
+        console.log(store.state.user);
+        if(!store.state.user){
+          return;
+        }
+        try {
+          const docu = await getDoc(doc(db, `users/${store.state.user.uid}/private/votes`)); 
+          if (docu.exists()) {
+            console.log(docu.data());
+            isVoted.value = true;
+          }
+        } catch(e) {
+          console.error("callVote", e);
         }
       }
     );
@@ -174,16 +177,17 @@ export default defineComponent({
     const totalcount = computed(() => selections.value.map(c=>c.count).reduce((p,c)=>p+c));
 
     const updateCount = async () => {
-      //const q = query(
-      //  collection(db, `vote_events/${vote_event.id}/results`),
-      // );
-      const results = await getDocs(collection(db, `vote_events/${vote_event.id}/results`));      
-      console.log(results)
-      for (const doc of results.docs) {
-        console.log(doc.id);
-        const index = selections.value.findIndex(a=>a.id == Number(doc.id));
-        const data = doc.data() as {counter:number};
-        selections.value[index].count = data.counter;
+      try {
+        const results = await getDocs(collection(db, `vote_events/${vote_event.id}/results`));      
+        console.log(results)
+        for (const doc of results.docs) {
+          console.log(doc.id);
+          const index = selections.value.findIndex(a=>a.id == Number(doc.id));
+          const data = doc.data() as {counter:number};
+          selections.value[index].count = data.counter;
+        }
+      } catch(e) {
+        console.error("updateCount", e);
       }
     };
 
@@ -191,17 +195,25 @@ export default defineComponent({
       const selected = getSelected()[0];
       console.log(selected);
       interface voteResult{ data:{result:boolean, message:string }}
-      const ret:voteResult= await vote({
-        voteEventId: vote_event.id,
-        selectionId: selected.id,
-        uid: store.state.account
-      }) as voteResult;
-      if(ret.data?.result){
-        isVoted.value = true;
-        await updateCount();
-      } else {
-        console.error(ret.data);
+      const token = 0 < nounsCount.value ? "nounsLove" : 
+          0 < namedNounCount.value ? "namedNoun" : "";
+      try {
+        const ret:voteResult= await vote({
+          voteEventId: vote_event.id,
+          selectionId: selected.id,
+          uid: store.state.account,
+          token
+        }) as voteResult;
+        if(ret.data?.result){
+          isVoted.value = true;
+          await updateCount();
+        } else {
+          console.error(ret.data);
+        }
+      } catch(e) {
+        console.error("callVote", e);
       }
+
     };
 
     onMounted(async () => {
