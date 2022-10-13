@@ -45,13 +45,21 @@
       <div class="align-right px-8">
         <button 
           @click="callVote" 
-          v-if="!isVoted && (0 < namedNounCount || 0 < nounsCount )"
+          v-if="isVoteReady"
           class="inline-block px-6 py-2.5 bg-green-500 text-white leading-tight rounded shadow-md hover:bg-green-700 hover:shadow-lg focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-800 active:shadow-lg transition duration-150 ease-in-out"
         >
             Vote
         </button>
         <button 
-          @click="callVote" 
+          v-else-if="isVoting"
+          disabled
+          class="inline-block px-6 py-2.5 bg-green-500 text-white leading-tight rounded shadow-md hover:bg-green-700 hover:shadow-lg focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-800 active:shadow-lg transition duration-150 ease-in-out"
+        >
+          <i class="animate-spin material-icons text-lg text-op-teal mr-2"
+          >schedule</i
+          >Voting
+        </button>
+        <button 
           v-else-if="isVoted"
           disabled
           class="inline-block px-6 py-2.5 bg-gray-500 text-white leading-tight rounded shadow-md"
@@ -59,13 +67,20 @@
             Voted
         </button>
         <button 
-          @click="callVote" 
           v-else
           disabled
           class="inline-block px-6 py-2.5 bg-gray-500 text-white leading-tight rounded shadow-md"
         >
-            Need Tokens
+          <span v-if="user">
+              Need Tokens
+          </span>
+          <span v-else>
+              Need Signin
+          </span>
         </button>
+        <span class="text-red-500">
+          {{errorMessage}}
+        </span>
       </div>
       <div>
           現在の投票総数：{{totalcount}}
@@ -78,8 +93,14 @@
               title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
             </iframe>            
             <div class="grid grid-cols-2">
-              <button @click="setSelected(option.id)" class="w-8 inline-block px-6 py-2.5 bg-white text-green-500 leading-tight rounded shadow-md hover:bg-green-100 hover:shadow-lg  focus:shadow-lg focus:outline-none focus:ring-0  transition duration-150 ease-in-out">
-                {{isSelected(option.id) ? 1 : 0}}
+              <button v-if="(0 == namedNounCount && 0 == nounsCount )" class="w-32 inline-block px-6 py-2.5 bg-gray-500 text-white  leading-tight rounded shadow-md">
+                投票候補
+              </button>
+              <button v-else-if="isSelected(option.id)" @click="setSelected(option.id)" class="w-32 inline-block px-6 py-2.5 bg-green-500 text-white leading-tight rounded shadow-md">
+                選択済み
+              </button>
+              <button v-else @click="setSelected(option.id)"  class="w-32 inline-block px-6 py-2.5 bg-white text-green-500 leading-tight rounded shadow-md hover:bg-green-100 hover:shadow-lg  focus:shadow-lg focus:outline-none focus:ring-0">
+                投票候補
               </button>
               <span>
               {{ option.count }} voted
@@ -191,13 +212,20 @@ export default defineComponent({
       }
     };
 
+    const errorMessage = ref("")
+    const isVoting = ref(false);
     const callVote = async () => {
       const selected = getSelected()[0];
+      if(!selected){
+        errorMessage.value = "please select the video";
+        return;
+      }
       console.log(selected);
       interface voteResult{ data:{result:boolean, message:string }}
       const token = 0 < nounsCount.value ? "nounsLove" : 
           0 < namedNounCount.value ? "namedNoun" : "";
       try {
+        isVoting.value = true;
         const ret:voteResult= await vote({
           voteEventId: vote_event.id,
           selectionId: selected.id,
@@ -209,12 +237,20 @@ export default defineComponent({
           await updateCount();
         } else {
           console.error(ret.data);
+          errorMessage.value = ret.data.message;
         }
+        isVoting.value = false;
       } catch(e) {
         console.error("callVote", e);
+        isVoting.value = false;
+        errorMessage.value = e as string;
       }
-
     };
+    const isVoteReady = computed(() => 
+      store.state.user && 
+      !isVoting.value &&
+      !isVoted.value && 
+      (0 < namedNounCount.value || 0 < nounsCount.value));
 
     onMounted(async () => {
       await   updateCount();
@@ -278,13 +314,16 @@ export default defineComponent({
     
     return {
       vote_event,
+      isVoteReady,
       isVoted,
+      isVoting,
       selections,
       isSelected,
       setSelected,
       getSelected,
       callVote,
       totalcount,
+      errorMessage,
       displayAccount,
       namedNounCount,
       nounsCount,

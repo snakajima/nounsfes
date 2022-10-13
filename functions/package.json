@@ -4,7 +4,7 @@
     "lint": "eslint --ext .js,.ts .",
     "format": "prettier --write 'src/**/*.{js,ts}'",
     "build": "tsc",
-    "serve": "npm run build && firebase emulators:start --only auth,firestore,functions",
+    "serve": "npm run build && firebase emulators:start --only auth,firestore",
     "shell": "npm run build && firebase functions:shell",
     "start": "npm run shell",
     "deploy": "firebase deploy --only functions",
