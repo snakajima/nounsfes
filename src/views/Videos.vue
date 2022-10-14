@@ -45,10 +45,12 @@ export default defineComponent({
       "zCqbdFt1Hns", // 14 (and 13)
       "njDeMEnLDxc", // 15
       "GB9ZSmYBQLI", // 16
-      "gZcUmPi3srw", // 17
+      // "gZcUmPi3srw", // 17 replaced with 23
       "r6P25ZZ1A3Q", // 18
       "G160KxnEXj0", // 19
       "OUu89Cy9FcU", // 22
+      "B8MG06Qrxmc", // 23
+      "CWm_rDfFo0g", // 24
     ];
     
     return {
