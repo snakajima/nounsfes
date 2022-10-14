@@ -125,7 +125,7 @@ import {
 } from "firebase/firestore";
 import { db } from "@/utils/firebase";
 import { ChainIds, switchNetwork } from "../utils/MetaMask";
-import {vote_event} from "@/config/project";
+import {vote_event} from "@/config/project.bak";
 import {vote} from "@/utils/functions";
 
 const ERC721 = {
@@ -167,7 +167,7 @@ export default defineComponent({
             isVoted.value = true;
           }
         } catch(e) {
-          console.error("callVote", e);
+          console.error("watch user", e);
         }
       }
     );
@@ -241,12 +241,14 @@ export default defineComponent({
           errorMessage.value = ret.data.message;
         }
         isVoting.value = false;
+        errorMessage.value = "";
       } catch(e) {
         console.error("callVote", e);
         isVoting.value = false;
         errorMessage.value = e as string;
       }
     };
+    const user = computed(() => store.state.user);
     const isVoteReady = computed(() => 
       store.state.user && 
       !isVoting.value &&
@@ -325,6 +327,7 @@ export default defineComponent({
       callVote,
       totalcount,
       errorMessage,
+      user,
       displayAccount,
       namedNounCount,
       nounsCount,
