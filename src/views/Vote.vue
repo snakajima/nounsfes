@@ -125,7 +125,7 @@ import {
 } from "firebase/firestore";
 import { db } from "@/utils/firebase";
 import { ChainIds, switchNetwork } from "../utils/MetaMask";
-import {vote_event} from "@/config/project.bak";
+import {vote_event} from "@/config/project";
 import {vote} from "@/utils/functions";
 
 const ERC721 = {
