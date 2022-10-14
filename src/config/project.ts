@@ -12,8 +12,6 @@ export const vote_event = {
   id:"0001",
   start:new Date("2022/10/11"),
   end:new Date("2022/10/13"),
-  title: "NounsArtFestival2022投票ページ（準備中）",
-  description: "ノミネート作品の名からあなたが一番良いと思う作品を選んで投票してください。",
   status:"waiting",
   selections : [
     { key:"XfF88y5acHk", id: 7},

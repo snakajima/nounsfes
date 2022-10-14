@@ -1,14 +1,14 @@
 <template>
   <div class="mx-auto text-left p-8 justify-center items-center">
-    <p class="text-3xl mb-2 font-londrina">{{vote_event.title}}</p>      
+    <p class="text-3xl mb-2 font-londrina">{{$t("vote.title")}}</p>      
     <div class="flex flex-row">
       <div class="max-w-xl">
-        {{vote_event.description}}<br/>
+        {{$t("vote.description") }}<br/>
         <span v-if="isVoted">
-          投票ありがとうございます。結果発表までしばらくお待ち下さい。
+          {{$t("vote.voted_thanks") }}
         </span>
         <span v-else>
-          ノミネーション作品に対する投票をおこないます。一人、一票好きな作品に投稿ください。投票には下記どちらかのTokenを保持していることが必要です。
+          {{$t("vote.how_to_vote") }}          
         </span>
         <ol>
           <li>
@@ -38,7 +38,8 @@
           </div>
           <div v-else>
             <p>{{ $t("message."+tokenGate) }}</p>
-            Tokenをお持ちの方は右上のConnectボタンでWalletを接続してください。
+            {{ $t("message.please_connect") }} 
+            
           </div>
         </div>        
       </div>
@@ -48,7 +49,7 @@
           v-if="isVoteReady"
           class="inline-block px-6 py-2.5 bg-green-500 text-white leading-tight rounded shadow-md hover:bg-green-700 hover:shadow-lg focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-800 active:shadow-lg transition duration-150 ease-in-out"
         >
-            Vote
+        {{ $t("vote.button_vote") }} 
         </button>
         <button 
           v-else-if="isVoting"
@@ -57,14 +58,14 @@
         >
           <i class="animate-spin material-icons text-lg text-op-teal mr-2"
           >schedule</i
-          >Voting
+          >{{ $t("vote.button_voting") }} 
         </button>
         <button 
           v-else-if="isVoted"
           disabled
           class="inline-block px-6 py-2.5 bg-gray-500 text-white leading-tight rounded shadow-md"
         >
-            Voted
+          {{ $t("vote.button_voted") }} 
         </button>
         <button 
           v-else
@@ -72,10 +73,10 @@
           class="inline-block px-6 py-2.5 bg-gray-500 text-white leading-tight rounded shadow-md"
         >
           <span v-if="user">
-              Need Tokens
+            {{ $t("vote.button_need_token") }} 
           </span>
           <span v-else>
-              Need Signin
+            {{ $t("vote.button_need_signin") }} 
           </span>
         </button>
         <span class="text-red-500">
@@ -83,7 +84,7 @@
         </span>
       </div>
       <div>
-          現在の投票総数：{{totalcount}}
+        {{ $t("vote.voted_total") }}:{{totalcount}}
       </div>
     </div>
     <div class="grid grid-cols-3 gap-2 w-screen ">
@@ -94,16 +95,16 @@
             </iframe>            
             <div class="grid grid-cols-2">
               <button v-if="(0 == namedNounCount && 0 == nounsCount )" class="w-32 inline-block px-6 py-2.5 bg-gray-500 text-white  leading-tight rounded shadow-md">
-                投票候補
+                {{ $t("vote.button_selection") }}
               </button>
               <button v-else-if="isSelected(option.id)" @click="setSelected(option.id)" class="w-32 inline-block px-6 py-2.5 bg-green-500 text-white leading-tight rounded shadow-md">
-                選択済み
+                {{ $t("vote.button_selected") }}
               </button>
               <button v-else @click="setSelected(option.id)"  class="w-32 inline-block px-6 py-2.5 bg-white text-green-500 leading-tight rounded shadow-md hover:bg-green-100 hover:shadow-lg  focus:shadow-lg focus:outline-none focus:ring-0">
-                投票候補
+                {{ $t("vote.button_selection") }}
               </button>
               <span>
-              {{ option.count }} voted
+                {{ $t("vote.voted_selection") }}:{{ option.count }}
               </span>
             </div>
         </div>
