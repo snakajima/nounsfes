@@ -58,7 +58,7 @@
         </li>
         <li><b class="font-londrina">注釈:</b>
           <ul>
-            <li id="note1" class="ml-8 -indent-4">*1: 賞金のうち$25,000 は、「<a class="underline" href="https://www.irs.gov/charities-non-profits/charitable-organizations/exemption-requirements-501c3-organizations">501(c)(3)ステータス</a>」を持つNPO向けのものです。</li>
+            <li id="note1" class="ml-8 -indent-4">*1: 寄付金 $25,000 は、「<a class="underline" href="https://www.irs.gov/charities-non-profits/charitable-organizations/exemption-requirements-501c3-organizations">501(c)(3)ステータス</a>」を持つNPO向けのものです。</li>
           </ul>
         </li>
         <li class="ml-4 -indent-4"><b class="font-londrina">質問:</b> <a class="underline" href="https://twitter.com/nounsfes">@nounsfes</a>までDMを下さい。</li>
