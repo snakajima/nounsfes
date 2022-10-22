@@ -1,13 +1,10 @@
 <template>
   <div class="mx-auto text-left p-8 justify-center items-center">
-    <p class="text-3xl mb-2 font-londrina">{{$t("vote.title")}}</p>      
+    <p class="text-3xl mb-2 font-londrina">{{$t("vote.title")}} {{vote_event.start.toLocaleDateString()}} -  {{vote_event.end.toLocaleDateString()}}</p>      
     <div class="flex flex-col sm:flex-row">
       <div class="max-w-xl">
         {{$t("vote.description") }}<br/>
-        <div v-if="isVoted">
-          <!-- place holder -->
-        </div>
-        <div v-else>
+        <div v-if="!isVoted">
           {{$t("vote.how_to_vote") }}
         </div>
         <ol>
@@ -44,9 +41,15 @@
         </div>        
       </div>
       <div class="align-right px-8 inline-block px-6 py-2.5 text-black bg-white ">
-        <span v-if="isVoteReady">
+        <span v-if="new Date() < vote_event.start">
+          {{$t("vote.before_vote") }}
+        </span>
+        <span v-else-if="vote_event.end < new Date()">
+          {{$t("vote.after_vote") }}
+        </span>
+        <span v-else-if="isVoteReady">
          <span class="font-bold">
-            {{$t("vote.vote_notice") }}
+          {{$t("vote.vote_notice") }}
           </span>
         </span>
         <span v-else-if="isVoting">
@@ -241,6 +244,7 @@ export default defineComponent({
       store.state.user && 
       !isVoting.value &&
       !isVoted.value && 
+      (vote_event.start < new Date() && new Date() < vote_event.end) &&
       (0 < namedNounCount.value || 0 < nounsCount.value));
 
     onMounted(async () => {

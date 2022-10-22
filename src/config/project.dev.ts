@@ -10,8 +10,8 @@ export const firebaseConfig = {
 };
 export const vote_event = {
   id:"0001",
-  start:new Date("2022/10/11"),
-  end:new Date("2022/10/13"),
+  start:new Date("2022-10-22T17:00:00.000+09:00"),
+  end:new Date("2022-10-23T16:00:00.000+09:00"),
   status:"waiting",
   selections : [
     { key:"XfF88y5acHk", id: 7},
