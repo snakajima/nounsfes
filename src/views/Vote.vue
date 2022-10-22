@@ -4,12 +4,12 @@
     <div class="flex flex-row">
       <div class="max-w-xl">
         {{$t("vote.description") }}<br/>
-        <span v-if="isVoted">
-          {{$t("vote.voted_thanks") }}
-        </span>
-        <span v-else>
-          {{$t("vote.how_to_vote") }}          
-        </span>
+        <div v-if="isVoted">
+          <!-- place holder -->
+        </div>
+        <div v-else>
+          {{$t("vote.how_to_vote") }}
+        </div>
         <ol>
           <li>
             <a href="https://opensea.io/collection/named-noun" class="underline font-londrina">Named Noun</a>
@@ -43,58 +43,41 @@
           </div>
         </div>        
       </div>
-      <div class="align-right px-8">
-        <button 
-          @click="callVote" 
-          v-if="isVoteReady"
-          class="inline-block px-6 py-2.5 bg-green-500 text-white leading-tight rounded shadow-md hover:bg-green-700 hover:shadow-lg focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-800 active:shadow-lg transition duration-150 ease-in-out"
-        >
-        {{ $t("vote.button_vote") }} 
-        </button>
-        <button 
-          v-else-if="isVoting"
-          disabled
-          class="inline-block px-6 py-2.5 bg-green-500 text-white leading-tight rounded shadow-md hover:bg-green-700 hover:shadow-lg focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-800 active:shadow-lg transition duration-150 ease-in-out"
-        >
+      <div class="align-right px-8 inline-block px-6 py-2.5 text-black bg-white ">
+        <span v-if="isVoteReady">
+         <span class="font-bold">
+            {{$t("vote.vote_notice") }}
+          </span>
+        </span>
+        <span v-else-if="isVoting">
           <i class="animate-spin material-icons text-lg text-op-teal mr-2"
           >schedule</i
-          >{{ $t("vote.button_voting") }} 
-        </button>
-        <button 
-          v-else-if="isVoted"
-          disabled
-          class="inline-block px-6 py-2.5 bg-gray-500 text-white leading-tight rounded shadow-md"
-        >
-          {{ $t("vote.button_voted") }} 
-        </button>
-        <button 
-          v-else
-          disabled
-          class="inline-block px-6 py-2.5 bg-gray-500 text-white leading-tight rounded shadow-md"
-        >
+          >{{ $t("vote.span_voting") }} 
+        </span>
+        <span v-else-if="isVoted">
+          {{$t("vote.voted_thanks") }}
+        </span>
+        <span v-else >
           <span v-if="user">
             {{ $t("vote.button_need_token") }} 
           </span>
           <span v-else>
             {{ $t("vote.button_need_signin") }} 
           </span>
-        </button>
+        </span>
         <span class="text-red-500">
           {{errorMessage}}
         </span>
       </div>
-      <div>
-        {{ $t("vote.voted_total") }}:{{totalcount}}
-      </div>
     </div>
     <div class="grid grid-cols-3 gap-2 w-screen ">
-      <div v-for="option in selections" :key="option.key" class="flex-col">
+      <div v-for="option in selections" :key="option.key" class="flex-col place-items-center px-2 py-6">
             <iframe class="mb-1" 
               :src="`https://www.youtube.com/embed/${option.key}`" 
               title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
             </iframe>            
-            <div class="grid grid-cols-2">
-              <button v-if="(0 == namedNounCount && 0 == nounsCount )" class="w-32 inline-block px-6 py-2.5 bg-gray-500 text-white  leading-tight rounded shadow-md">
+            <div class="grid grid-cols-2 ">
+              <button v-if="! isVoteReady" class="w-32 inline-block px-6 py-2.5 text-gray-500 bg-white  leading-tight rounded shadow-md">
                 {{ $t("vote.button_selection") }}
               </button>
               <button v-else-if="isSelected(option.id)" @click="setSelected(option.id)" class="w-32 inline-block px-6 py-2.5 bg-green-500 text-white leading-tight rounded shadow-md">
@@ -103,9 +86,6 @@
               <button v-else @click="setSelected(option.id)"  class="w-32 inline-block px-6 py-2.5 bg-white text-green-500 leading-tight rounded shadow-md hover:bg-green-100 hover:shadow-lg  focus:shadow-lg focus:outline-none focus:ring-0">
                 {{ $t("vote.button_selection") }}
               </button>
-              <span>
-                {{ $t("vote.voted_selection") }}:{{ option.count }}
-              </span>
             </div>
         </div>
     </div>
@@ -192,6 +172,16 @@ export default defineComponent({
       }
       const index = selections.value.findIndex(a=>a.id == i);
       selections.value[index].selected = true;
+
+
+      const message = lang.value == "en" ? 
+      "Once voted, it cannot be changed. Do you really want to vote?" :
+       "一度投票したら変更できません。投票してよいですか？"
+      if (window.confirm(message)) {      
+        callVote();
+      } else {
+        selections.value[index].selected = false;
+      }
     };
     const getSelected = () => {
       return selections.value.filter((i) => i.selected);
