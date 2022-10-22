@@ -1,12 +1,13 @@
 import { ethers } from "ethers";
-
+const alchemy = "7jlPgi2jBybkL2j82Z1MYQyMyEO5eoFV";
 const ERC721 = {
     wabi: require("../abis/AbstractERC721.json"), // wrapped abi
     address: "0xb1b25eeb1026cb947b3f65a5cc123fc28b13eee6",
     network: "homestead"
 };
 const nounsLoveProviderView = new ethers.providers.AlchemyProvider(
-    ERC721.network
+    ERC721.network,
+    alchemy
 );
 const nounsLoveContractView = new ethers.Contract(
     ERC721.address,
@@ -20,7 +21,8 @@ const OpenSeaERC1155 = {
     network: "matic"
 };
 const namedNounProviderView = new ethers.providers.AlchemyProvider(
-    OpenSeaERC1155.network
+    OpenSeaERC1155.network,
+    alchemy
 );
 const namedNounContractView = new ethers.Contract(
     OpenSeaERC1155.address,
