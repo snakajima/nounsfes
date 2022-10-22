@@ -41,16 +41,14 @@
         </div>        
       </div>
       <div class="align-right px-8 inline-block px-6 py-2.5 text-black bg-white ">
-        <span v-if="new Date() < vote_event.start">
+        <span v-if="new Date() < vote_event.start" class="font-bold">
           {{$t("vote.before_vote") }}
         </span>
-        <span v-else-if="vote_event.end < new Date()">
+        <span v-else-if="vote_event.end < new Date()" class="font-bold">
           {{$t("vote.after_vote") }}
         </span>
-        <span v-else-if="isVoteReady">
-         <span class="font-bold">
+        <span v-else-if="isVoteReady" class="font-bold">
           {{$t("vote.vote_notice") }}
-          </span>
         </span>
         <span v-else-if="isVoting">
           <i class="animate-spin material-icons text-lg text-op-teal mr-2"
@@ -145,7 +143,9 @@ export default defineComponent({
           const docu = await getDoc(doc(db, `users/${store.state.user.uid}/private/votes`)); 
           if (docu.exists()) {
             console.log(docu.data());
-            isVoted.value = true;
+            if(docu.data().voted[vote_event.id]){
+              isVoted.value = true;
+            }
           }
         } catch(e) {
           console.error("watch user", e);
