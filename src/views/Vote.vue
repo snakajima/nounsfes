@@ -1,7 +1,7 @@
 <template>
   <div class="mx-auto text-left p-8 justify-center items-center">
     <p class="text-3xl mb-2 font-londrina">{{$t("vote.title")}}</p>      
-    <div class="flex flex-row">
+    <div class="flex flex-col sm:flex-row">
       <div class="max-w-xl">
         {{$t("vote.description") }}<br/>
         <div v-if="isVoted">
@@ -70,24 +70,22 @@
         </span>
       </div>
     </div>
-    <div class="grid grid-cols-3 gap-2 w-screen ">
-      <div v-for="option in selections" :key="option.key" class="flex-col place-items-center px-2 py-6">
-            <iframe class="mb-1" 
-              :src="`https://www.youtube.com/embed/${option.key}`" 
-              title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-            </iframe>            
-            <div class="grid grid-cols-2 ">
-              <button v-if="! isVoteReady" class="w-32 inline-block px-6 py-2.5 text-gray-500 bg-white  leading-tight rounded shadow-md">
-                {{ $t("vote.button_selection") }}
-              </button>
-              <button v-else-if="isSelected(option.id)" @click="setSelected(option.id)" class="w-32 inline-block px-6 py-2.5 bg-green-500 text-white leading-tight rounded shadow-md">
-                {{ $t("vote.button_selected") }}
-              </button>
-              <button v-else @click="setSelected(option.id)"  class="w-32 inline-block px-6 py-2.5 bg-white text-green-500 leading-tight rounded shadow-md hover:bg-green-100 hover:shadow-lg  focus:shadow-lg focus:outline-none focus:ring-0">
-                {{ $t("vote.button_selection") }}
-              </button>
-            </div>
-        </div>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 w-screen place-content-center items-center  ">
+      <div v-for="option in selections" :key="option.key" class="px-2 py-6 ">
+        <iframe class="mb-1" 
+          :src="`https://www.youtube.com/embed/${option.key}`" 
+          title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe>            
+        <button v-if="! isVoteReady" class="w-32 inline-block px-6 py-2.5 text-gray-500 bg-white  leading-tight rounded shadow-md">
+          {{ $t("vote.button_selection") }}
+        </button>
+        <button v-else-if="isSelected(option.id)" @click="setSelected(option.id)" class="w-32 inline-block px-6 py-2.5 bg-green-500 text-white leading-tight rounded shadow-md">
+          {{ $t("vote.button_selected") }}
+        </button>
+        <button v-else @click="setSelected(option.id)"  class="w-32 inline-block px-6 py-2.5 bg-white text-green-500 leading-tight rounded shadow-md hover:bg-green-100 hover:shadow-lg  focus:shadow-lg focus:outline-none focus:ring-0">
+          {{ $t("vote.button_selection") }}
+        </button>
+      </div>
     </div>
   </div>
 </template>
