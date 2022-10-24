@@ -24,8 +24,8 @@
         <li><b class="font-londrina">スケジュール:</b>
           <ul class="ml-8">
             <li class="list-disc">募集要項発表: 2022年5月1日</li>
-            <li class="list-disc">募集期間: 2022年6月1日〜10月31日(締め切り延長となりました）</li>
-            <li class="list-disc">ノミネーション発表: 2022年11月10日</li>
+            <li class="list-disc">募集期間: 2022年6月1日〜11月10日(締め切り延長となりました）</li>
+            <li class="list-disc">ノミネーション発表: 2022年11月15日</li>
             <li class="list-disc">最終選考: 2022年11月26日</li>
           </ul>
         </li>
