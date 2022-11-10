@@ -24,8 +24,8 @@
         <li><b class="font-londrina">スケジュール:</b>
           <ul class="ml-8">
             <li class="list-disc">募集要項発表: 2022年5月1日</li>
-            <li class="list-disc">募集期間: 2022年6月1日〜10月31日(締め切り延長となりました）</li>
-            <li class="list-disc">ノミネーション発表: 2022年11月10日</li>
+            <li class="list-disc">募集期間: 2022年6月1日〜11月10日(締め切り延長となりました）</li>
+            <li class="list-disc">ノミネーション発表: 2022年11月15日</li>
             <li class="list-disc">最終選考: 2022年11月26日</li>
           </ul>
         </li>
@@ -58,7 +58,7 @@
         </li>
         <li><b class="font-londrina">注釈:</b>
           <ul>
-            <li id="note1" class="ml-8 -indent-4">*1: 賞金のうち$25,000 は、「<a class="underline" href="https://www.irs.gov/charities-non-profits/charitable-organizations/exemption-requirements-501c3-organizations">501(c)(3)ステータス</a>」を持つNPO向けのものです。</li>
+            <li id="note1" class="ml-8 -indent-4">*1: 寄付金 $25,000 は、「<a class="underline" href="https://www.irs.gov/charities-non-profits/charitable-organizations/exemption-requirements-501c3-organizations">501(c)(3)ステータス</a>」を持つNPO向けのものです。</li>
           </ul>
         </li>
         <li class="ml-4 -indent-4"><b class="font-londrina">質問:</b> <a class="underline" href="https://twitter.com/nounsfes">@nounsfes</a>までDMを下さい。</li>

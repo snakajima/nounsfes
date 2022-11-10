@@ -26,8 +26,8 @@
         <li><b class="font-londrina">When:</b>
           <ul class="ml-8">
             <li class="list-disc">Announcement: May 1st, 2022</li>
-            <li class="list-disc">Submission Period: June 1st - Oct 31th (Extended), 2022</li>
-            <li class="list-disc">Nomination: Nov 10th, 2022</li>
+            <li class="list-disc">Submission Period: June 1st - Nov 10th (Extended), 2022</li>
+            <li class="list-disc">Nomination: Nov 15th, 2022</li>
             <li class="list-disc">Final: Nov 26th, 2022</li>
           </ul>
         </li>
