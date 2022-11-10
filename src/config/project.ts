@@ -6,7 +6,7 @@ export const firebaseConfig = {
   messagingSenderId: "670587195151",
   appId: "1:670587195151:web:0f959c3014383d185d387a",
   measurementId: "G-G22ZT64FDJ",
-  useEmulator:true,
+  useEmulator:false,
 };
 export const vote_event = {
   id:"0003",
