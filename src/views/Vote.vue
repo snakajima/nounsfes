@@ -77,7 +77,10 @@
           :src="`https://www.youtube.com/embed/${option.key}`" 
           title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
         </iframe>            
-        <button v-if="! isVoteReady" class="w-32 inline-block px-6 py-2.5 text-gray-500 bg-white  leading-tight rounded shadow-md">
+        <button v-if="isVoted" class="w-32 inline-block px-6 py-2.5 text-gray-500 bg-white  leading-tight rounded shadow-md">
+          {{ $t("vote.button_voted") }}
+        </button>
+        <button v-else-if="! isVoteReady" class="w-32 inline-block px-6 py-2.5 text-gray-500 bg-white  leading-tight rounded shadow-md">
           {{ $t("vote.button_selection") }}
         </button>
         <button v-else-if="isSelected(option.id)" @click="setSelected(option.id)" class="w-32 inline-block px-6 py-2.5 bg-green-500 text-white leading-tight rounded shadow-md">
@@ -131,11 +134,13 @@ export default defineComponent({
     const namedNounCount = ref(0);
     const nounsCount = ref(0);
 
-    const isVoted = ref(false);
-    watch(
-      () => store.state.user,
-      async () => {
-        console.log(store.state.user);
+    onMounted(async () => {
+      await   updateCount();
+      await   updateUserStatus();
+    });
+
+    const updateUserStatus = async ()=> {
+      console.log(store.state.user);
         if(!store.state.user){
           return;
         }
@@ -150,6 +155,13 @@ export default defineComponent({
         } catch(e) {
           console.error("watch user", e);
         }
+    };
+
+    const isVoted = ref(false);
+    watch(
+      () => store.state.user,
+      async () => {
+        updateUserStatus();
       }
     );
     interface Selection {
@@ -246,10 +258,6 @@ export default defineComponent({
       !isVoted.value && 
       (vote_event.start < new Date() && new Date() < vote_event.end) &&
       (0 < namedNounCount.value || 0 < nounsCount.value));
-
-    onMounted(async () => {
-      await   updateCount();
-    });
 
 
     const raised_eth = store.state.raised_eth;
