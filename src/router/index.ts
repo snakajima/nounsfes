@@ -6,6 +6,7 @@ import Home from "../views/Home.vue";
 import Videos from "../views/Videos.vue";
 import About from "../views/About.vue";
 import Tokens from "../views/Tokens.vue";
+import Vote from "../views/Vote.vue";
 import Derivative from "../views/Derivative.vue";
 
 const routeChildren: Array<RouteRecordRaw> = [
@@ -24,6 +25,10 @@ const routeChildren: Array<RouteRecordRaw> = [
   {
     path: "videos",
     component: Videos,
+  },
+  {
+    path: "vote",
+    component: Vote,
   },
   {
     path: "derivative",

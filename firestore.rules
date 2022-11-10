@@ -13,6 +13,19 @@ service cloud.firestore {
         allow write: if request.auth.uid == uid;
       }
     }
+    
+    match /users/{uid} {
+      allow read: if request.auth.uid == uid;
+      match /private/votes {
+        allow read: if request.auth.uid == uid;
+      }
+    }
+    match /vote_events/{event_id} {
+      allow read: if true;
+      match /results/{selectionId} {
+        allow read: if true;
+      }
+    }
     match /nonces/{nonceId} {
       allow read, write: if false; // server-only
     }

@@ -1,17 +1,18 @@
 export const firebaseConfig = {
-  apiKey: "AIzaSyAW5wA3DRn2R12h_gh_kRyKDzNcm1OUl6U",
-  authDomain: "nounsfes.firebaseapp.com",
-  projectId: "nounsfes",
-  storageBucket: "nounsfes.appspot.com",
-  messagingSenderId: "670587195151",
-  appId: "1:670587195151:web:0f959c3014383d185d387a",
-  measurementId: "G-G22ZT64FDJ",
+  apiKey: "AIzaSyD-WBnzm-tiEHNwE-AFkiluihsc68_kQzU",
+  authDomain: "nounsfes-dev.firebaseapp.com",
+  projectId: "nounsfes-dev",
+  storageBucket: "nounsfes-dev.appspot.com",
+  messagingSenderId: "444270903234",
+  appId: "1:444270903234:web:113d501ca3309f2c26e05b",
+  measurementId: "G-5RTPFFM6CC",
   useEmulator:false,
 };
 export const vote_event = {
-  id:"0003",
-  start:new Date("2022-11-11T07:00:00.000+09:00"),
-  end:new Date("2022-11-11T10:00:00.000+09:00"),
+  id:"0001",
+  start:new Date("2022-10-22T17:00:00.000+09:00"),
+  end:new Date("2022-10-23T16:00:00.000+09:00"),
+  status:"waiting",
   selections : [
     { key:"XfF88y5acHk", id: 7},
     { key:"SZlKgdxwYJs", id: 10},
