@@ -53,7 +53,7 @@
         <span v-else-if="isVoting">
           <i class="animate-spin material-icons text-lg text-op-teal mr-2"
           >schedule</i
-          >{{ $t("vote.span_voting") }} 
+          >{{ $t("vote.button_voting") }} 
         </span>
         <span v-else-if="isVoted">
           {{$t("vote.voted_thanks") }}

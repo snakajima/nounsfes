@@ -21,7 +21,7 @@ const lang = {
     hello: "hello world",
   },
   vote: {
-    title: "NounsArtFestival2022 Vote! (test1)",
+    title: "NounsArtFestival2022 Nomination Vote! (preTest)",
     description: "Nouns Art Festival (NounsFes)is an online art festival with a purpose to promote a peaceful and sustainable world,founded by members of NounsDAO.",
     voted_thanks: "Thank you for voting. Please wait for a while until the results are announced.",
     how_to_vote: "We will vote for the nominated works. You can post your favorite work one person at a time. To vote, you need to hold one of the following NFT.",
