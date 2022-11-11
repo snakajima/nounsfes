@@ -21,9 +21,9 @@ service cloud.firestore {
       }
     }
     match /vote_events/{event_id} {
-      allow read: if true;
+      allow read: if request.auth != null;
       match /results/{selectionId} {
-        allow read: if true;
+        allow read: if request.auth != null;
       }
     }
     match /nonces/{nonceId} {
