@@ -133,10 +133,11 @@ export default defineComponent({
     const store = useStore();
     const namedNounCount = ref(0);
     const nounsCount = ref(0);
+    const showCount = false; //if shows vote result as pulbic, set true
 
     onMounted(async () => {
-      await   updateCount();
-      await   updateUserStatus();
+      await updateUserStatus();
+      if(showCount) await updateCount(); 
     });
 
     const updateUserStatus = async ()=> {
@@ -238,7 +239,7 @@ export default defineComponent({
         }) as voteResult;
         if(ret.data?.result){
           isVoted.value = true;
-          await updateCount();
+          if(showCount) await updateCount();
         } else {
           console.error(ret.data);
           errorMessage.value = ret.data.message;
