@@ -9,9 +9,9 @@ export const firebaseConfig = {
   useEmulator:false,
 };
 export const vote_event = {
-  id:"0003",
-  start:new Date("2022-11-11T07:00:00.000+09:00"),
-  end:new Date("2022-11-11T10:00:00.000+09:00"),
+  id:"0004",
+  start:new Date("2022-11-12T09:00:00.000+09:00"),
+  end:new Date("2022-11-18T09:00:00.000+09:00"),
   selections : [
     { key:"XfF88y5acHk", id: 7},
     { key:"SZlKgdxwYJs", id: 10},
