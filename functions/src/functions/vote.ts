@@ -82,3 +82,20 @@ export const vote = async (data:any, context:any) => {
   };
   
 };
+
+
+export const getResult = async (data:any, context:any) => {
+  /*
+  if (!context.auth || !context.auth.uid) {
+    return {
+        result: false,
+        message: "no auth"
+      };
+    }  
+    */
+  if(await tokengate.checkWhiteList(context.auth.uid)){
+    console.log("check WL fail");
+  } else {
+    console.log("check WL fail");
+  }
+};
