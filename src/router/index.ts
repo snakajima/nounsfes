@@ -8,6 +8,7 @@ import About from "../views/About.vue";
 import Tokens from "../views/Tokens.vue";
 import Vote from "../views/Vote.vue";
 import Derivative from "../views/Derivative.vue";
+import Shop from "../views/Shop.vue";
 
 const routeChildren: Array<RouteRecordRaw> = [
   {
@@ -33,6 +34,10 @@ const routeChildren: Array<RouteRecordRaw> = [
   {
     path: "derivative",
     component: Derivative,
+  },
+  {
+    path: "shop",
+    component: Shop,
   },
 ];
 
