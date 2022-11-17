@@ -38,13 +38,13 @@
         </div>        
       </div>
     </div>
-    <div class="grid grid-cols-1 sm:grid-cols-1 gap-2 w-screen place-content-center items-center  ">
-      <div v-for="option in sortedSelections" :key="option.key" class="px-2 py-6 ">
+    <div class="grid grid-cols-4 sm:grid-cols-4 gap-2 w-screen place-content-center items-center  ">
+      <div v-for="(option, index) in sortedSelections" :key="option.key" class="px-2 py-6 ">
+        Top:{{index+1}} VoteCount: {{option.count}}
         <iframe class="mb-1" 
           :src="`https://www.youtube.com/embed/${option.key}`" 
           title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
         </iframe>            
-        Count: {{option.count}}
       </div>
     </div>
   </div>
