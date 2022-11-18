@@ -100,7 +100,7 @@ export default defineComponent({
     const selections = ref<Selection[]>([]);
     const sortedSelections = computed(()=>selections.value.slice().sort((a,b)=>{
         return a.count > b.count ? -1 : 1;
-      }).slice(0,10) );
+      }).slice(0,16) );
     console.log(Object.assign([],vote_event.selections));
     selections.value = Object.assign([],vote_event.selections).map((a:{id:number,key:string})=>{
       return {id:a.id, key:a.key, selected:false, count:0};
