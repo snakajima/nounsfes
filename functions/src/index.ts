@@ -19,5 +19,4 @@ exportIfNeeded("verifyNonce", "nonces/verifyNonce", exports);
 exportIfNeeded("generateNonce", "nonces/generateNonce", exports);
 exportIfNeeded("deleteNonce", "nonces/deleteNonce", exports);
 exportIfNeeded("vote", "vote/vote", exports);
-exportIfNeeded("getVoteResult", "vote/getResult", exports);
 

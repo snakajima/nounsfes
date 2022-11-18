@@ -70,9 +70,3 @@ export const checkTokenGate = async (
         return false
     }
 }
-
-export const checkWhiteList = async (
-    addr: string,
-  ) => {
-    return true;
-}
