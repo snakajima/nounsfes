@@ -1,6 +1,6 @@
 <template>
   <div class="mx-auto text-left p-8 justify-center items-center">
-    <p class="text-3xl mb-2 font-londrina">{{$t("vote.title")}} {{vote_event.start.toLocaleDateString()}} -  {{vote_event.end.toLocaleDateString()}}</p>      
+    <p class="text-3xl mb-2 font-londrina">{{$t("vote.title")}} {{new Intl.DateTimeFormat('ja-JP', { dateStyle: 'short', timeStyle: 'long' }).format(vote_event.start)}} -  {{new Intl.DateTimeFormat('ja-JP', { dateStyle: 'short', timeStyle: 'long' }).format(vote_event.end)}}</p>      
     <div class="flex flex-col sm:flex-row">
       <div class="max-w-xl">
         {{$t("vote.description") }}<br/>
