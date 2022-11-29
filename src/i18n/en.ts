@@ -10,6 +10,11 @@ const lang = {
     form: "Submission Form",
   },
   message: {
+    description: "Nouns Art Festival (NounsFes)is an online art festival with a purpose to promote a peaceful and sustainable world,founded by members of NounsDAO.",
+    prized2022: "After six months of online competition, the best works for 2022 have been decided.",
+    thanks2022: "Thank you for your application. Nounsfes will be held again in 2023, so please look forward to it!",
+    grand: "Grand Prize",
+    excellent: "excellent work",
     processing: "Processing...",
     walletId: "Wallet Id:",
     pleaseInstall: "Please install Metamask to check your membership, if you have a supporter NFT.",
