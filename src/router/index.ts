@@ -2,7 +2,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import Layout from "../components/Layout.vue";
 import NotFound from "../components/NotFound.vue";
 
-import Home from "../views/Home.vue";
+import Home from "../views/Home2022Prized.vue";
 import Videos from "../views/Videos.vue";
 import Nominations from "../views/Nominations.vue";
 import About from "../views/About.vue";
