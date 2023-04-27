@@ -36,7 +36,7 @@
           <ul class="ml-8">
             <li class="list-disc">下の映像を作品の冒頭に置いて下さい(<a class="underline" href="https://twitter.com/Fuyu256S">Fuyu256さん</a>に作っていただきました) 
               <video width="320" height="240" controls>
-                <source src="../assets/nounsfes1s_0430.mp4" type="video/mp4">
+                <source src="@/assets/nounsfes1s_0430.mp4" type="video/mp4">
                 Your browser does not support the video tag.
               </video>
             </li>

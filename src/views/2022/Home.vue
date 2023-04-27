@@ -18,8 +18,8 @@
 import { defineComponent, computed } from "vue";
 import { useI18n } from "vue-i18n";
 
-import HomeJA from "./HomeJA.vue";
-import HomeEn from "./HomeEn.vue";
+import HomeJA from "@/views/2022/HomeJA.vue";
+import HomeEn from "@/views/2022/HomeEn.vue";
 
 export default defineComponent({
   name: "HomePage",
