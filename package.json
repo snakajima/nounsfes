@@ -1,15 +1,12 @@
 {
-  "name": "firebase-vue3-startup-kit",
+  "name": "nouns-art-festival",
   "version": "1.0.1",
   "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "format": "prettier --write 'src/**/*.{js,ts,vue}'",
-    "local_chain": "cd hardhat && hardhat node",
-    "local_script": "cd hardhat && hardhat run scripts/sample-script.js --network localhost",
-    "mainnet": "sh .hidden/mainnet.sh"
+    "format": "prettier --write 'src/**/*.{js,ts,vue}'"
   },
   "dependencies": {
     "@vueuse/head": "^1.1.26",
