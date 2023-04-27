@@ -1,16 +1,19 @@
 <template>
-  <div class="max-w-lg mx-auto text-left p-2">
+  <div class="mx-auto max-w-lg p-2 text-left">
     <div class="mb-8">
       <div v-if="displayAccount" class="flex">
-        <div class="flex-none w-32">{{ $t("message.walletId") }}</div>
-        <div class="flex-initial w-64">{{ displayAccount }}</div>
+        <div class="w-32 flex-none">{{ $t("message.walletId") }}</div>
+        <div class="w-64 flex-initial">{{ displayAccount }}</div>
       </div>
       <div v-if="tokenGate == 'switchNetwork'">
         <div v-if="nounsCount > 0">
           <p>{{ $t("message.youHaveNouns", { nounsCount }) }}</p>
         </div>
-        <p v-else>{{ $t("message.pleaseSwitchToPolygon") }}
-          <a @click="switchToPolygon" class="underline">{{ $t("menu.switch") }}</a>
+        <p v-else>
+          {{ $t("message.pleaseSwitchToPolygon") }}
+          <a @click="switchToPolygon" class="underline">{{
+            $t("menu.switch")
+          }}</a>
         </p>
       </div>
       <div v-else-if="tokenGate == 'active'">
@@ -19,33 +22,72 @@
         </div>
       </div>
       <div v-else>
-        <p>{{ $t("message."+tokenGate) }}</p>
+        <p>{{ $t("message." + tokenGate) }}</p>
       </div>
     </div>
 
-    <p class="text-3xl mb-2 font-londrina">Named Noun and Nouns Love</p>
+    <p class="mb-2 font-londrina text-3xl">Named Noun and Nouns Love</p>
 
     <div v-if="lang === 'en'">
-      <div class="space-y-2 mb-8 font-pt-root font-medium">
-        <p>In order to make <span class="font-londrina">NounsFes</span> more attractive, we raised some money by selling
-          <a href="https://opensea.io/collection/named-noun" class="underline font-londrina">Named Noun NFTs</a> and 
-          <a href="https://opensea.io/collection/nouns-love" class="underline font-londrina">Nouns Love NFTs</a>
-          to supporters. </p>
-        <p>Thanks to all the supporters, we were able to raise <b class="font-londrina">{{raised_eth}}ETH</b> so far.
-        Thank you very much!
+      <div class="mb-8 space-y-2 font-pt-root font-medium">
+        <p>
+          In order to make <span class="font-londrina">NounsFes</span> more
+          attractive, we raised some money by selling
+          <a
+            href="https://opensea.io/collection/named-noun"
+            class="font-londrina underline"
+            >Named Noun NFTs</a
+          >
+          and
+          <a
+            href="https://opensea.io/collection/nouns-love"
+            class="font-londrina underline"
+            >Nouns Love NFTs</a
+          >
+          to supporters.
         </p>
-        <p><span class="font-londrina">Nouns Love NFT</span> is available at <a href="https://nouns.love/" class="underline font-londrina">Nouns Love Auction Site.</a></p>
+        <p>
+          Thanks to all the supporters, we were able to raise
+          <b class="font-londrina">{{ raised_eth }}ETH</b> so far. Thank you
+          very much!
+        </p>
+        <p>
+          <span class="font-londrina">Nouns Love NFT</span> is available at
+          <a href="https://nouns.love/" class="font-londrina underline"
+            >Nouns Love Auction Site.</a
+          >
+        </p>
       </div>
     </div>
     <div v-else>
-      <div class="space-y-2 mb-8 font-pt-root font-medium">
-        <p><span class="font-londrina">Nouns Art Festival</span>をより魅力的なものにするために、
-          <a href="https://opensea.io/collection/named-noun" class="underline font-londrina">Named Noun</a>と
-          <a href="https://opensea.io/collection/nouns-love" class="underline font-londrina">Nouns Love</a>
-          というNFTコレクションを、サポーターに販売するという形のクラウドファンディングを行っています。</p>
-        <p>おかげさまで、現時点で、<b class="font-londrina">{{raised_eth}}ETH</b> が集まっています。ありがとうございます！
+      <div class="mb-8 space-y-2 font-pt-root font-medium">
+        <p>
+          <span class="font-londrina">Nouns Art Festival</span
+          >をより魅力的なものにするために、
+          <a
+            href="https://opensea.io/collection/named-noun"
+            class="font-londrina underline"
+            >Named Noun</a
+          >と
+          <a
+            href="https://opensea.io/collection/nouns-love"
+            class="font-londrina underline"
+            >Nouns Love</a
+          >
+          というNFTコレクションを、サポーターに販売するという形のクラウドファンディングを行っています。
         </p>
-        <p><span class="font-londrina">Nouns Love NFT</span> は <a href="https://nouns.love/ja" class="underline font-londrina">Nouns Love オークションサイト</a>で入手が可能です。</p>
+        <p>
+          おかげさまで、現時点で、<b class="font-londrina"
+            >{{ raised_eth }}ETH</b
+          >
+          が集まっています。ありがとうございます！
+        </p>
+        <p>
+          <span class="font-londrina">Nouns Love NFT</span> は
+          <a href="https://nouns.love/ja" class="font-londrina underline"
+            >Nouns Love オークションサイト</a
+          >で入手が可能です。
+        </p>
       </div>
     </div>
     <img class="mb-4" src="@/assets/named_nouns.png" />
@@ -61,20 +103,26 @@ import { ChainIds, switchNetwork } from "@/utils/MetaMask";
 
 const ERC721 = {
   wabi: require("../abis/AbstractERC721.json"), // wrapped abi
-  address: "0xb1b25eeb1026cb947b3f65a5cc123fc28b13eee6"
+  address: "0xb1b25eeb1026cb947b3f65a5cc123fc28b13eee6",
 };
 const OpenSeaERC1155 = {
   abi: require("../abis/OpenSeaERC1155.json"),
-  address: "0x2953399124F0cBB46d2CbACD8A89cF0599974963"
+  address: "0x2953399124F0cBB46d2CbACD8A89cF0599974963",
 };
 
-// Because OpenSea chose to put all Polygon NFTs in a single ERC1155 contract, 
-// we need to perform this hack in order to know the number of NFTs in user's wallet. 
-const itemId0 = ethers.BigNumber.from("35416128211843416333493280670751952307736614476901985064732031611086890336257");
-const itemId1 = ethers.BigNumber.from("35416128211843416333493280670751952307736614476901985064732031612186401964033");
+// Because OpenSea chose to put all Polygon NFTs in a single ERC1155 contract,
+// we need to perform this hack in order to know the number of NFTs in user's wallet.
+const itemId0 = ethers.BigNumber.from(
+  "35416128211843416333493280670751952307736614476901985064732031611086890336257"
+);
+const itemId1 = ethers.BigNumber.from(
+  "35416128211843416333493280670751952307736614476901985064732031612186401964033"
+);
 const delta = itemId1.sub(itemId0);
 const itemCount = 79;
-const itemIds = [...Array(itemCount).keys()].map((value) => { return itemId0.add(ethers.BigNumber.from(delta.mul(value))); });
+const itemIds = [...Array(itemCount).keys()].map((value) => {
+  return itemId0.add(ethers.BigNumber.from(delta.mul(value)));
+});
 
 export default defineComponent({
   name: "HomePage",
@@ -98,13 +146,21 @@ export default defineComponent({
       // provider is sufficient for read-only contract, but we use signer for future enhancement
       const signer = provider.getSigner();
 
-      console.log("** recomputing", store.getters.displayAccount || "N/A", chainId);
+      console.log(
+        "** recomputing",
+        store.getters.displayAccount || "N/A",
+        chainId
+      );
       if (!account) {
         return "pleaseConnect";
       }
       if (chainId == ChainIds.Mainnet) {
-        const fetchNounsToken = async() => {
-          const nounsToken = new ethers.Contract(ERC721.address, ERC721.wabi.abi, signer);
+        const fetchNounsToken = async () => {
+          const nounsToken = new ethers.Contract(
+            ERC721.address,
+            ERC721.wabi.abi,
+            signer
+          );
           const result = await nounsToken.functions.balanceOf(account);
           nounsCount.value = result[0].toNumber();
         };
@@ -115,15 +171,24 @@ export default defineComponent({
         return "switchNetwork";
       }
       const fetchNamedNoun = async () => {
-        const namedNoun = new ethers.Contract(OpenSeaERC1155.address, OpenSeaERC1155.abi, signer);
-        const accounts = itemIds.map(() => {return account;});
+        const namedNoun = new ethers.Contract(
+          OpenSeaERC1155.address,
+          OpenSeaERC1155.abi,
+          signer
+        );
+        const accounts = itemIds.map(() => {
+          return account;
+        });
         try {
-          const results = await namedNoun.functions.balanceOfBatch(accounts, itemIds) as Array<Array<ethers.BigNumber>>;
+          const results = (await namedNoun.functions.balanceOfBatch(
+            accounts,
+            itemIds
+          )) as Array<Array<ethers.BigNumber>>;
           const count = results[0].reduce((total, result) => {
             return total.add(result);
           }, ethers.BigNumber.from(0));
           namedNounCount.value = count.toNumber();
-        } catch(e) {
+        } catch (e) {
           console.error("fetchInfo", e);
         }
       };
@@ -133,11 +198,11 @@ export default defineComponent({
     const switchToPolygon = async () => {
       console.log("switchToPolygon called");
       await switchNetwork(ChainIds.Polygon);
-    }
+    };
     const displayAccount = computed(() => {
       return store.getters.displayAccount;
     });
-    
+
     return {
       displayAccount,
       namedNounCount,
@@ -145,9 +210,9 @@ export default defineComponent({
       tokenGate,
       lang,
       raised_eth,
-      switchToPolygon
+      switchToPolygon,
     };
-  }
+  },
 });
 </script>
 

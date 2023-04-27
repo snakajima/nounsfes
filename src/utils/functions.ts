@@ -6,4 +6,3 @@ export const generateNonce = httpsCallable(functions, "generateNonce");
 export const verifyNonce = httpsCallable(functions, "verifyNonce");
 export const deleteNonce = httpsCallable(functions, "deleteNonce");
 export const vote = httpsCallable(functions, "vote");
-

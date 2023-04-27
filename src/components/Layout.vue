@@ -2,14 +2,31 @@
   <div class="layout">
     <div id="nav">
       <img class="mb-4" src="@/assets/banner.jpeg" />
-      <router-link :to="localizedUrl('/')" class="text-2xl font-londrina">Top</router-link> |
-      <router-link :to="localizedUrl('/nft')" class="text-2xl font-londrina">Token</router-link> |
-      <router-link :to="localizedUrl('/videos')" class="text-2xl font-londrina">Videos</router-link> |
-      <router-link :to="localizedUrl('/nomi')" class="text-2xl font-londrina">Nominations</router-link> |
+      <router-link :to="localizedUrl('/')" class="font-londrina text-2xl"
+        >Top</router-link
+      >
+      |
+      <router-link :to="localizedUrl('/nft')" class="font-londrina text-2xl"
+        >Token</router-link
+      >
+      |
+      <router-link :to="localizedUrl('/videos')" class="font-londrina text-2xl"
+        >Videos</router-link
+      >
+      |
+      <router-link :to="localizedUrl('/nomi')" class="font-londrina text-2xl"
+        >Nominations</router-link
+      >
+      |
       <!-- router-link :to="localizedUrl('/vote')" class="text-2xl font-londrina">Vote</router-link> |  -->
       <!-- router-link :to="localizedUrl('/nouns')" class="text-2xl font-londrina">Nouns</router-link> | -->
-      <router-link :to="localizedUrl('/about')" class="text-2xl font-londrina">About</router-link> |
-      <router-link :to="localizedUrl('/shop')" class="text-2xl font-londrina">Goods</router-link>
+      <router-link :to="localizedUrl('/about')" class="font-londrina text-2xl"
+        >About</router-link
+      >
+      |
+      <router-link :to="localizedUrl('/shop')" class="font-londrina text-2xl"
+        >Goods</router-link
+      >
       <Languages class="mt-4" />
       <Connect />
     </div>
@@ -37,7 +54,7 @@ export default defineComponent({
   name: "AppLayout",
   components: {
     Languages,
-    Connect
+    Connect,
   },
   async setup() {
     const store = useStore();

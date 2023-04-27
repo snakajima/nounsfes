@@ -17,9 +17,9 @@ export default defineComponent({
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css?family=Londrina+Solid&display=swap');
-@import url('https://fonts.cdnfonts.com/css/pt-root-ui');
-@import url('https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Londrina+Solid&display=swap");
+@import url("https://fonts.cdnfonts.com/css/pt-root-ui");
+@import url("https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap");
 
 #app {
   /* font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -27,7 +27,7 @@ export default defineComponent({
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50; */
-  @apply font-sans antialiased text-center text-gray-700;
+  @apply text-center font-sans text-gray-700 antialiased;
 }
 
 #nav {

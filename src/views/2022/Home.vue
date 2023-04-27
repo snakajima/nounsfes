@@ -1,17 +1,22 @@
 <template>
-<div class="max-w-lg mx-auto text-left p-2">
-  <HomeJA v-if="lang==='ja'"/>
-  <HomeEn v-else />
-  
-  <div class="max-w-lg mx-auto text-left p-2">
-    <div class="space-y-2 font-pt-root font-medium">
-      <p id="form"><b class="font-londrina">{{ $t('menu.form') }}:</b></p>
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfcf9s3eDtJ-EHQIlrjzKKCtpkuVmiRx9DncKDQYJB1Q94ETA/viewform?embedded=true"
-              class="w-full h-screen m-0"
-              frameborder="0">Loading…</iframe>
+  <div class="mx-auto max-w-lg p-2 text-left">
+    <HomeJA v-if="lang === 'ja'" />
+    <HomeEn v-else />
+
+    <div class="mx-auto max-w-lg p-2 text-left">
+      <div class="space-y-2 font-pt-root font-medium">
+        <p id="form">
+          <b class="font-londrina">{{ $t("menu.form") }}:</b>
+        </p>
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLSfcf9s3eDtJ-EHQIlrjzKKCtpkuVmiRx9DncKDQYJB1Q94ETA/viewform?embedded=true"
+          class="m-0 h-screen w-full"
+          frameborder="0"
+          >Loading…</iframe
+        >
+      </div>
     </div>
   </div>
- </div>
 </template>
 
 <script lang="ts">
@@ -33,11 +38,10 @@ export default defineComponent({
     const lang = computed(() => {
       return i18n.locale.value;
     });
-    
+
     return {
       lang,
     };
-  }
-
+  },
 });
 </script>

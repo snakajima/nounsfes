@@ -12,12 +12,11 @@ export const auth = getAuth();
 export const functions = getFunctions(firebaseApp);
 
 if (firebaseConfig.useEmulator) {
-    console.log("firebase emulator mode");
-    // Note: for Auth Emulator need "http://localhost",
-    // if only "localhost" it cause following error
-    // Firebase: Error (auth/invalid-emulator-scheme).
-    connectAuthEmulator(auth, "http://localhost:9099", { disableWarnings: true });
-    connectFirestoreEmulator(db, "localhost", 8090);
-    connectFunctionsEmulator(functions, "localhost", 5002);
-  }
-  
+  console.log("firebase emulator mode");
+  // Note: for Auth Emulator need "http://localhost",
+  // if only "localhost" it cause following error
+  // Firebase: Error (auth/invalid-emulator-scheme).
+  connectAuthEmulator(auth, "http://localhost:9099", { disableWarnings: true });
+  connectFirestoreEmulator(db, "localhost", 8090);
+  connectFunctionsEmulator(functions, "localhost", 5002);
+}

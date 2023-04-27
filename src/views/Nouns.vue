@@ -1,22 +1,42 @@
 <template>
-  <div class="max-w-lg mx-auto text-left p-2">
-    <p class="text-3xl mb-2 font-londrina">Nouns</p>
+  <div class="mx-auto max-w-lg p-2 text-left">
+    <p class="mb-2 font-londrina text-3xl">Nouns</p>
     <div v-if="lang === 'en'">
-      <div class="space-y-2 mb-8 font-pt-root font-medium">
-        <p>In order to make <span class="font-londrina">NounsFes</span> more attractive, we raised some money by selling
-          <a href="https://opensea.io/collection/named-noun" class="underline font-londrina">Named Noun NFTs</a>
-          to supporters. </p>
-        <p>Thanks to all the supporters, we were able to raise <b class="font-londrina">{{raised_eth}}ETH</b> so far.
-        Thank you very much!
+      <div class="mb-8 space-y-2 font-pt-root font-medium">
+        <p>
+          In order to make <span class="font-londrina">NounsFes</span> more
+          attractive, we raised some money by selling
+          <a
+            href="https://opensea.io/collection/named-noun"
+            class="font-londrina underline"
+            >Named Noun NFTs</a
+          >
+          to supporters.
+        </p>
+        <p>
+          Thanks to all the supporters, we were able to raise
+          <b class="font-londrina">{{ raised_eth }}ETH</b> so far. Thank you
+          very much!
         </p>
       </div>
     </div>
     <div v-else>
-      <div class="space-y-2 mb-8 font-pt-root font-medium">
-        <p><span class="font-londrina">Nouns Art Festival</span>をより魅力的なものにするために、
-          <a href="https://opensea.io/collection/named-noun" class="underline font-londrina">Named Noun</a>
-          というNFTコレクションを、サポーターに販売するという形のクラウドファンディングを行いました。</p>
-        <p>おかげさまで、現時点で、<b class="font-londrina">{{raised_eth}}ETH</b> が集まっています。ありがとうございます！
+      <div class="mb-8 space-y-2 font-pt-root font-medium">
+        <p>
+          <span class="font-londrina">Nouns Art Festival</span
+          >をより魅力的なものにするために、
+          <a
+            href="https://opensea.io/collection/named-noun"
+            class="font-londrina underline"
+            >Named Noun</a
+          >
+          というNFTコレクションを、サポーターに販売するという形のクラウドファンディングを行いました。
+        </p>
+        <p>
+          おかげさまで、現時点で、<b class="font-londrina"
+            >{{ raised_eth }}ETH</b
+          >
+          が集まっています。ありがとうございます！
         </p>
       </div>
     </div>
@@ -47,18 +67,34 @@ export default defineComponent({
     const store = useStore();
     const ethereum = store.state.ethereum;
     const provider = new ethers.providers.Web3Provider(ethereum);
-    const nounsToken = new ethers.Contract(nounsTokenAddress, nounsTokenAbi, provider);
-    const nounsDescriptor = new ethers.Contract(nounsDescriptorAddress, nounsDescriptorAbi, provider);
+    const nounsToken = new ethers.Contract(
+      nounsTokenAddress,
+      nounsTokenAbi,
+      provider
+    );
+    const nounsDescriptor = new ethers.Contract(
+      nounsDescriptorAddress,
+      nounsDescriptorAbi,
+      provider
+    );
     const fetchGreeting = async () => {
       console.log(await nounsToken.functions.name());
       console.log(await nounsToken.functions.ownerOf(245));
-      console.log(await nounsToken.functions.balanceOf("0xf05a0497994a33f18aa378630BC674eFC77Ad557"));
+      console.log(
+        await nounsToken.functions.balanceOf(
+          "0xf05a0497994a33f18aa378630BC674eFC77Ad557"
+        )
+      );
       const seeds = await nounsToken.functions.seeds(245);
       console.log(seeds);
-      console.log(await nounsDescriptor.functions.genericDataURI("foo", "bar", seeds));
-      const encodedSVG = await nounsDescriptor.functions.generateSVGImage(seeds);
+      console.log(
+        await nounsDescriptor.functions.genericDataURI("foo", "bar", seeds)
+      );
+      const encodedSVG = await nounsDescriptor.functions.generateSVGImage(
+        seeds
+      );
       console.log(encodedSVG);
-      const svg = Buffer.from(encodedSVG, "base64").toString('utf8');
+      const svg = Buffer.from(encodedSVG, "base64").toString("utf8");
       console.log(svg);
     };
     fetchGreeting();
@@ -70,12 +106,12 @@ export default defineComponent({
     const lang = computed(() => {
       return i18n.locale.value;
     });
-    
+
     return {
       lang,
       raised_eth,
     };
-  }
+  },
 });
 </script>
 

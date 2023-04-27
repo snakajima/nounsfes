@@ -1,19 +1,26 @@
 <template>
-  <div class="max-w-lg mx-auto text-left p-2">
+  <div class="mx-auto max-w-lg p-2 text-left">
     <div v-if="lang === 'en'">
-      <p class="text-3xl mb-2 font-londrina">Submissions</p>
-      <div class="space-y-2 mb-8 font-pt-root font-medium">
-      </div>
+      <p class="mb-2 font-londrina text-3xl">Submissions</p>
+      <div class="mb-8 space-y-2 font-pt-root font-medium"></div>
     </div>
     <div v-else>
-      <p class="text-3xl mb-2 font-yusei">応募作品</p>
-      <div class="space-y-2 mb-8">
-      </div>
+      <p class="mb-2 font-yusei text-3xl">応募作品</p>
+      <div class="mb-8 space-y-2"></div>
     </div>
-    <div> 
-      <iframe v-for="key in keys" :key="key" class="mb-1" width="480" height="270" 
-        :src="`https://www.youtube.com/embed/${key}`" 
-        title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+    <div>
+      <iframe
+        v-for="key in keys"
+        :key="key"
+        class="mb-1"
+        width="480"
+        height="270"
+        :src="`https://www.youtube.com/embed/${key}`"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      >
       </iframe>
     </div>
   </div>
@@ -80,12 +87,11 @@ export default defineComponent({
       "sBszsNR4iZI", // 51
       "IXxL4qHylBs", // 52
     ];
-    
+
     return {
       lang,
-      keys
+      keys,
     };
-  }
-
+  },
 });
 </script>

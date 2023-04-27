@@ -1,19 +1,26 @@
 <template>
-  <div class="max-w-lg mx-auto text-left p-2">
+  <div class="mx-auto max-w-lg p-2 text-left">
     <div v-if="lang === 'en'">
-      <p class="text-3xl mb-2 font-londrina">Nominations</p>
-      <div class="space-y-2 mb-8 font-pt-root font-medium">
-      </div>
+      <p class="mb-2 font-londrina text-3xl">Nominations</p>
+      <div class="mb-8 space-y-2 font-pt-root font-medium"></div>
     </div>
     <div v-else>
-      <p class="text-3xl mb-2 font-yusei">ノミネート作品</p>
-      <div class="space-y-2 mb-8">
-      </div>
+      <p class="mb-2 font-yusei text-3xl">ノミネート作品</p>
+      <div class="mb-8 space-y-2"></div>
     </div>
-    <div> 
-      <iframe v-for="key in keys" :key="key" class="mb-1" width="480" height="270" 
-        :src="`https://www.youtube.com/embed/${key}`" 
-        title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+    <div>
+      <iframe
+        v-for="key in keys"
+        :key="key"
+        class="mb-1"
+        width="480"
+        height="270"
+        :src="`https://www.youtube.com/embed/${key}`"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      >
       </iframe>
     </div>
   </div>
@@ -61,12 +68,11 @@ export default defineComponent({
       // "mO4Z516_bfA", // 50 love song
       // "sBszsNR4iZI", // 51 When did you hold hands?
     ];
-    
+
     return {
       lang,
-      keys
+      keys,
     };
-  }
-
+  },
 });
 </script>

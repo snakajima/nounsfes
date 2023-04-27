@@ -1,26 +1,47 @@
 <template>
-  <div class="max-w-lg mx-auto text-left p-2">
-    <p class="text-3xl mb-2 font-londrina">Nouns Art Festival</p>
-    <div class="space-y-2 mb-8 font-pt-root font-medium">
-      <p>{{$t("message.description") }}</p>
-      <p>{{$t("message.prized2022") }}</p>        
+  <div class="mx-auto max-w-lg p-2 text-left">
+    <p class="mb-2 font-londrina text-3xl">Nouns Art Festival</p>
+    <div class="mb-8 space-y-2 font-pt-root font-medium">
+      <p>{{ $t("message.description") }}</p>
+      <p>{{ $t("message.prized2022") }}</p>
     </div>
-    <p class="text-3xl mb-2 font-yusei">{{$t("message.grand") }}</p>    
-    <iframe  class="mb-1" width="480" height="270" 
-        :src="`https://www.youtube.com/embed/${top1}`" 
-        title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-      </iframe>
-      <p class="text-3xl mb-2 font-yusei">{{$t("message.excellent") }}</p>    
-    <iframe  class="mb-1" width="480" height="270" 
-        :src="`https://www.youtube.com/embed/${top2_1}`" 
-        title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-      </iframe>
-      <p class="text-3xl mb-2 font-yusei">{{$t("message.excellent") }}</p>    
-    <iframe  class="mb-1" width="480" height="270" 
-        :src="`https://www.youtube.com/embed/${top2_2}`" 
-        title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-      </iframe>
-      <p>{{$t("message.thanks2022") }}</p>        
+    <p class="mb-2 font-yusei text-3xl">{{ $t("message.grand") }}</p>
+    <iframe
+      class="mb-1"
+      width="480"
+      height="270"
+      :src="`https://www.youtube.com/embed/${top1}`"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    >
+    </iframe>
+    <p class="mb-2 font-yusei text-3xl">{{ $t("message.excellent") }}</p>
+    <iframe
+      class="mb-1"
+      width="480"
+      height="270"
+      :src="`https://www.youtube.com/embed/${top2_1}`"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    >
+    </iframe>
+    <p class="mb-2 font-yusei text-3xl">{{ $t("message.excellent") }}</p>
+    <iframe
+      class="mb-1"
+      width="480"
+      height="270"
+      :src="`https://www.youtube.com/embed/${top2_2}`"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    >
+    </iframe>
+    <p>{{ $t("message.thanks2022") }}</p>
   </div>
 </template>
 
@@ -42,6 +63,6 @@ export default defineComponent({
       top2_1,
       top2_2,
     };
-  }
+  },
 });
 </script>
