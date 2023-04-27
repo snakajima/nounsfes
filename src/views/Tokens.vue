@@ -57,7 +57,7 @@ import { defineComponent, computed, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import { useStore } from "vuex";
 import { ethers } from "ethers";
-import { ChainIds, switchNetwork } from "../utils/MetaMask";
+import { ChainIds, switchNetwork } from "@/utils/MetaMask";
 
 const ERC721 = {
   wabi: require("../abis/AbstractERC721.json"), // wrapped abi

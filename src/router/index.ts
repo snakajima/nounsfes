@@ -4,8 +4,8 @@ import NotFound from "@/components/NotFound.vue";
 
 import Home from "@/views/2022/Home2022Prized.vue";
 import Home2022 from "@/views/2022/Home.vue";
-import Videos from "@/views/Videos.vue";
-import Nominations from "@/views/Nominations.vue";
+import Videos from "@/views/2022/Videos.vue";
+import Nominations from "@/views/2022/Nominations.vue";
 import About from "@/views/About.vue";
 import Tokens from "@/views/Tokens.vue";
 import Vote from "@/views/Vote.vue";

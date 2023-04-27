@@ -30,10 +30,10 @@
 <script lang="ts">
 import { defineComponent, computed, ref } from "vue";
 import { useStore } from "vuex";
-import { requestAccount } from "../utils/MetaMask";
-import { auth } from "../utils/firebase";
+import { requestAccount } from "@/utils/MetaMask";
+import { auth } from "@/utils/firebase";
 import { signInWithCustomToken } from "firebase/auth";
-import { generateNonce, verifyNonce, deleteNonce } from "../utils/functions";
+import { generateNonce, verifyNonce, deleteNonce } from "@/utils/functions";
 //import Web3 from "web3";
 
 export default defineComponent({

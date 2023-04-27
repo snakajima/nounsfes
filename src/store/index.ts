@@ -1,7 +1,7 @@
 import { createStore } from "vuex";
 import { User } from "firebase/auth";
-import { startMonitoringMetamask } from "../utils/MetaMask";
-import { auth } from "../utils/firebase";
+import { startMonitoringMetamask } from "@/utils/MetaMask";
+import { auth } from "@/utils/firebase";
 
 interface State {
   ethereum: any | null;

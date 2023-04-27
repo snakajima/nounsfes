@@ -1,4 +1,4 @@
-import languages from "./languages";
+import languages from "@/i18n/languages";
 
 const lang = {
   menu: {

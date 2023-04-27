@@ -1,5 +1,5 @@
-import en from "./en";
-import ja from "./ja";
+import en from "@/i18n/en";
+import ja from "@/i18n/ja";
 
 const messages = {
   en,

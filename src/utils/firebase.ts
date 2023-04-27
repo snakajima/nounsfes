@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getAuth, connectAuthEmulator } from "firebase/auth";
 import { getFunctions, connectFunctionsEmulator } from "firebase/functions";
 import { getFirestore, connectFirestoreEmulator } from "firebase/firestore";
-import { firebaseConfig } from "../config/project";
+import { firebaseConfig } from "@/config/project";
 
 const firebaseApp = initializeApp(firebaseConfig);
 
